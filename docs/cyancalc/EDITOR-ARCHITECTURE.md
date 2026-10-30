@@ -75,6 +75,30 @@ The rendering boundary receives no scroll commands or model-writing callbacks.
 4. Commit reads the session's `Text`, not the active TextBox string. Commit, cancel, and document replacement use `EndEditSession` to release session subscriptions, editing presentation, and completion popups. `RefreshFormulaTextColors` then updates the current cell's formula colors.
 5. Commit closes editing state before writing to the engine. Cancel restores the edited cell's selection according to the existing rules. The host retains its policy for committing before document switches.
 
+### Unchanged edits and workbook history
+
+An ordinary cell commit compares the final session draft with the original input captured when editing began.
+If the text is identical, editing still ends and the requested navigation or panel transition still occurs.
+The commit submits no cell-input write: workbook Undo/Redo, the model revision, and document-change notifications remain unchanged.
+This also applies when the user changes the draft and then restores the original text before committing.
+
+| Final draft or command | Workbook history behavior |
+| --- | --- |
+| Original text, including an edited-then-restored draft | End editing without adding an Undo entry or clearing Redo |
+| Different text, even if it calculates to the same value | Submit the input to the engine as an actual edit |
+| Explicit array-formula commit | Apply the requested array range, even if the formula text is unchanged |
+| Cancel, a read-only transition, or replacement of the view's session | Discard the unfinished edit without a text commit |
+
+Equality is exact and case-sensitive; whitespace, formula spelling, and other input differences are not normalized by this policy.
+For example, changing `=1+1` to `=2` is an edit even though both calculate to 2.
+Enter, Tab, their reverse-navigation variants, blur, and panel entry all use the same ordinary commit path.
+Completion acceptance and IME handling retain their existing input boundaries.
+
+The policy belongs to the editor adapter. Direct binding calls, formatting, clipboard operations, and structural commands retain the engine's history semantics.
+A host that wants to save an active edit before replacing the document calls `CommitEdit` first.
+
+### Text history while editing
+
 During editing, the adapter advances both TextBox native Undo/Redo histories together.
 Outside an edit, the engine handles Undo/Redo.
 Display synchronization pauses while history moves; the active input's result is then applied to the session once.

@@ -96,6 +96,12 @@ The binding is generated from 127 upstream WASM model APIs and 8 utilities.
 It relies on engine bounds checks without adding cell-count limits and preserves cached calculation results when loading files.
 Toolbars, menus, icons, keyboard handling, and formatting follow upstream code; UI colors use the CyanCalc palette.
 
+CyanCalc intentionally omits a workbook history entry when an ordinary cell edit finishes with its original input text.
+The pinned web editor submits unchanged input on blur, which adds an Undo step and clears an existing Redo branch.
+The native editor preserves that branch so entering and leaving an editor does not discard a redoable change.
+Changed input and explicit array-formula commands still reach the engine.
+See [unchanged edits and workbook history](EDITOR-ARCHITECTURE.md#unchanged-edits-and-workbook-history) for the scope and commit boundaries.
+
 Conditional formatting follows the upstream four tabs, defaults, presets, range validation, and filtering by full containment of the selected range.
 Enter/Tab in completion inserts the selected function without committing the cell or moving selection.
 Merge, paste, and editing errors use the same translation keys in separate dialogs when upstream presents an error.

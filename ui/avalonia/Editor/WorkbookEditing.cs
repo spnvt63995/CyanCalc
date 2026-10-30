@@ -166,6 +166,8 @@ public sealed partial class WorkbookView
                 var area = CellArea.FromView(Snapshot.View);
                 Session.Execute("set_array_formula", new { sheet = editing.Sheet, row = editing.Row, column = editing.Column, width = area.Width, height = area.Height, input = text });
             }
+            // Identical ordinary input preserves workbook Undo/Redo and the model revision.
+            // Explicit array-formula commits above still apply to the requested range.
             else if (text != editing.Original) Session.SetUserInput(editing.Sheet, editing.Row, editing.Column, text);
             // Like the original Editor, commit to the editing owner without
             // switching the viewed sheet. Enter/Tab navigate that sheet;
