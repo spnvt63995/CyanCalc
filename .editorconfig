@@ -1,0 +1,59 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.md]
+trim_trailing_whitespace = false
+
+[*.{cs,csx}]
+indent_style = space
+indent_size = 4
+tab_width = 4
+
+# C# naming conventions shared across editors.
+dotnet_diagnostic.IDE1006.severity = warning
+
+dotnet_naming_rule.interfaces_must_start_with_i.symbols = interfaces
+dotnet_naming_rule.interfaces_must_start_with_i.style = interface_style
+dotnet_naming_rule.interfaces_must_start_with_i.severity = warning
+
+dotnet_naming_rule.types_must_be_pascal_case.symbols = types
+dotnet_naming_rule.types_must_be_pascal_case.style = pascal_case
+dotnet_naming_rule.types_must_be_pascal_case.severity = warning
+
+dotnet_naming_rule.visible_members_must_be_pascal_case.symbols = visible_members
+dotnet_naming_rule.visible_members_must_be_pascal_case.style = pascal_case
+dotnet_naming_rule.visible_members_must_be_pascal_case.severity = warning
+
+dotnet_naming_rule.type_parameters_must_start_with_t.symbols = type_parameters
+dotnet_naming_rule.type_parameters_must_start_with_t.style = type_parameter_style
+dotnet_naming_rule.type_parameters_must_start_with_t.severity = warning
+
+dotnet_naming_symbols.interfaces.applicable_kinds = interface
+dotnet_naming_symbols.interfaces.applicable_accessibilities = *
+
+dotnet_naming_symbols.types.applicable_kinds = class, struct, enum, delegate
+dotnet_naming_symbols.types.applicable_accessibilities = *
+
+dotnet_naming_symbols.visible_members.applicable_kinds = method, property, event
+dotnet_naming_symbols.visible_members.applicable_accessibilities = public, internal, protected, protected_internal, private_protected
+
+dotnet_naming_symbols.type_parameters.applicable_kinds = type_parameter
+dotnet_naming_symbols.type_parameters.applicable_accessibilities = *
+
+dotnet_naming_style.interface_style.required_prefix = I
+dotnet_naming_style.interface_style.capitalization = pascal_case
+
+dotnet_naming_style.pascal_case.capitalization = pascal_case
+
+dotnet_naming_style.type_parameter_style.required_prefix = T
+dotnet_naming_style.type_parameter_style.capitalization = pascal_case
+
+[*.{fs,fsi,fsx}]
+indent_style = space
+indent_size = 4
+tab_width = 4

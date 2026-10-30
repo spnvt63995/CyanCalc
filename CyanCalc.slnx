@@ -1,0 +1,23 @@
+<Solution>
+  <Configurations><Platform Name="Any CPU" /></Configurations>
+  <Folder Name="/Libraries/">
+    <Project Path="bindings/dotnet/CyanCalc.csproj" />
+    <Project Path="ui/avalonia/CyanCalc.Avalonia.csproj" />
+  </Folder>
+  <Folder Name="/Apps/">
+    <Project Path="apps/desktop/CyanCalc.Desktop.csproj" />
+  </Folder>
+  <Folder Name="/Tests/">
+    <Project Path="tests/CyanCalc.CoreChecks/CyanCalc.CoreChecks.csproj" />
+  </Folder>
+  <Folder Name="/Native/">
+    <File Path="bindings/dotnet/native/Cargo.toml" />
+    <File Path="bindings/dotnet/native/Cargo.lock" />
+  </Folder>
+  <Folder Name="/Documentation/">
+    <File Path="README.md" />
+    <File Path="docs/cyancalc/README.md" />
+    <File Path="docs/cyancalc/UPSTREAM-COMPARISON.md" />
+    <File Path="docs/cyancalc/THIRD_PARTY.md" />
+  </Folder>
+</Solution>

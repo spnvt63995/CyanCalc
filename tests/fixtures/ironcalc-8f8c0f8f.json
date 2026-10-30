@@ -1,0 +1,72 @@
+{
+  "source": "native-8f8c0f8f294387dcf53580148371de26d41002f5",
+  "fixture_sha256": "5c5222d543cd990f208ae37b6b0338d41441f1ade251c21890fd6c1e87632bd4",
+  "cells": [
+    {
+      "sheet": 0,
+      "row": 1,
+      "column": 1,
+      "content": "2",
+      "display": "2"
+    },
+    {
+      "sheet": 0,
+      "row": 1,
+      "column": 2,
+      "content": "=SUM(A1:A2)",
+      "display": "5"
+    },
+    {
+      "sheet": 0,
+      "row": 1,
+      "column": 3,
+      "content": "=B1*2",
+      "display": "10"
+    },
+    {
+      "sheet": 0,
+      "row": 3,
+      "column": 2,
+      "content": "=Quantity*2",
+      "display": "4"
+    },
+    {
+      "sheet": 0,
+      "row": 4,
+      "column": 1,
+      "content": "Merged heading",
+      "display": "Merged heading"
+    },
+    {
+      "sheet": 0,
+      "row": 5,
+      "column": 1,
+      "content": "=HYPERLINK(\"https://example.com/dynamic\",\"Open\")",
+      "display": "Open"
+    },
+    {
+      "sheet": 0,
+      "row": 6,
+      "column": 1,
+      "content": "Help",
+      "display": "Help"
+    },
+    {
+      "sheet": 1,
+      "row": 1,
+      "column": 1,
+      "content": "20",
+      "display": "20"
+    },
+    {
+      "sheet": 1,
+      "row": 1,
+      "column": 2,
+      "content": "=A1+1",
+      "display": "21"
+    }
+  ],
+  "sha256": "0d68ba106c09dde25163db565fe5b83d8e029eb039f13cece1aa2ce84ec90d9c",
+  "xlsxSha256": "ee09e185f01eec0ec473f4b7aeb2e34876e1730ecff60614d7664e72ca8b867b",
+  "xlsxSource": "XLSX exported by IronCalc engine 8f8c0f8f294387dcf53580148371de26d41002f5 from the same workbook as the IC fixture."
+}

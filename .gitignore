@@ -5,3 +5,44 @@ bindings/python/docs/_static/logo-light.svg
 bindings/python/docs/_static/logo-dark.svg
 .DS_Store
 webapp/IronCalc/tests/example.ic
+
+# CyanCalc local development
+# Local OS/editor files
+.DS_Store
+.idea/
+.vscode/
+*.DotSettings.user
+*.swp
+*.swo
+
+# Local caches and temporary files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+tmp/
+temp/
+
+# Build and test outputs
+bin/
+obj/
+/artifacts/
+TestResults/
+*.log
+logs/
+
+# Local environment files
+.env
+.env.*
+.venv/
+venv/
+
+# CyanCalc build artifacts
+/bindings/dotnet/native/target/
+/apps/desktop/artifacts/
+/tests/**/artifacts/
+
+# Local development data
+/.local/

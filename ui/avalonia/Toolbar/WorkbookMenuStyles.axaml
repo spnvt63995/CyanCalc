@@ -1,0 +1,90 @@
+<Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Styles.Resources>
+    <ControlTheme x:Key="WorkbookMenuItem" TargetType="MenuItem">
+      <Setter Property="MinHeight" Value="32" /><Setter Property="Padding" Value="8" />
+      <Setter Property="FontFamily" Value="avares://CyanCalc.Avalonia/Resources/Fonts#Inter" />
+      <Setter Property="FontSize" Value="12" /><Setter Property="FontWeight" Value="Normal" />
+      <Setter Property="Foreground" Value="{DynamicResource Menu-common-black}" />
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="Template"><ControlTemplate>
+        <Panel>
+          <Border Name="MenuRow" Padding="{TemplateBinding Padding}" Background="{TemplateBinding Background}" CornerRadius="4">
+            <Grid ColumnDefinitions="Auto,Auto,*,Auto">
+              <ContentControl Name="Check" Width="16" Height="16" Margin="0,0,8,0" IsVisible="False" Opacity="0" Template="{DynamicResource MenuCheckTemplate}" />
+              <ContentPresenter Name="Icon" Grid.Column="1" Width="16" Height="16" Margin="0,0,8,0" IsVisible="False" Content="{TemplateBinding Icon}" />
+              <ContentPresenter Name="PART_HeaderPresenter" Grid.Column="2" Content="{TemplateBinding Header}" ContentTemplate="{TemplateBinding HeaderTemplate}" VerticalAlignment="Center" HorizontalAlignment="Stretch" />
+              <ContentControl Name="Arrow" Grid.Column="3" Width="16" Height="16" Margin="8,0,0,0" Template="{DynamicResource MenuArrowTemplate}" />
+            </Grid>
+          </Border>
+          <Popup Name="PART_Popup" Placement="RightEdgeAlignedTop" HorizontalOffset="4" VerticalOffset="-4" IsLightDismissEnabled="False"
+            WindowManagerAddShadowHint="True" IsOpen="{TemplateBinding IsSubMenuOpen, Mode=TwoWay}">
+            <Border Background="{DynamicResource Menu-surface-elevated}" BorderBrush="{DynamicResource Menu-surface-elevated-border}" BorderThickness="1" CornerRadius="8" MinWidth="160">
+              <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" Margin="4" />
+              </ScrollViewer>
+            </Border>
+          </Popup>
+        </Panel>
+      </ControlTemplate></Setter>
+      <Style Selector="^:icon /template/ ContentPresenter#Icon"><Setter Property="IsVisible" Value="True" /></Style>
+      <Style Selector="^:toggle /template/ ContentControl#Check, ^:radio /template/ ContentControl#Check"><Setter Property="IsVisible" Value="True" /></Style>
+      <Style Selector="^:checked /template/ ContentControl#Check"><Setter Property="Opacity" Value="1" /></Style>
+      <Style Selector="^:empty /template/ ContentControl#Arrow"><Setter Property="IsVisible" Value="False" /></Style>
+      <Style Selector="^:selected /template/ Border#MenuRow"><Setter Property="Background" Value="{DynamicResource Menu-grey-200}" /></Style>
+      <Style Selector="^.destructive"><Setter Property="Foreground" Value="{DynamicResource Menu-error-main}" /></Style>
+      <Style Selector="^.destructive:selected /template/ Border#MenuRow"><Setter Property="Background" Value="{DynamicResource Menu-error-hover}" /></Style>
+      <Style Selector="^:disabled"><Setter Property="Foreground" Value="{DynamicResource Menu-grey-400}" /></Style>
+      <Style Selector="^.name-menu-item /template/ ContentPresenter#Icon"><Setter Property="Width" Value="12" /><Setter Property="Height" Value="12" /></Style>
+      <Style Selector="^.name-menu-item:focus-visible /template/ Border#MenuRow"><Setter Property="BorderBrush" Value="{DynamicResource Menu-primary-main}" /><Setter Property="BorderThickness" Value="2" /><Setter Property="Padding" Value="6" /></Style>
+    </ControlTheme>
+    <ControlTheme x:Key="WorkbookPopupButton" TargetType="Button">
+      <Setter Property="MinWidth" Value="0" /><Setter Property="MinHeight" Value="0" />
+      <Setter Property="Padding" Value="0" /><Setter Property="CornerRadius" Value="4" />
+      <Setter Property="Background" Value="Transparent" /><Setter Property="BorderThickness" Value="0" />
+      <Setter Property="Foreground" Value="{DynamicResource Menu-common-black}" />
+      <Setter Property="VerticalContentAlignment" Value="Center" /><Setter Property="HorizontalContentAlignment" Value="Center" />
+      <Setter Property="Template"><ControlTemplate>
+        <ContentPresenter Name="PART_ContentPresenter" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"
+          Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{TemplateBinding CornerRadius}" Padding="{TemplateBinding Padding}"
+          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+      </ControlTemplate></Setter>
+      <Style Selector="^:pointerover /template/ ContentPresenter"><Setter Property="BorderBrush" Value="{DynamicResource Menu-grey-300}" /><Setter Property="BorderThickness" Value="1" /></Style>
+      <Style Selector="^:focus-visible /template/ ContentPresenter"><Setter Property="BorderBrush" Value="{DynamicResource Menu-primary-main}" /><Setter Property="BorderThickness" Value="2" /></Style>
+      <Style Selector="^.picker-row"><Setter Property="Height" Value="32" /><Setter Property="Padding" Value="8" /></Style>
+      <Style Selector="^.picker-row:pointerover /template/ ContentPresenter, ^.picker-row.selected /template/ ContentPresenter"><Setter Property="Background" Value="{DynamicResource Menu-grey-200}" /><Setter Property="BorderThickness" Value="0" /></Style>
+    </ControlTheme>
+    <ControlTheme x:Key="WorkbookPickerAction" TargetType="Button" BasedOn="{StaticResource WorkbookPopupButton}">
+      <Setter Property="Height" Value="28" /><Setter Property="Padding" Value="10,0" /><Setter Property="CornerRadius" Value="6" />
+      <Setter Property="FontWeight" Value="Medium" /><Setter Property="Background" Value="{DynamicResource Menu-grey-200}" />
+      <Setter Property="BorderThickness" Value="1" /><Setter Property="BorderBrush" Value="#0A000000" />
+      <Style Selector="^.primary"><Setter Property="Background" Value="{DynamicResource Menu-primary-main}" /><Setter Property="Foreground" Value="{DynamicResource Menu-primary-contrast-text}" /></Style>
+      <Style Selector="^.primary:pointerover"><Setter Property="Background" Value="{DynamicResource Menu-primary-dark}" /></Style>
+    </ControlTheme>
+  </Styles.Resources>
+  <Style Selector="MenuItem"><Setter Property="Theme" Value="{StaticResource WorkbookMenuItem}" /></Style>
+  <Style Selector="ContextMenu, MenuFlyoutPresenter, FlyoutPresenter">
+    <Setter Property="FontFamily" Value="avares://CyanCalc.Avalonia/Resources/Fonts#Inter" /><Setter Property="FontSize" Value="12" />
+    <Setter Property="Foreground" Value="{DynamicResource Menu-common-black}" /><Setter Property="Background" Value="{DynamicResource Menu-surface-elevated}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource Menu-surface-elevated-border}" /><Setter Property="BorderThickness" Value="1" /><Setter Property="CornerRadius" Value="8" />
+    <Setter Property="MinWidth" Value="160" /><Setter Property="MinHeight" Value="0" /><Setter Property="Padding" Value="4" />
+  </Style>
+  <Style Selector="ContextMenu, MenuFlyoutPresenter"><Setter Property="Template"><ControlTemplate>
+    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{TemplateBinding CornerRadius}">
+      <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto"><ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" Margin="{TemplateBinding Padding}" KeyboardNavigation.TabNavigation="Continue" /></ScrollViewer>
+    </Border>
+  </ControlTemplate></Setter></Style>
+  <Style Selector="FlyoutPresenter"><Setter Property="Padding" Value="0" /><Setter Property="MinWidth" Value="0" /><Setter Property="Template"><ControlTemplate>
+    <ContentPresenter Name="PART_ContentPresenter" Content="{TemplateBinding Content}" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{TemplateBinding CornerRadius}" />
+  </ControlTemplate></Setter></Style>
+  <Style Selector="Separator"><Setter Property="Height" Value="1" /><Setter Property="MinHeight" Value="0" /><Setter Property="Margin" Value="-4,4" /><Setter Property="Background" Value="{DynamicResource Menu-grey-200}" /><Setter Property="Template"><ControlTemplate><Border Background="{TemplateBinding Background}" /></ControlTemplate></Setter></Style>
+  <Style Selector="Separator.picker-divider"><Setter Property="Margin" Value="0" /></Style>
+  <Style Selector="ContextMenu.name-menu Separator"><Setter Property="Background" Value="{DynamicResource Menu-grey-300}" /></Style>
+  <Style Selector="Button.picker-row, Button.picker-chip"><Setter Property="Theme" Value="{StaticResource WorkbookPopupButton}" /></Style>
+  <Style Selector="Button.icon-picker-item:pointerover /template/ ContentPresenter"><Setter Property="Background" Value="{DynamicResource Menu-grey-200}" /><Setter Property="BorderThickness" Value="0" /></Style>
+  <Style Selector="Button.icon-picker-item.selected:not(:pointerover)"><Setter Property="Background" Value="{DynamicResource Menu-grey-100}" /></Style>
+  <Style Selector="Button.picker-action"><Setter Property="Theme" Value="{StaticResource WorkbookPickerAction}" /></Style>
+  <Style Selector="TextBox.picker-hex"><Setter Property="Background" Value="Transparent" /><Setter Property="BorderThickness" Value="0" /></Style>
+  <Style Selector="TextBox.picker-hex /template/ Border#PART_BorderElement"><Setter Property="Background" Value="Transparent" /><Setter Property="BorderThickness" Value="0" /></Style>
+  <Style Selector="ToggleButton.border-choice"><Setter Property="CornerRadius" Value="6" /></Style>
+  <Style Selector="ToggleButton.border-choice:checked /template/ ContentPresenter, ToggleButton.border-choice:pointerover /template/ ContentPresenter"><Setter Property="Background" Value="{DynamicResource Menu-grey-200}" /><Setter Property="Foreground" Value="{DynamicResource Menu-common-black}" /></Style>
+</Styles>

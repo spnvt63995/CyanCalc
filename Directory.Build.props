@@ -1,0 +1,7 @@
+<Project>
+  <PropertyGroup>
+    <!-- Use a repository-local package cache by default.
+         Explicit NuGet and CI package paths still take precedence. -->
+    <RestorePackagesPath Condition="'$(RestorePackagesPath)' == '' and '$(NUGET_PACKAGES)' == ''">$(MSBuildThisFileDirectory).cache/nuget/packages</RestorePackagesPath>
+  </PropertyGroup>
+</Project>

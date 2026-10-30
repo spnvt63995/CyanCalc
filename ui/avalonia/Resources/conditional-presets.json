@@ -1,0 +1,460 @@
+[
+  {
+    "id": "r-y-g",
+    "type": "ColorScale",
+    "colors": [
+      "#EC5753",
+      "#F8CD3D",
+      "#8CB354"
+    ],
+    "icons": []
+  },
+  {
+    "id": "g-y-r",
+    "type": "ColorScale",
+    "colors": [
+      "#8CB354",
+      "#F8CD3D",
+      "#EC5753"
+    ],
+    "icons": []
+  },
+  {
+    "id": "r-w-g",
+    "type": "ColorScale",
+    "colors": [
+      "#EC5753",
+      "#FFFFFF",
+      "#8CB354"
+    ],
+    "icons": []
+  },
+  {
+    "id": "g-w-r",
+    "type": "ColorScale",
+    "colors": [
+      "#8CB354",
+      "#FFFFFF",
+      "#EC5753"
+    ],
+    "icons": []
+  },
+  {
+    "id": "r-w-b",
+    "type": "ColorScale",
+    "colors": [
+      "#EC5753",
+      "#FFFFFF",
+      "#3458B7"
+    ],
+    "icons": []
+  },
+  {
+    "id": "b-w-r",
+    "type": "ColorScale",
+    "colors": [
+      "#3458B7",
+      "#FFFFFF",
+      "#EC5753"
+    ],
+    "icons": []
+  },
+  {
+    "id": "g-w-p",
+    "type": "ColorScale",
+    "colors": [
+      "#8CB354",
+      "#FFFFFF",
+      "#523E93"
+    ],
+    "icons": []
+  },
+  {
+    "id": "p-w-g",
+    "type": "ColorScale",
+    "colors": [
+      "#523E93",
+      "#FFFFFF",
+      "#8CB354"
+    ],
+    "icons": []
+  },
+  {
+    "id": "g-lg",
+    "type": "ColorScale",
+    "colors": [
+      "#8CB354",
+      "#E8F0DD"
+    ],
+    "icons": []
+  },
+  {
+    "id": "lg-g",
+    "type": "ColorScale",
+    "colors": [
+      "#E8F0DD",
+      "#8CB354"
+    ],
+    "icons": []
+  },
+  {
+    "id": "r-lr",
+    "type": "ColorScale",
+    "colors": [
+      "#EC5753",
+      "#FBDDDD"
+    ],
+    "icons": []
+  },
+  {
+    "id": "lr-r",
+    "type": "ColorScale",
+    "colors": [
+      "#FBDDDD",
+      "#EC5753"
+    ],
+    "icons": []
+  },
+  {
+    "id": "r-y-b",
+    "type": "ColorScale",
+    "colors": [
+      "#EC5753",
+      "#F2994A",
+      "#F8CD3D",
+      "#8CB354",
+      "#3458B7"
+    ],
+    "icons": []
+  },
+  {
+    "id": "b-y-r",
+    "type": "ColorScale",
+    "colors": [
+      "#3458B7",
+      "#8CB354",
+      "#F8CD3D",
+      "#F2994A",
+      "#EC5753"
+    ],
+    "icons": []
+  },
+  {
+    "id": "dp-m-r",
+    "type": "ColorScale",
+    "colors": [
+      "#35193E",
+      "#AC0070",
+      "#E13342",
+      "#F37651",
+      "#F6B48F"
+    ],
+    "icons": []
+  },
+  {
+    "id": "r-m-dp",
+    "type": "ColorScale",
+    "colors": [
+      "#F6B48F",
+      "#F37651",
+      "#E13342",
+      "#AC0070",
+      "#35193E"
+    ],
+    "icons": []
+  },
+  {
+    "id": "dir-3-arrows-color",
+    "type": "IconSet",
+    "colors": [
+      "#8CB354",
+      "#F8CD3D",
+      "#EC5753"
+    ],
+    "icons": [
+      "ArrowUp",
+      "ArrowRight",
+      "ArrowDown"
+    ]
+  },
+  {
+    "id": "dir-3-chevrons-color",
+    "type": "IconSet",
+    "colors": [
+      "#8CB354",
+      "#F8CD3D",
+      "#EC5753"
+    ],
+    "icons": [
+      "TriangleUp",
+      "FlatRectangle",
+      "TriangleDown"
+    ]
+  },
+  {
+    "id": "dir-4-arrows-color",
+    "type": "IconSet",
+    "colors": [
+      "#8CB354",
+      "#F8CD3D",
+      "#F8CD3D",
+      "#EC5753"
+    ],
+    "icons": [
+      "ArrowUp",
+      "ArrowAngleUp",
+      "ArrowAngleDown",
+      "ArrowDown"
+    ]
+  },
+  {
+    "id": "dir-5-arrows-color",
+    "type": "IconSet",
+    "colors": [
+      "#8CB354",
+      "#B4D67E",
+      "#F8CD3D",
+      "#FC9F6E",
+      "#EC5753"
+    ],
+    "icons": [
+      "ArrowUp",
+      "ArrowAngleUp",
+      "ArrowRight",
+      "ArrowAngleDown",
+      "ArrowDown"
+    ]
+  },
+  {
+    "id": "shapes-3-circles-color",
+    "type": "IconSet",
+    "colors": [
+      "#EC5753",
+      "#F8CD3D",
+      "#8CB354"
+    ],
+    "icons": [
+      "Circle",
+      "Circle",
+      "Circle"
+    ]
+  },
+  {
+    "id": "shapes-4-circles-color",
+    "type": "IconSet",
+    "colors": [
+      "#333333",
+      "#404040",
+      "#808080",
+      "#D9D9D9"
+    ],
+    "icons": [
+      "Circle",
+      "Circle",
+      "Circle",
+      "Circle"
+    ]
+  },
+  {
+    "id": "shapes-3-multiple",
+    "type": "IconSet",
+    "colors": [
+      "#EC5753",
+      "#F8CD3D",
+      "#8CB354"
+    ],
+    "icons": [
+      "Rhombus",
+      "TriangleUpFilled",
+      "Circle"
+    ]
+  },
+  {
+    "id": "shapes-4-circles",
+    "type": "IconSet",
+    "colors": [
+      "#333333",
+      "#757575",
+      "#EC5753",
+      "#FF888A"
+    ],
+    "icons": [
+      "Circle",
+      "Circle",
+      "Circle",
+      "Circle"
+    ]
+  },
+  {
+    "id": "ind-2-arrows",
+    "type": "IconSet",
+    "colors": [
+      "#8CB354",
+      "#EC5753"
+    ],
+    "icons": [
+      "ArrowUp",
+      "ArrowDown"
+    ]
+  },
+  {
+    "id": "ind-2-thumbs",
+    "type": "IconSet",
+    "colors": [
+      "#8CB354",
+      "#EC5753"
+    ],
+    "icons": [
+      "ThumbsUp",
+      "ThumbsDown"
+    ]
+  },
+  {
+    "id": "ind-3-checkx",
+    "type": "IconSet",
+    "colors": [
+      "#8CB354",
+      "#EC5753"
+    ],
+    "icons": [
+      "Check",
+      "Cross"
+    ]
+  },
+  {
+    "id": "ind-2-triangles",
+    "type": "IconSet",
+    "colors": [
+      "#8CB354",
+      "#EC5753"
+    ],
+    "icons": [
+      "TriangleUpFilled",
+      "TriangleDownFilled"
+    ]
+  },
+  {
+    "id": "ind-3-check-exclaim-x",
+    "type": "IconSet",
+    "colors": [
+      "#8CB354",
+      "#F8CD3D",
+      "#EC5753"
+    ],
+    "icons": [
+      "Check",
+      "Exclamation",
+      "Cross"
+    ]
+  },
+  {
+    "id": "ind-4-flags",
+    "type": "IconSet",
+    "colors": [
+      "#8CB354",
+      "#F8CD3D",
+      "#EC5753"
+    ],
+    "icons": [
+      "Flag",
+      "Flag",
+      "Flag"
+    ]
+  },
+  {
+    "id": "rating-3-stars",
+    "type": "IconRating",
+    "colors": [
+      "#FFD700",
+      "#FFD700",
+      "#FFD700"
+    ],
+    "icons": [
+      "Star",
+      "Star",
+      "Star"
+    ]
+  },
+  {
+    "id": "rating-4-stars",
+    "type": "IconRating",
+    "colors": [
+      "#FFD700",
+      "#FFD700",
+      "#FFD700",
+      "#FFD700"
+    ],
+    "icons": [
+      "Star",
+      "Star",
+      "Star",
+      "Star"
+    ]
+  },
+  {
+    "id": "rating-5-stars",
+    "type": "IconRating",
+    "colors": [
+      "#FFD700",
+      "#FFD700",
+      "#FFD700",
+      "#FFD700",
+      "#FFD700"
+    ],
+    "icons": [
+      "Star",
+      "Star",
+      "Star",
+      "Star",
+      "Star"
+    ]
+  },
+  {
+    "id": "rating-3-hearts",
+    "type": "IconRating",
+    "colors": [
+      "#EC5753",
+      "#EC5753",
+      "#EC5753"
+    ],
+    "icons": [
+      "Heart",
+      "Heart",
+      "Heart"
+    ]
+  },
+  {
+    "id": "rating-4-hearts",
+    "type": "IconRating",
+    "colors": [
+      "#EC5753",
+      "#EC5753",
+      "#EC5753",
+      "#EC5753"
+    ],
+    "icons": [
+      "Heart",
+      "Heart",
+      "Heart",
+      "Heart"
+    ]
+  },
+  {
+    "id": "rating-5-hearts",
+    "type": "IconRating",
+    "colors": [
+      "#EC5753",
+      "#EC5753",
+      "#EC5753",
+      "#EC5753",
+      "#EC5753"
+    ],
+    "icons": [
+      "Heart",
+      "Heart",
+      "Heart",
+      "Heart",
+      "Heart"
+    ]
+  }
+]

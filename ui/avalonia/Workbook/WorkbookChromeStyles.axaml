@@ -1,0 +1,135 @@
+<Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:c="using:CyanCalc.Controls">
+  <Styles.Resources>
+    <ControlTheme x:Key="WorkbookFlat" TargetType="Button">
+      <Setter Property="MinHeight" Value="0"/><Setter Property="MinWidth" Value="0"/><Setter Property="Height" Value="28"/>
+      <Setter Property="Padding" Value="8,0"/><Setter Property="FontSize" Value="12"/><Setter Property="CornerRadius" Value="4"/>
+      <Setter Property="Background" Value="Transparent"/><Setter Property="Foreground" Value="{DynamicResource Dialog-common-black}"/>
+      <Setter Property="BorderThickness" Value="0"/><Setter Property="HorizontalContentAlignment" Value="Center"/><Setter Property="VerticalContentAlignment" Value="Center"/>
+      <Setter Property="Template"><ControlTemplate><ContentPresenter Name="PART_ContentPresenter" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{TemplateBinding CornerRadius}" Padding="{TemplateBinding Padding}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/></ControlTemplate></Setter>
+      <Style Selector="^:pointerover"><Setter Property="Background" Value="{DynamicResource Dialog-grey-100}"/></Style>
+      <Style Selector="^:pressed"><Setter Property="Background" Value="{DynamicResource Dialog-grey-200}"/></Style>
+      <Style Selector="^:disabled"><Setter Property="Opacity" Value="0.3"/></Style>
+      <Style Selector="^:focus-visible"><Setter Property="BorderThickness" Value="1"/><Setter Property="BorderBrush" Value="{DynamicResource Dialog-primary-main}"/></Style>
+    </ControlTheme>
+    <ControlTheme x:Key="WorkbookToggle" TargetType="ToggleButton">
+      <Setter Property="MinHeight" Value="0"/><Setter Property="MinWidth" Value="0"/><Setter Property="Height" Value="28"/><Setter Property="Width" Value="28"/>
+      <Setter Property="Padding" Value="6"/><Setter Property="CornerRadius" Value="4"/><Setter Property="BorderThickness" Value="0"/>
+      <Setter Property="Background" Value="Transparent"/><Setter Property="Foreground" Value="{DynamicResource Dialog-common-black}"/>
+      <Setter Property="Template"><ControlTemplate><ContentPresenter Content="{TemplateBinding Content}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{TemplateBinding CornerRadius}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/></ControlTemplate></Setter>
+      <Style Selector="^:pointerover"><Setter Property="Background" Value="{DynamicResource Dialog-grey-100}"/></Style>
+      <Style Selector="^:checked"><Setter Property="Background" Value="{DynamicResource Dialog-grey-200}"/></Style>
+      <Style Selector="^:disabled"><Setter Property="Opacity" Value="0.3"/></Style>
+    </ControlTheme>
+    <ControlTheme x:Key="WorkbookSwitch" TargetType="ToggleSwitch">
+      <Setter Property="MinHeight" Value="20"/><Setter Property="Padding" Value="0"/>
+      <Setter Property="Template"><ControlTemplate><Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+        <ContentPresenter Content="{TemplateBinding Content}" VerticalAlignment="Center"/>
+        <Border Grid.Column="1" Name="Track" Width="28" Height="16" CornerRadius="8" Background="{DynamicResource Dialog-grey-400}">
+          <Canvas Name="PART_SwitchKnob" Width="12" Height="12" Margin="2" HorizontalAlignment="Left"><Grid Name="PART_MovingKnobs" Width="12" Height="12"><Ellipse Fill="White"/></Grid></Canvas>
+        </Border>
+      </Grid></ControlTemplate></Setter>
+      <Style Selector="^:checked /template/ Border#Track"><Setter Property="Background" Value="{DynamicResource Dialog-primary-main}"/></Style>
+      <Style Selector="^:disabled"><Setter Property="Opacity" Value="0.3"/></Style>
+    </ControlTheme>
+    <ControlTheme x:Key="RuleTab" TargetType="TabItem">
+      <Setter Property="Height" Value="44"/><Setter Property="MinWidth" Value="0"/><Setter Property="Padding" Value="4,0"/><Setter Property="FontWeight" Value="Normal"/>
+      <Setter Property="BorderThickness" Value="0,0,0,2"/><Setter Property="BorderBrush" Value="Transparent"/>
+      <Setter Property="Foreground" Value="{DynamicResource Dialog-grey-600}"/>
+      <Setter Property="Template"><ControlTemplate><Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Padding="{TemplateBinding Padding}"><ContentPresenter Content="{TemplateBinding Header}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/></Border></ControlTemplate></Setter>
+      <Style Selector="^:selected"><Setter Property="BorderBrush" Value="{DynamicResource Dialog-primary-main}"/><Setter Property="Foreground" Value="{DynamicResource Dialog-common-black}"/><Setter Property="FontWeight" Value="SemiBold"/></Style>
+    </ControlTheme>
+  </Styles.Resources>
+  <Style Selector="TabControl.rule-tabs">
+    <Setter Property="Background" Value="{DynamicResource Dialog-common-white}"/>
+    <Setter Property="Height" Value="45"/><Setter Property="ItemContainerTheme" Value="{StaticResource RuleTab}"/>
+    <Setter Property="ItemsPanel"><ItemsPanelTemplate><UniformGrid Rows="1"/></ItemsPanelTemplate></Setter>
+    <Setter Property="Template"><ControlTemplate><Border Background="{TemplateBinding Background}" BorderBrush="{DynamicResource Dialog-grey-300}" BorderThickness="0,0,0,1"><ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}"/></Border></ControlTemplate></Setter>
+  </Style>
+  <Style Selector="Button.panel-swatch"><Setter Property="Background" Value="{DynamicResource Dialog-input-background}"/><Setter Property="BorderBrush" Value="{DynamicResource Dialog-input-border}"/></Style>
+  <Style Selector="Button.panel-swatch:pointerover"><Setter Property="BorderBrush" Value="{DynamicResource Dialog-grey-600}"/></Style>
+  <Style Selector="Button.workbook-flat"><Setter Property="Theme" Value="{StaticResource WorkbookFlat}"/></Style>
+  <Style Selector="ToggleButton.workbook-toggle"><Setter Property="Theme" Value="{StaticResource WorkbookToggle}"/></Style>
+  <Style Selector="ToggleButton.style-choice"><Setter Property="Width" Value="32"/><Setter Property="Height" Value="32"/><Setter Property="Padding" Value="7"/><Setter Property="BorderThickness" Value="1"/><Setter Property="BorderBrush" Value="Transparent"/><Setter Property="CornerRadius" Value="6"/><Setter Property="Opacity" Value="0.5"/></Style>
+  <Style Selector="ToggleButton.style-choice:pointerover"><Setter Property="Opacity" Value="1"/></Style>
+  <Style Selector="ToggleButton.style-choice:checked"><Setter Property="Opacity" Value="1"/><Setter Property="Background" Value="{DynamicResource Dialog-common-white}"/><Setter Property="BorderBrush" Value="{DynamicResource Dialog-grey-400}"/></Style>
+  <Style Selector="ToggleButton.rule-choice"><Setter Property="Width" Value="NaN"/><Setter Property="Height" Value="32"/><Setter Property="Padding" Value="8,0"/><Setter Property="CornerRadius" Value="6"/><Setter Property="BorderThickness" Value="1"/><Setter Property="BorderBrush" Value="Transparent"/><Setter Property="Opacity" Value="0.5"/><Setter Property="FontSize" Value="12"/></Style>
+  <Style Selector="ToggleButton.rule-choice:pointerover, ToggleButton.rule-choice:focus-visible"><Setter Property="Opacity" Value="1"/></Style>
+  <Style Selector="ToggleButton.rule-choice:checked"><Setter Property="Opacity" Value="1"/><Setter Property="Background" Value="{DynamicResource Dialog-common-white}"/><Setter Property="BorderBrush" Value="{DynamicResource Dialog-grey-400}"/></Style>
+  <Style Selector="Button.icon-preset"><Setter Property="Background" Value="{DynamicResource Dialog-common-white}"/><Setter Property="BorderThickness" Value="1"/><Setter Property="BorderBrush" Value="{DynamicResource Dialog-grey-200}"/></Style>
+  <Style Selector="Button.icon-preset.selected"><Setter Property="BorderBrush" Value="{DynamicResource Dialog-common-black}"/></Style>
+  <Style Selector="ToggleSwitch.workbook-switch"><Setter Property="Theme" Value="{StaticResource WorkbookSwitch}"/></Style>
+  <Style Selector="TextBox.workbook-editor /template/ TextPresenter#PART_TextPresenter"><Setter Property="LineHeight" Value="22"/></Style>
+  <Style Selector="TextBox.workbook-editor /template/ Border#PART_BorderElement"><Setter Property="Background" Value="Transparent"/><Setter Property="BorderThickness" Value="0"/></Style>
+  <Style Selector="TextBox.workbook-editor:focus /template/ Border#PART_BorderElement"><Setter Property="Background" Value="Transparent"/><Setter Property="BorderThickness" Value="0"/></Style>
+  <Style Selector="TextBox.workbook-editor:pointerover /template/ Border#PART_BorderElement"><Setter Property="Background" Value="Transparent"/><Setter Property="BorderThickness" Value="0"/></Style>
+  <Style Selector="Button.template-filter.selected"><Setter Property="Background" Value="{DynamicResource Dialog-grey-200}"/></Style>
+  <Style Selector="Button.template-card:pointerover"><Setter Property="Background" Value="Transparent"/></Style>
+  <Style Selector="Button.template-card:pointerover Border#TemplateThumbnail, Button.template-card:focus-visible Border#TemplateThumbnail"><Setter Property="BorderBrush" Value="{DynamicResource Dialog-grey-700}"/></Style>
+  <Style Selector="Button.link-action:pointerover, Button.link-label:pointerover"><Setter Property="Background" Value="{DynamicResource Dialog-grey-800}"/></Style>
+  <Style Selector="TextBox.workbook-title /template/ Border#PART_BorderElement"><Setter Property="Background" Value="Transparent"/><Setter Property="BorderThickness" Value="0"/></Style>
+  <Style Selector="TextBox.workbook-title:focus /template/ Border#PART_BorderElement"><Setter Property="Background" Value="{DynamicResource Dialog-grey-100}"/><Setter Property="BorderThickness" Value="0"/></Style>
+
+  <!-- ColorScaleRule: stepped gradient fills each tile; the outline sits 1px outside. -->
+  <Style Selector="Button.color-scale-preset, Button.data-bar-preset">
+    <Setter Property="ClipToBounds" Value="False"/>
+    <Setter Property="MinHeight" Value="0"/><Setter Property="BorderThickness" Value="0"/><Setter Property="Background" Value="Transparent"/>
+    <Setter Property="RenderTransform" Value="scale(1)"/>
+    <Setter Property="Transitions"><Transitions><TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.1"><TransformOperationsTransition.Easing><SplineEasing X1="0.25" Y1="0.1" X2="0.25" Y2="1"/></TransformOperationsTransition.Easing></TransformOperationsTransition></Transitions></Setter>
+    <Setter Property="Template"><ControlTemplate><Grid Background="Transparent">
+      <ContentPresenter Name="PART_ContentPresenter" Content="{TemplateBinding Content}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
+      <Border Name="ScaleOutline" Margin="-2" CornerRadius="6" BorderThickness="1" BorderBrush="{DynamicResource Dialog-common-black}" IsVisible="False" IsHitTestVisible="False"/>
+    </Grid></ControlTemplate></Setter>
+  </Style>
+  <Style Selector="Button.color-scale-preset.selected /template/ Border#ScaleOutline, Button.color-scale-preset:pointerover /template/ Border#ScaleOutline, Button.color-scale-preset:focus-visible /template/ Border#ScaleOutline, Button.data-bar-preset.selected /template/ Border#ScaleOutline, Button.data-bar-preset:pointerover /template/ Border#ScaleOutline, Button.data-bar-preset:focus-visible /template/ Border#ScaleOutline"><Setter Property="IsVisible" Value="True"/></Style>
+  <Style Selector="Button.color-scale-preset:pressed, Button.data-bar-preset:pressed"><Setter Property="RenderTransform" Value="scale(0.95)"/></Style>
+  <Style Selector="c|ColorScaleSwatch">
+    <Setter Property="OutlineBrush" Value="{DynamicResource Dialog-common-black}"/>
+    <Setter Property="Transitions"><Transitions><DoubleTransition Property="InsetOpacity" Duration="0:0:0.15"><DoubleTransition.Easing><SplineEasing X1="0.25" Y1="0.1" X2="0.25" Y2="1"/></DoubleTransition.Easing></DoubleTransition></Transitions></Setter>
+  </Style>
+  <Style Selector="Button.color-scale-preset:pointerover c|ColorScaleSwatch"><Setter Property="InsetOpacity" Value="0.4"/></Style>
+  <Style Selector="ComboBox.color-scale-type /template/ Border#Background, ComboBox.data-bar-type /template/ Border#Background"><Setter Property="MinWidth" Value="0"/></Style>
+  <Style Selector="ComboBox.color-scale-type /template/ ContentControl#ContentPresenter TextBlock, ComboBox.data-bar-type /template/ ContentControl#ContentPresenter TextBlock"><Setter Property="TextTrimming" Value="CharacterEllipsis"/></Style>
+
+  <Style Selector="c|PanelColorButton.color-scale-color, c|PanelColorButton.data-bar-color, c|PanelColorButton.icon-color">
+    <Setter Property="Theme" Value="{StaticResource WorkbookFlat}"/>
+    <Setter Property="Background" Value="{DynamicResource Dialog-input-background}"/>
+    <Setter Property="BorderBrush" Value="{DynamicResource Dialog-input-border}"/>
+  </Style>
+  <Style Selector="c|PanelColorButton.color-scale-color:pointerover, c|PanelColorButton.data-bar-color:pointerover, c|PanelColorButton.icon-color:pointerover"><Setter Property="Background" Value="{DynamicResource Dialog-input-background}"/><Setter Property="BorderBrush" Value="{DynamicResource Dialog-grey-600}"/></Style>
+  <Style Selector="c|PanelColorButton.color-scale-color:focus-visible, c|PanelColorButton.data-bar-color:focus-visible, c|PanelColorButton.icon-color:focus-visible"><Setter Property="BorderBrush" Value="{DynamicResource Dialog-primary-main}"/></Style>
+  <Style Selector="c|PanelColorButton.icon-color:disabled, Button.icon-rule-picker:disabled"><Setter Property="Opacity" Value="0.4"/></Style>
+  <Style Selector="c|DataBarSwatch">
+    <Setter Property="OutlineBrush" Value="{DynamicResource Dialog-common-black}"/>
+    <Setter Property="GridBrush" Value="{DynamicResource Dialog-grey-200}"/>
+    <Setter Property="Background" Value="{DynamicResource Dialog-common-white}"/>
+    <Setter Property="Transitions"><Transitions><DoubleTransition Property="InsetOpacity" Duration="0:0:0.15"><DoubleTransition.Easing><SplineEasing X1="0.25" Y1="0.1" X2="0.25" Y2="1"/></DoubleTransition.Easing></DoubleTransition></Transitions></Setter>
+  </Style>
+  <Style Selector="Button.data-bar-preset:pointerover c|DataBarSwatch"><Setter Property="InsetOpacity" Value="0.4"/></Style>
+  <Style Selector="Border.workbook-drawer TextBox.data-bar-value:disabled /template/ Border#PART_BorderElement, Border.workbook-drawer TextBox.icon-value:disabled /template/ Border#PART_BorderElement">
+    <Setter Property="Background" Value="{DynamicResource Dialog-grey-200}"/>
+    <Setter Property="BorderBrush" Value="{DynamicResource Dialog-input-border}"/>
+  </Style>
+  <Style Selector="TextBox.data-bar-value:disabled, TextBox.icon-value:disabled"><Setter Property="Foreground" Value="{DynamicResource Dialog-grey-400}"/></Style>
+  <Style Selector="CheckBox.conditional-preference">
+    <Setter Property="FocusAdorner" Value="{x:Null}"/>
+    <Setter Property="ClipToBounds" Value="False"/>
+    <Setter Property="MinHeight" Value="0"/><Setter Property="MinWidth" Value="0"/><Setter Property="Height" Value="18"/>
+    <Setter Property="FontSize" Value="12"/><Setter Property="Padding" Value="0"/><Setter Property="Foreground" Value="{DynamicResource Dialog-common-black}"/>
+    <Setter Property="Template"><ControlTemplate><Grid ColumnDefinitions="Auto,*" ColumnSpacing="6" Background="Transparent">
+      <Border Name="CheckFocus" Width="{DynamicResource ConditionalCheckFocusSize}" Height="{DynamicResource ConditionalCheckFocusSize}" Margin="-4" BorderThickness="2" CornerRadius="8" BorderBrush="{DynamicResource Dialog-primary-main}" IsVisible="False"/>
+      <Border Name="CheckBox" Width="{DynamicResource ConditionalCheckSize}" Height="{DynamicResource ConditionalCheckSize}" CornerRadius="4" BorderThickness="{DynamicResource ConditionalCheckBorder}" BorderBrush="{DynamicResource Dialog-grey-400}" Background="{DynamicResource Dialog-common-white}" VerticalAlignment="Center">
+        <Border.Transitions><Transitions><BrushTransition Property="Background" Duration="0:0:0.15"/><BrushTransition Property="BorderBrush" Duration="0:0:0.15"/></Transitions></Border.Transitions>
+        <Border Name="Check" Width="5" Height="8" BorderBrush="{DynamicResource Dialog-common-white}" BorderThickness="0,0,2,2" HorizontalAlignment="Center" VerticalAlignment="Center" IsVisible="False">
+          <Border.RenderTransform><TransformGroup><RotateTransform Angle="45"/><TranslateTransform Y="-1.4142135623730951"/></TransformGroup></Border.RenderTransform>
+        </Border>
+      </Border>
+      <ContentPresenter Grid.Column="1" Name="PART_ContentPresenter" Content="{TemplateBinding Content}" VerticalAlignment="Center"/>
+    </Grid></ControlTemplate></Setter>
+  </Style>
+  <Style Selector="CheckBox.conditional-preference:checked /template/ Border#CheckBox"><Setter Property="Background" Value="{DynamicResource Dialog-primary-main}"/><Setter Property="BorderBrush" Value="{DynamicResource Dialog-primary-main}"/></Style>
+  <Style Selector="CheckBox.conditional-preference:checked /template/ Border#Check"><Setter Property="IsVisible" Value="True"/></Style>
+  <Style Selector="CheckBox.conditional-preference:pointerover /template/ Border#CheckBox"><Setter Property="BorderBrush" Value="{DynamicResource Dialog-grey-500}"/></Style>
+  <Style Selector="CheckBox.conditional-preference:pointerover:checked /template/ Border#CheckBox"><Setter Property="Background" Value="{DynamicResource Dialog-primary-dark}"/><Setter Property="BorderBrush" Value="{DynamicResource Dialog-primary-dark}"/></Style>
+  <Style Selector="CheckBox.conditional-preference:focus-visible /template/ Border#CheckFocus"><Setter Property="IsVisible" Value="True"/></Style>
+
+</Styles>

@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <NativeTargetDir Condition="'$(NativeTargetDir)' == '' and '$(CARGO_TARGET_DIR)' != ''">$(CARGO_TARGET_DIR)</NativeTargetDir>
+    <NativeTargetDir Condition="'$(NativeTargetDir)' == ''">$(MSBuildProjectDirectory)/native/target</NativeTargetDir>
+    <NativeProfile>debug</NativeProfile>
+    <NativeCargoFlag></NativeCargoFlag>
+    <NativeProfile Condition="'$(Configuration)' == 'Release'">release</NativeProfile>
+    <NativeCargoFlag Condition="'$(Configuration)' == 'Release'">--release</NativeCargoFlag>
+    <NativeLibraryName Condition="$([MSBuild]::IsOSPlatform('OSX'))">libcyancalc_native.dylib</NativeLibraryName>
+    <NativeLibraryName Condition="$([MSBuild]::IsOSPlatform('Linux'))">libcyancalc_native.so</NativeLibraryName>
+    <NativeLibraryName Condition="$([MSBuild]::IsOSPlatform('Windows'))">cyancalc_native.dll</NativeLibraryName>
+    <NativeLibraryPath Condition="'$(NativeLibraryPath)' == ''">$(NativeTargetDir)/$(NativeProfile)/$(NativeLibraryName)</NativeLibraryPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="$(NativeLibraryPath)" Link="$(NativeLibraryName)" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <None Include="../../docs/cyancalc/licenses/*.txt" Link="licenses/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+  </ItemGroup>
+  <Target Name="BuildIronCalcNative" BeforeTargets="BeforeBuild" Condition="'$(DesignTimeBuild)' != 'true' and '$(SkipNativeBuild)' != 'true'">
+    <Exec WorkingDirectory="$(MSBuildProjectDirectory)/native" Command="cargo build --locked $(NativeCargoFlag)" EnvironmentVariables="CARGO_TARGET_DIR=$(NativeTargetDir)" />
+  </Target>
+</Project>

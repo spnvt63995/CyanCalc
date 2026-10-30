@@ -1,0 +1,2195 @@
+{
+  "provenance": {
+    "upstream": "297553dc3a37ec6b0f4821055220e3d26c4ac6a1",
+    "lucideVersion": "1.49.0",
+    "lucideIntegrity": "sha512-ApfaNM4/7jBrVopqLJ84Jz8TMQ1Q1JeZ1PmKh25aeS3E1FTVcMkSh1bEQB7dfzdIrwXRP8p3z4AJjTIHHb5IIA==",
+    "licenses": [
+      "Lucide.ISC-and-Feather.MIT.txt",
+      "IronCalc.MIT.txt"
+    ],
+    "generatedBy": "tools/cyancalc/sync-ui-assets.mjs",
+    "sources": {
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/shared/src/build/defaultAttributes.mjs": "abb7578124c4b303e49d1937f3ebc5edac67a3bed9db480cddc9bcaeb24ee217",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/undo-2.mjs": "359bba3f4760b1fa1523e05c95c9f3796af0ea1570d603fe48f4cbd6c21a332f",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/redo-2.mjs": "da0c388cd561e4c0933d738eeee422edd768ea5d4c38eeafb68fc12296c0d07e",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/paint-roller.mjs": "64bdb12658d79d862163ecf82564741ffd0dee070888d50f27185d4541aca8b9",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/remove-formatting.mjs": "2c784fa91bae9dcf95aaafd145db5c8fa55dbc27156fb5ba913f5c312f7f258d",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/dollar-sign.mjs": "2ad88bfd19726db184217f525f4fb57058b6e237d49317cb3f2b81a13d0d7e85",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/euro.mjs": "c9f2fa020df4252740c67de9a8cd8a4de4200a624b278ef417a807cedd8383c3",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/pound-sterling.mjs": "4d4495c519669ee3f2bff62a4c7003e8d0b6b57c21cf4a1f283f8a529ee53514",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/percent.mjs": "8b35c945d313c95a71d98c314a953c581f1bf5c4cec530c862666bf05b47897e",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/decimals-arrow-left.mjs": "c8ad347288d5eaebf8e2b143d6c6461d6cc9645244e54c2ef0fa74be0096b0ef",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/decimals-arrow-right.mjs": "979f60bcc5878184b6e1da9db72faaade46489b1f36d80b4c1a1335a53951aa8",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/minus.mjs": "421e1edbbd106a66df62e3affbfadae49002360c532ce2f70255899a3d603212",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/plus.mjs": "1b04ac7cb05482836426eebc2758ba945f5e5bc54736924b3eb9ae197d00f5b4",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/bold.mjs": "98456fb21fa6e18ffeba1b80b0db903c82b246466f49cb10958d8b9c328920f0",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/italic.mjs": "51576a91bd8dbf4c134cdaccccf48ec6242c8f8d99f85255ef947182ab420b71",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/underline.mjs": "5252d3733c1950b4710828cb6f70ab2fea9fb2461be4f6b1188e9126f69369c8",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/strikethrough.mjs": "9288d08c4c95c296849974ad1ca2ede7c0962602c0af20d9ea3a601b8e45b099",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/type.mjs": "b5397e1a1cd03bdb8623045548dcc0f28bbdeba46c49b3c7f984eb5bd84fd171",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/paint-bucket.mjs": "9aac60c5ee445d16f71330bd078e201af25af59c54edbef443dc73ecfcc1a085",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/grid-2x2.mjs": "b8ca7c6271ef317331823076bbe615d6b1e9824c90220670b54245152f89ac9d",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/align-left.mjs": "39c1a9062b85cc9ac21f480ff484d46da5825872e65469d86034e23d7bd10d4d",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/text-align-start.mjs": "8d86cd40a9368a6fd56cb47268059e5cf2288219e90599f95fcf313e2b015c5b",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/align-center.mjs": "3a406ef732e6e4d786515adf4bc2b954eb805543d2e45f623328cb009087cdce",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/text-align-center.mjs": "ceca803f4f1a56cc718474048db543a1ad8085b0d86d4d22b39405263ec6b74f",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/align-right.mjs": "96174152eaef5175f6cd3e33cbfd190cb799b29bd36b4568ee5f0ddf5e864547",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/text-align-end.mjs": "4fbe55dc685765ce98b654b887a0ad3ce61d202a72821ddedc3ea1108489d801",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/arrow-up-to-line.mjs": "06b7aa0e1de71976d850638e0093de837a9d53e35cf02f79ffd4c1bc3d7e583d",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/arrow-down-to-line.mjs": "b879d01512665da153f5b6aacac45c15a7cc649766097555cf84d1cf9f8b3571",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/wrap-text.mjs": "b29542584c8daeca7d3e12a2f9babacabdcc4dada62195c38d10c045a4b938e9",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/text-wrap.mjs": "f76c5cdbb7630b69e51625d2a23e8fc949f6c9fbbd0b2a051f4fb796033bbd30",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/table-cells-merge.mjs": "9d2747f48880beb9ad3a5381512881759a0e80ce04fdc603019f16815686f8a2",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/link-2.mjs": "1d27397f40ab9bcc32b874174f9d2886b0352e66973e9e174389fc83c845d4a7",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/link-2-off.mjs": "58371a9c9ffc24af576e1c0aa3359bf8807b6afa89fdb453bfd10a2a03508a22",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/chevron-up.mjs": "f8155a3f29014f8d1e2713369896b9d4f8d6761d86d3dcfe2e27c2ee3c6f71f9",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/chevron-left.mjs": "c58946d5fee19926e53b22b785f1bf89d5d7c9e107a24b08ad93762ab8df8103",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/chevron-right.mjs": "bb2e451c7252f44f043a28a24302f053064bacfaa6d85503476b2653325a438d",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/chevron-down.mjs": "2e7d1d8e13cb8e885613bccbb431f310fc32c36e2a1bd6c2b40b97e01c635e26",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/menu.mjs": "39f9ec18a823086bb31daad9b8866465365a5eccc5abc959283c8a87a85c7b37",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/settings.mjs": "a921b3cf0b92ae51dc609a3ff6093131c00ca9c7e1946c60773df9fbb5428f62",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/settings-2.mjs": "0882d6f8354ee4bc15d78a1c9a755202fd0d97100aa95fefe4e8a2b8cb1f2230",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/brush.mjs": "848816f432928c07978980b9a0d81f175425b504d6a839548f31a8741ef99c97",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/swatch-book.mjs": "27c54aba02423d65ffff7a87d4a14a3e2ecf36d298ee273f73a21f3b0f22ca08",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/layers.mjs": "35c3bff56b4208200509f3f9e3f7e9f44ae3eb5b746909f8a3a26272677bb05a",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/image-down.mjs": "dc6c007745e80c8fc6eede2b73af545617ee8f73c0e1909e8f981d798c8835cc",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/grid-2x2-check.mjs": "7c22658b14b6dbca420acbb0f968198b194fb25f8dc39d34396a9cb563530aa0",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/grid-2x2-x.mjs": "58c99daabe01e57e1cd5c3fe4a3dafa68c6458fec19156149b4be1622933e27b",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/align-center-horizontal.mjs": "4a2e3f360fc45e8558894f70f33cd1681c21761b3d343bdf19e2f451b1116505",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/rows-3.mjs": "f783e11d41c08d0cd7f925cc74e798b5942ee38da255c7ca243088f3b9a70487",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/columns-3.mjs": "066515c1619bb90096747878ad4d62e9a5c620a26e66c9a10ad2e914b22f489b",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/table-cells-split.mjs": "c0bd1fba43a8ee013d8011ac72312a927e4cb919419887566b00b227c1279ded",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/scissors.mjs": "a8c12b71bed26d7ef496005f4144906b5acb5daab9ed6e5b74748ab8cd4ddaad",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/copy.mjs": "094bd474cb42983c33c7a581ccc0f2384af88c10d3166d48fd4ec1f0de6648e4",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/clipboard.mjs": "52482629564ba44e9cb6e692c700e44b8eabf259a2d7633ff581e90501b9a71e",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/trash-2.mjs": "3c7e4af29591605590a44e3e7660de2ed1419876e9cdcbec2777ec52405f5cec",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/trash.mjs": "a476129af6df996b19dec0f1449f4a30b3437a8db35c65aed7c2168022ec1dac",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/arrow-up.mjs": "d5db6c481ccb84bdcf813066abe79674ee47f703f6f865e56ad65a14c79f792d",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/arrow-down.mjs": "8596e0b1ed10c03b457402c56c5758cba9152e21cfbf9a1c804b5ce7d3756b36",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/arrow-left.mjs": "c970eef6a8a542bb1481980b375c514c3abffee6f002c592ea8c382098714643",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/arrow-right.mjs": "17f454dcaaf717eab6d5dc8f3b295fc20439735bf352957d439d1ecd113d2389",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/move-vertical.mjs": "644d28d543eb466c531a2ffb6a105bebc1b12575090f0d10d0174ed0330e0745",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/move-horizontal.mjs": "5d6ddda8cca823b0e07141f0564151142e8b6384c4430b6fbf7ec4aebf2eb1c2",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/eye.mjs": "fd4ea5c86cb4f402d37efdf8872cdb6c462ed3f5c6f158330709e35a14ddb418",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/eye-off.mjs": "b7706802db999290966d5cdb75a57be48a74723a25f0d5a8ce414f44fda5f3f0",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/snowflake.mjs": "2db8a1a60f9eceb896a98e59e520519394d25b003e912734b9d229250ae68dac",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/pencil-line.mjs": "5a62d604c907266480d5c065b9aa15aea5e405ef4d3765bea4ec69bc9fb43e80",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/line-style.mjs": "97830f0438ab4a0b2e50230f02ffe01d758d2734bb2214996daeec5c48cdadd2",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/tag.mjs": "e0f3ec21b424db90c8b0903251ac6347da7027afd0ef789b0956d04e0c4383ca",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/text-cursor-input.mjs": "93c662fc1206246d362942d70e1589348f2050d7a8618e9f98936a12ad7456b5",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/panel-left-open.mjs": "4ea55a817f0783d40ce426bffe4db8610d24207ed8d8af58cbed072ca72c5b3e",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/panel-left-close.mjs": "632086a0563748bc40fe9889fc0dc6eefb401b80ea392473799d73710ab6c5a4",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/search.mjs": "921835d6388536e07388dff642fe59d5a3619ba95f86135a8b5743549d069ebf",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/x.mjs": "6cf882400ebcdc0c77a44067e5e8411d5406861595b1b3548226c4441d8d35c0",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/check.mjs": "d86d2889ec1b0bafa1aeb6505eccdbcf28854ef9c30dfb97634cffdc575da770",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/table-2.mjs": "0b2f4e33cc3073df56a2cc712e5a6fb1dc298163bd9f1c621df426e217abe76d",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/pin.mjs": "134894a40a8e82eb54c1114104385ba404631704f972beeb1616bb2d8faf8b3f",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/pin-off.mjs": "e05e76878a007b43eee9fc0cf1fc1afd572842de4d7565e9fce15d81792a92d5",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/ellipsis-vertical.mjs": "879d2003b287ff87da097c6fe9aaa21101269ba5e092cd82203e8c8adbbe30fd",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/file-down.mjs": "b98ba0ad35d2dca5ed7478a196b4ce0c21fa977daf62db44d806bb6caaff4ec6",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/file-up.mjs": "c34944f4302847e3a62af617d3daf71da324c752b7d5311a0f552089656692ed",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/book-open.mjs": "6d5511facada27dffd1635228a76dfd45856ca088f725410ce7d9ba825dfd915",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/info.mjs": "016e40aa6e7954d35eb2348a1e765f41bf640e00f5fc2503f77c447b7ef85336",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/keyboard.mjs": "d9a1586d3656814d3445c6513508184810cafaa68a0f80188f7c75bcd956ddbc",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/globe.mjs": "8c2e46ee3e253fc23fe814c105a7c3f1b19a33da46477eb5158631419038a65d",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/sun.mjs": "82e0c415e290e0708537925dfc6f60536ff068a686ddca8e10b36249e3bd359c",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/cloud-off.mjs": "c5b555219f2c0e744369fca4b4f30be94cd670aea869c4b8cfe161ed5678bfcd",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/layout-template.mjs": "8dceda8f4a7e3a14d0d60d66ef05faec537bc19f93f0ed84ae8b9a3fc94f80d2",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/package-open.mjs": "83b43e171f1817479840c46450ef0fa36ef8a174723a62329182e42b549e5ae8",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/search-x.mjs": "c11c0243b60943e0bb93c4044dfbfc6e108746d97913cd3e60eac94df077fca3",
+      "webapp/IronCalc/node_modules/lucide-react/dist/esm/icons/square-mouse-pointer.mjs": "1d46f71ac1de8d3e3748a8e53aa3af33716a39c12084791010663ed3eb86528f",
+      "webapp/IronCalc/src/icons/arrow-middle-from-line.svg": "b9ec37adceeecb62fa33da959c437ef882de6be1975dfd934590f83e7f92c9f2",
+      "webapp/IronCalc/src/icons/border-inner.svg": "20b288edea73342e6db91b7059106c7f4bf2c57a0fa3b7d4d10f76f12e0bb898",
+      "webapp/IronCalc/src/icons/border-center-h.svg": "e391c8feb27ab19b361c45170c550dfc61ec726c356836c0f6f40f9993dd9389",
+      "webapp/IronCalc/src/icons/border-center-v.svg": "fca46fbdb329737af85b68b450f749bd5467b9cb4c2e8ea0f21ce5e937e3b615",
+      "webapp/IronCalc/src/icons/border-outer.svg": "8f6d945becaec84d5f178ac1085229d4c3f4e2a7b40c46b3545957421f66c255",
+      "webapp/IronCalc/src/icons/border-none.svg": "14630b97fdc48a9824d94eeaca149428999704ddc923f2436d3a17977baccc8b",
+      "webapp/IronCalc/src/icons/border-top.svg": "8da87873a131ef69475d69b5286350faf746da67fba290e022f6a76fbba08c9d",
+      "webapp/IronCalc/src/icons/border-right.svg": "b9af4295bffba9e6c1b7d3c6f55806c04ffdab15db80b147100bd50e378884d0",
+      "webapp/IronCalc/src/icons/border-bottom.svg": "0ef899995c4849c93b3a06120983637d4c3d3434dd3acd87d062860d2ed6c049",
+      "webapp/IronCalc/src/icons/border-left.svg": "3c11b93c3800e0d6c438c7942b7da970492f107168998db1bd6626a53d2aca02",
+      "webapp/IronCalc/src/icons/fx.svg": "72b098c11da171faacb2a812efba4bf9370aa452051b6d8913e841b5b2f4e9fa",
+      "webapp/IronCalc/node_modules/lucide-react/LICENSE": "b495047bd93a9b06913511076f504daba17d5bbeb3e0650f3bb53a4220329c57",
+      "webapp/IronCalc/src/components/Toolbar/Toolbar.tsx": "e10bfd93579a62fd075c83e6c6b2c345e1efc6b6ce076b43f94daf42ccae8931",
+      "webapp/IronCalc/src/components/SheetTabBar/SheetTabBar.tsx": "cacd8dc1f805796a5dc6dfa88a2282a4f1dde3090437049b80b7dcf6be749264",
+      "webapp/app.ironcalc.com/frontend/src/components/FileBar.tsx": "02ae3f88acca7f567ed33c1beda7042de9bde7aa865a89c524a833f966990a9d",
+      "webapp/app.ironcalc.com/frontend/src/components/LeftDrawer/WorkbookMenu.tsx": "f4b6ed545f477fa402cbd8982354cf1e13977af1eda9b0fb6437458542fee279",
+      "webapp/IronCalc/src/theme/theme.ts": "371cd7bb61680967dae88ca06cb63b0e444e52c9fac7eca1571abb84b663e328"
+    }
+  },
+  "icons": {
+    "Undo2": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M9 14 4 9l5-5"
+        },
+        {
+          "type": "path",
+          "d": "M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5a5.5 5.5 0 0 1-5.5 5.5H11"
+        }
+      ]
+    },
+    "Redo2": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "m15 14 5-5-5-5"
+        },
+        {
+          "type": "path",
+          "d": "M20 9H9.5A5.5 5.5 0 0 0 4 14.5A5.5 5.5 0 0 0 9.5 20H13"
+        }
+      ]
+    },
+    "PaintRoller": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "rect",
+          "width": "16",
+          "height": "6",
+          "x": "2",
+          "y": "2",
+          "rx": "2"
+        },
+        {
+          "type": "path",
+          "d": "M10 16v-2a2 2 0 0 1 2-2h8a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"
+        },
+        {
+          "type": "rect",
+          "width": "4",
+          "height": "6",
+          "x": "8",
+          "y": "16",
+          "rx": "1"
+        }
+      ]
+    },
+    "RemoveFormatting": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M4 7V4h16v3"
+        },
+        {
+          "type": "path",
+          "d": "M5 20h6"
+        },
+        {
+          "type": "path",
+          "d": "M13 4 8 20"
+        },
+        {
+          "type": "path",
+          "d": "m15 15 5 5"
+        },
+        {
+          "type": "path",
+          "d": "m20 15-5 5"
+        }
+      ]
+    },
+    "DollarSign": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "line",
+          "x1": "12",
+          "x2": "12",
+          "y1": "2",
+          "y2": "22"
+        },
+        {
+          "type": "path",
+          "d": "M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
+        }
+      ]
+    },
+    "Euro": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M4 10h12"
+        },
+        {
+          "type": "path",
+          "d": "M4 14h9"
+        },
+        {
+          "type": "path",
+          "d": "M19 6a7.7 7.7 0 0 0-5.2-2A7.9 7.9 0 0 0 6 12c0 4.4 3.5 8 7.8 8 2 0 3.8-.8 5.2-2"
+        }
+      ]
+    },
+    "PoundSterling": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M18 7c0-5.333-8-5.333-8 0"
+        },
+        {
+          "type": "path",
+          "d": "M10 7v14"
+        },
+        {
+          "type": "path",
+          "d": "M6 21h12"
+        },
+        {
+          "type": "path",
+          "d": "M6 13h10"
+        }
+      ]
+    },
+    "Percent": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "line",
+          "x1": "19",
+          "x2": "5",
+          "y1": "5",
+          "y2": "19"
+        },
+        {
+          "type": "circle",
+          "cx": "6.5",
+          "cy": "6.5",
+          "r": "2.5"
+        },
+        {
+          "type": "circle",
+          "cx": "17.5",
+          "cy": "17.5",
+          "r": "2.5"
+        }
+      ]
+    },
+    "DecimalsArrowLeft": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "m13 21-3-3 3-3"
+        },
+        {
+          "type": "path",
+          "d": "M20 18H10"
+        },
+        {
+          "type": "path",
+          "d": "M3 11h.01"
+        },
+        {
+          "type": "rect",
+          "x": "6",
+          "y": "3",
+          "width": "5",
+          "height": "8",
+          "rx": "2.5"
+        }
+      ]
+    },
+    "DecimalsArrowRight": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M10 18h10"
+        },
+        {
+          "type": "path",
+          "d": "m17 21 3-3-3-3"
+        },
+        {
+          "type": "path",
+          "d": "M3 11h.01"
+        },
+        {
+          "type": "rect",
+          "x": "15",
+          "y": "3",
+          "width": "5",
+          "height": "8",
+          "rx": "2.5"
+        },
+        {
+          "type": "rect",
+          "x": "6",
+          "y": "3",
+          "width": "5",
+          "height": "8",
+          "rx": "2.5"
+        }
+      ]
+    },
+    "Minus": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M5 12h14"
+        }
+      ]
+    },
+    "Plus": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M5 12h14"
+        },
+        {
+          "type": "path",
+          "d": "M12 5v14"
+        }
+      ]
+    },
+    "Bold": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M6 12h9a4 4 0 0 1 0 8H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a4 4 0 0 1 0 8"
+        }
+      ]
+    },
+    "Italic": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "line",
+          "x1": "19",
+          "x2": "10",
+          "y1": "4",
+          "y2": "4"
+        },
+        {
+          "type": "line",
+          "x1": "14",
+          "x2": "5",
+          "y1": "20",
+          "y2": "20"
+        },
+        {
+          "type": "line",
+          "x1": "15",
+          "x2": "9",
+          "y1": "4",
+          "y2": "20"
+        }
+      ]
+    },
+    "Underline": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M6 4v6a6 6 0 0 0 12 0V4"
+        },
+        {
+          "type": "line",
+          "x1": "4",
+          "x2": "20",
+          "y1": "20",
+          "y2": "20"
+        }
+      ]
+    },
+    "Strikethrough": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M16 4H9a3 3 0 0 0-2.83 4"
+        },
+        {
+          "type": "path",
+          "d": "M14 12a4 4 0 0 1 0 8H6"
+        },
+        {
+          "type": "line",
+          "x1": "4",
+          "x2": "20",
+          "y1": "12",
+          "y2": "12"
+        }
+      ]
+    },
+    "Type": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M12 4v16"
+        },
+        {
+          "type": "path",
+          "d": "M4 7V5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2"
+        },
+        {
+          "type": "path",
+          "d": "M9 20h6"
+        }
+      ]
+    },
+    "PaintBucket": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M11 7 6 2"
+        },
+        {
+          "type": "path",
+          "d": "M18.992 12H2.041"
+        },
+        {
+          "type": "path",
+          "d": "M21.145 18.38A3.34 3.34 0 0 1 20 16.5a3.3 3.3 0 0 1-1.145 1.88c-.575.46-.855 1.02-.855 1.595A2 2 0 0 0 20 22a2 2 0 0 0 2-2.025c0-.58-.285-1.13-.855-1.595"
+        },
+        {
+          "type": "path",
+          "d": "m8.5 4.5 2.148-2.148a1.205 1.205 0 0 1 1.704 0l7.296 7.296a1.205 1.205 0 0 1 0 1.704l-7.592 7.592a3.615 3.615 0 0 1-5.112 0l-3.888-3.888a3.615 3.615 0 0 1 0-5.112L5.67 7.33"
+        }
+      ]
+    },
+    "Grid2X2": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M12 3v18"
+        },
+        {
+          "type": "path",
+          "d": "M3 12h18"
+        },
+        {
+          "type": "rect",
+          "x": "3",
+          "y": "3",
+          "width": "18",
+          "height": "18",
+          "rx": "2"
+        }
+      ]
+    },
+    "AlignLeft": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M21 5H3"
+        },
+        {
+          "type": "path",
+          "d": "M15 12H3"
+        },
+        {
+          "type": "path",
+          "d": "M17 19H3"
+        }
+      ]
+    },
+    "AlignCenter": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M21 5H3"
+        },
+        {
+          "type": "path",
+          "d": "M17 12H7"
+        },
+        {
+          "type": "path",
+          "d": "M19 19H5"
+        }
+      ]
+    },
+    "AlignRight": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M21 5H3"
+        },
+        {
+          "type": "path",
+          "d": "M21 12H9"
+        },
+        {
+          "type": "path",
+          "d": "M21 19H7"
+        }
+      ]
+    },
+    "ArrowUpToLine": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M5 3h14"
+        },
+        {
+          "type": "path",
+          "d": "m18 13-6-6-6 6"
+        },
+        {
+          "type": "path",
+          "d": "M12 7v14"
+        }
+      ]
+    },
+    "ArrowDownToLine": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M12 17V3"
+        },
+        {
+          "type": "path",
+          "d": "m6 11 6 6 6-6"
+        },
+        {
+          "type": "path",
+          "d": "M19 21H5"
+        }
+      ]
+    },
+    "WrapText": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "m16 16-3 3 3 3"
+        },
+        {
+          "type": "path",
+          "d": "M3 12h14.5a1 1 0 0 1 0 7H13"
+        },
+        {
+          "type": "path",
+          "d": "M3 19h6"
+        },
+        {
+          "type": "path",
+          "d": "M3 5h18"
+        }
+      ]
+    },
+    "TableCellsMerge": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M12 21v-6"
+        },
+        {
+          "type": "path",
+          "d": "M12 9V3"
+        },
+        {
+          "type": "path",
+          "d": "M3 15h18"
+        },
+        {
+          "type": "path",
+          "d": "M3 9h18"
+        },
+        {
+          "type": "rect",
+          "width": "18",
+          "height": "18",
+          "x": "3",
+          "y": "3",
+          "rx": "2"
+        }
+      ]
+    },
+    "Link2": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M9 17H7A5 5 0 0 1 7 7h2"
+        },
+        {
+          "type": "path",
+          "d": "M15 7h2a5 5 0 1 1 0 10h-2"
+        },
+        {
+          "type": "line",
+          "x1": "8",
+          "x2": "16",
+          "y1": "12",
+          "y2": "12"
+        }
+      ]
+    },
+    "Link2Off": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M9 17H7A5 5 0 0 1 7 7"
+        },
+        {
+          "type": "path",
+          "d": "M15 7h2a5 5 0 0 1 4 8"
+        },
+        {
+          "type": "line",
+          "x1": "8",
+          "x2": "12",
+          "y1": "12",
+          "y2": "12"
+        },
+        {
+          "type": "line",
+          "x1": "2",
+          "x2": "22",
+          "y1": "2",
+          "y2": "22"
+        }
+      ]
+    },
+    "ChevronUp": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "m18 15-6-6-6 6"
+        }
+      ]
+    },
+    "ChevronLeft": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "m15 18-6-6 6-6"
+        }
+      ]
+    },
+    "ChevronRight": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "m9 18 6-6-6-6"
+        }
+      ]
+    },
+    "ChevronDown": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "m6 9 6 6 6-6"
+        }
+      ]
+    },
+    "Menu": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M4 5h16"
+        },
+        {
+          "type": "path",
+          "d": "M4 12h16"
+        },
+        {
+          "type": "path",
+          "d": "M4 19h16"
+        }
+      ]
+    },
+    "Settings": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"
+        },
+        {
+          "type": "circle",
+          "cx": "12",
+          "cy": "12",
+          "r": "3"
+        }
+      ]
+    },
+    "Settings2": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M14 17H5"
+        },
+        {
+          "type": "path",
+          "d": "M19 7h-9"
+        },
+        {
+          "type": "circle",
+          "cx": "17",
+          "cy": "17",
+          "r": "3"
+        },
+        {
+          "type": "circle",
+          "cx": "7",
+          "cy": "7",
+          "r": "3"
+        }
+      ]
+    },
+    "Brush": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "m11 10 3 3"
+        },
+        {
+          "type": "path",
+          "d": "M6.5 21A3.5 3.5 0 1 0 3 17.5a2.62 2.62 0 0 1-.708 1.792A1 1 0 0 0 3 21z"
+        },
+        {
+          "type": "path",
+          "d": "M9.969 17.031 21.378 5.624a1 1 0 0 0-3.002-3.002L6.967 14.031"
+        }
+      ]
+    },
+    "SwatchBook": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M11 17a4 4 0 0 1-8 0V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2Z"
+        },
+        {
+          "type": "path",
+          "d": "M16.7 13H19a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H7"
+        },
+        {
+          "type": "path",
+          "d": "M 7 17h.01"
+        },
+        {
+          "type": "path",
+          "d": "m11 8 2.3-2.3a2.4 2.4 0 0 1 3.404.004L18.6 7.6a2.4 2.4 0 0 1 .026 3.434L9.9 19.8"
+        }
+      ]
+    },
+    "Layers": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"
+        },
+        {
+          "type": "path",
+          "d": "M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"
+        },
+        {
+          "type": "path",
+          "d": "M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"
+        }
+      ]
+    },
+    "ImageDown": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M10.3 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10l-3.1-3.1a2 2 0 0 0-2.814.014L6 21"
+        },
+        {
+          "type": "path",
+          "d": "m14 19 3 3v-5.5"
+        },
+        {
+          "type": "path",
+          "d": "m17 22 3-3"
+        },
+        {
+          "type": "circle",
+          "cx": "9",
+          "cy": "9",
+          "r": "2"
+        }
+      ]
+    },
+    "Grid2x2Check": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M12 3v17a1 1 0 0 1-1 1H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6a1 1 0 0 1-1 1H3"
+        },
+        {
+          "type": "path",
+          "d": "m16 19 2 2 4-4"
+        }
+      ]
+    },
+    "Grid2x2X": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M12 3v17a1 1 0 0 1-1 1H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6a1 1 0 0 1-1 1H3"
+        },
+        {
+          "type": "path",
+          "d": "m16.5 16.5 5 5"
+        },
+        {
+          "type": "path",
+          "d": "m16.5 21.5 5-5"
+        }
+      ]
+    },
+    "AlignCenterHorizontal": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M2 12h20"
+        },
+        {
+          "type": "path",
+          "d": "M10 16v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-4"
+        },
+        {
+          "type": "path",
+          "d": "M10 8V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v4"
+        },
+        {
+          "type": "path",
+          "d": "M20 16v1a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2v-1"
+        },
+        {
+          "type": "path",
+          "d": "M14 8V7c0-1.1.9-2 2-2h2a2 2 0 0 1 2 2v1"
+        }
+      ]
+    },
+    "Rows3": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "rect",
+          "width": "18",
+          "height": "18",
+          "x": "3",
+          "y": "3",
+          "rx": "2"
+        },
+        {
+          "type": "path",
+          "d": "M21 9H3"
+        },
+        {
+          "type": "path",
+          "d": "M21 15H3"
+        }
+      ]
+    },
+    "Columns3": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "rect",
+          "width": "18",
+          "height": "18",
+          "x": "3",
+          "y": "3",
+          "rx": "2"
+        },
+        {
+          "type": "path",
+          "d": "M9 3v18"
+        },
+        {
+          "type": "path",
+          "d": "M15 3v18"
+        }
+      ]
+    },
+    "TableCellsSplit": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M12 15V9"
+        },
+        {
+          "type": "path",
+          "d": "M3 15h18"
+        },
+        {
+          "type": "path",
+          "d": "M3 9h18"
+        },
+        {
+          "type": "rect",
+          "width": "18",
+          "height": "18",
+          "x": "3",
+          "y": "3",
+          "rx": "2"
+        }
+      ]
+    },
+    "Scissors": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "circle",
+          "cx": "6",
+          "cy": "6",
+          "r": "3"
+        },
+        {
+          "type": "path",
+          "d": "M8.12 8.12 12 12"
+        },
+        {
+          "type": "path",
+          "d": "M20 4 8.12 15.88"
+        },
+        {
+          "type": "circle",
+          "cx": "6",
+          "cy": "18",
+          "r": "3"
+        },
+        {
+          "type": "path",
+          "d": "M14.8 14.8 20 20"
+        }
+      ]
+    },
+    "Copy": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "rect",
+          "width": "14",
+          "height": "14",
+          "x": "8",
+          "y": "8",
+          "rx": "2",
+          "ry": "2"
+        },
+        {
+          "type": "path",
+          "d": "M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"
+        }
+      ]
+    },
+    "Clipboard": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "rect",
+          "width": "8",
+          "height": "4",
+          "x": "8",
+          "y": "2",
+          "rx": "1",
+          "ry": "1"
+        },
+        {
+          "type": "path",
+          "d": "M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+        }
+      ]
+    },
+    "Trash2": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M10 11v6"
+        },
+        {
+          "type": "path",
+          "d": "M14 11v6"
+        },
+        {
+          "type": "path",
+          "d": "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"
+        },
+        {
+          "type": "path",
+          "d": "M3 6h18"
+        },
+        {
+          "type": "path",
+          "d": "M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+        }
+      ]
+    },
+    "ArrowUp": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "m5 12 7-7 7 7"
+        },
+        {
+          "type": "path",
+          "d": "M12 19V5"
+        }
+      ]
+    },
+    "ArrowDown": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M12 5v14"
+        },
+        {
+          "type": "path",
+          "d": "m19 12-7 7-7-7"
+        }
+      ]
+    },
+    "ArrowLeft": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "m12 19-7-7 7-7"
+        },
+        {
+          "type": "path",
+          "d": "M19 12H5"
+        }
+      ]
+    },
+    "ArrowRight": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M5 12h14"
+        },
+        {
+          "type": "path",
+          "d": "m12 5 7 7-7 7"
+        }
+      ]
+    },
+    "MoveVertical": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M12 2v20"
+        },
+        {
+          "type": "path",
+          "d": "m8 18 4 4 4-4"
+        },
+        {
+          "type": "path",
+          "d": "m8 6 4-4 4 4"
+        }
+      ]
+    },
+    "MoveHorizontal": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "m18 8 4 4-4 4"
+        },
+        {
+          "type": "path",
+          "d": "M2 12h20"
+        },
+        {
+          "type": "path",
+          "d": "m6 8-4 4 4 4"
+        }
+      ]
+    },
+    "Eye": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"
+        },
+        {
+          "type": "circle",
+          "cx": "12",
+          "cy": "12",
+          "r": "3"
+        }
+      ]
+    },
+    "EyeOff": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49"
+        },
+        {
+          "type": "path",
+          "d": "M14.084 14.158a3 3 0 0 1-4.242-4.242"
+        },
+        {
+          "type": "path",
+          "d": "M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143"
+        },
+        {
+          "type": "path",
+          "d": "m2 2 20 20"
+        }
+      ]
+    },
+    "Snowflake": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "m10 20-1.25-2.5L6 18"
+        },
+        {
+          "type": "path",
+          "d": "M10 4 8.75 6.5 6 6"
+        },
+        {
+          "type": "path",
+          "d": "m14 20 1.25-2.5L18 18"
+        },
+        {
+          "type": "path",
+          "d": "m14 4 1.25 2.5L18 6"
+        },
+        {
+          "type": "path",
+          "d": "m17 21-3-6h-4"
+        },
+        {
+          "type": "path",
+          "d": "m17 3-3 6 1.5 3"
+        },
+        {
+          "type": "path",
+          "d": "M2 12h6.5L10 9"
+        },
+        {
+          "type": "path",
+          "d": "m20 10-1.5 2 1.5 2"
+        },
+        {
+          "type": "path",
+          "d": "M22 12h-6.5L14 15"
+        },
+        {
+          "type": "path",
+          "d": "m4 10 1.5 2L4 14"
+        },
+        {
+          "type": "path",
+          "d": "m7 21 3-6-1.5-3"
+        },
+        {
+          "type": "path",
+          "d": "m7 3 3 6h4"
+        }
+      ]
+    },
+    "PencilLine": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M13 21h8"
+        },
+        {
+          "type": "path",
+          "d": "m15 5 4 4"
+        },
+        {
+          "type": "path",
+          "d": "M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+        }
+      ]
+    },
+    "LineStyle": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M11 5h2"
+        },
+        {
+          "type": "path",
+          "d": "M15 12h6"
+        },
+        {
+          "type": "path",
+          "d": "M19 5h2"
+        },
+        {
+          "type": "path",
+          "d": "M3 12h6"
+        },
+        {
+          "type": "path",
+          "d": "M3 19h18"
+        },
+        {
+          "type": "path",
+          "d": "M3 5h2"
+        }
+      ]
+    },
+    "Tag": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"
+        },
+        {
+          "type": "circle",
+          "cx": "7.5",
+          "cy": "7.5",
+          "r": ".5",
+          "fill": "currentColor"
+        }
+      ]
+    },
+    "TextCursorInput": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M12 20h-1a2 2 0 0 1-2-2 2 2 0 0 1-2 2H6"
+        },
+        {
+          "type": "path",
+          "d": "M13 8h7a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-7"
+        },
+        {
+          "type": "path",
+          "d": "M5 16H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h1"
+        },
+        {
+          "type": "path",
+          "d": "M6 4h1a2 2 0 0 1 2 2 2 2 0 0 1 2-2h1"
+        },
+        {
+          "type": "path",
+          "d": "M9 6v12"
+        }
+      ]
+    },
+    "PanelLeftOpen": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "rect",
+          "width": "18",
+          "height": "18",
+          "x": "3",
+          "y": "3",
+          "rx": "2"
+        },
+        {
+          "type": "path",
+          "d": "M9 3v18"
+        },
+        {
+          "type": "path",
+          "d": "m14 9 3 3-3 3"
+        }
+      ]
+    },
+    "PanelLeftClose": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "rect",
+          "width": "18",
+          "height": "18",
+          "x": "3",
+          "y": "3",
+          "rx": "2"
+        },
+        {
+          "type": "path",
+          "d": "M9 3v18"
+        },
+        {
+          "type": "path",
+          "d": "m16 15-3-3 3-3"
+        }
+      ]
+    },
+    "Search": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "m21 21-4.34-4.34"
+        },
+        {
+          "type": "circle",
+          "cx": "11",
+          "cy": "11",
+          "r": "8"
+        }
+      ]
+    },
+    "X": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M18 6 6 18"
+        },
+        {
+          "type": "path",
+          "d": "m6 6 12 12"
+        }
+      ]
+    },
+    "Check": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M20 6 9 17l-5-5"
+        }
+      ]
+    },
+    "Table2": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M3 9h18"
+        },
+        {
+          "type": "path",
+          "d": "M9 3v18"
+        },
+        {
+          "type": "rect",
+          "x": "3",
+          "y": "3",
+          "width": "18",
+          "height": "18",
+          "rx": "2"
+        }
+      ]
+    },
+    "Pin": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M12 17v5"
+        },
+        {
+          "type": "path",
+          "d": "M9 10.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V7a1 1 0 0 1 1-1 2 2 0 0 0 0-4H8a2 2 0 0 0 0 4 1 1 0 0 1 1 1z"
+        }
+      ]
+    },
+    "PinOff": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M12 17v5"
+        },
+        {
+          "type": "path",
+          "d": "M15 9.34V7a1 1 0 0 1 1-1 2 2 0 0 0 0-4H7.89"
+        },
+        {
+          "type": "path",
+          "d": "m2 2 20 20"
+        },
+        {
+          "type": "path",
+          "d": "M9 9v1.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V16a1 1 0 0 0 1 1h11"
+        }
+      ]
+    },
+    "EllipsisVertical": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "circle",
+          "cx": "12",
+          "cy": "12",
+          "r": "1"
+        },
+        {
+          "type": "circle",
+          "cx": "12",
+          "cy": "5",
+          "r": "1"
+        },
+        {
+          "type": "circle",
+          "cx": "12",
+          "cy": "19",
+          "r": "1"
+        }
+      ]
+    },
+    "FileDown": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"
+        },
+        {
+          "type": "path",
+          "d": "M14 2v5a1 1 0 0 0 1 1h5"
+        },
+        {
+          "type": "path",
+          "d": "M12 18v-6"
+        },
+        {
+          "type": "path",
+          "d": "m9 15 3 3 3-3"
+        }
+      ]
+    },
+    "FileUp": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"
+        },
+        {
+          "type": "path",
+          "d": "M14 2v5a1 1 0 0 0 1 1h5"
+        },
+        {
+          "type": "path",
+          "d": "M12 12v6"
+        },
+        {
+          "type": "path",
+          "d": "m15 15-3-3-3 3"
+        }
+      ]
+    },
+    "BookOpen": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M12 5v16"
+        },
+        {
+          "type": "path",
+          "d": "M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z"
+        }
+      ]
+    },
+    "Info": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "circle",
+          "cx": "12",
+          "cy": "12",
+          "r": "10"
+        },
+        {
+          "type": "path",
+          "d": "M12 16v-4"
+        },
+        {
+          "type": "path",
+          "d": "M12 8h.01"
+        }
+      ]
+    },
+    "Keyboard": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M10 8h.01"
+        },
+        {
+          "type": "path",
+          "d": "M12 12h.01"
+        },
+        {
+          "type": "path",
+          "d": "M14 8h.01"
+        },
+        {
+          "type": "path",
+          "d": "M16 12h.01"
+        },
+        {
+          "type": "path",
+          "d": "M18 8h.01"
+        },
+        {
+          "type": "path",
+          "d": "M6 8h.01"
+        },
+        {
+          "type": "path",
+          "d": "M7 16h10"
+        },
+        {
+          "type": "path",
+          "d": "M8 12h.01"
+        },
+        {
+          "type": "rect",
+          "width": "20",
+          "height": "16",
+          "x": "2",
+          "y": "4",
+          "rx": "2"
+        }
+      ]
+    },
+    "Globe": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "circle",
+          "cx": "12",
+          "cy": "12",
+          "r": "10"
+        },
+        {
+          "type": "path",
+          "d": "M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"
+        },
+        {
+          "type": "path",
+          "d": "M2 12h20"
+        }
+      ]
+    },
+    "Sun": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "circle",
+          "cx": "12",
+          "cy": "12",
+          "r": "4"
+        },
+        {
+          "type": "path",
+          "d": "M12 2v2"
+        },
+        {
+          "type": "path",
+          "d": "M12 20v2"
+        },
+        {
+          "type": "path",
+          "d": "m4.93 4.93 1.41 1.41"
+        },
+        {
+          "type": "path",
+          "d": "m17.66 17.66 1.41 1.41"
+        },
+        {
+          "type": "path",
+          "d": "M2 12h2"
+        },
+        {
+          "type": "path",
+          "d": "M20 12h2"
+        },
+        {
+          "type": "path",
+          "d": "m6.34 17.66-1.41 1.41"
+        },
+        {
+          "type": "path",
+          "d": "m19.07 4.93-1.41 1.41"
+        }
+      ]
+    },
+    "CloudOff": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M10.94 5.274A7 7 0 0 1 15.71 10h1.79a4.5 4.5 0 0 1 4.222 6.057"
+        },
+        {
+          "type": "path",
+          "d": "M18.796 18.81A4.5 4.5 0 0 1 17.5 19H9A7 7 0 0 1 5.79 5.78"
+        },
+        {
+          "type": "path",
+          "d": "m2 2 20 20"
+        }
+      ]
+    },
+    "LayoutTemplate": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "rect",
+          "width": "18",
+          "height": "7",
+          "x": "3",
+          "y": "3",
+          "rx": "1"
+        },
+        {
+          "type": "rect",
+          "width": "9",
+          "height": "7",
+          "x": "3",
+          "y": "14",
+          "rx": "1"
+        },
+        {
+          "type": "rect",
+          "width": "5",
+          "height": "7",
+          "x": "16",
+          "y": "14",
+          "rx": "1"
+        }
+      ]
+    },
+    "PackageOpen": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M12 22v-9"
+        },
+        {
+          "type": "path",
+          "d": "M15.17 2.21a1.67 1.67 0 0 1 1.63 0L21 4.57a1.93 1.93 0 0 1 0 3.36L8.82 14.79a1.655 1.655 0 0 1-1.64 0L3 12.43a1.93 1.93 0 0 1 0-3.36z"
+        },
+        {
+          "type": "path",
+          "d": "M20 13v3.87a2.06 2.06 0 0 1-1.11 1.83l-6 3.08a1.93 1.93 0 0 1-1.78 0l-6-3.08A2.06 2.06 0 0 1 4 16.87V13"
+        },
+        {
+          "type": "path",
+          "d": "M21 12.43a1.93 1.93 0 0 0 0-3.36L8.83 2.2a1.64 1.64 0 0 0-1.63 0L3 4.57a1.93 1.93 0 0 0 0 3.36l12.18 6.86a1.636 1.636 0 0 0 1.63 0z"
+        }
+      ]
+    },
+    "SearchX": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "m13.5 8.5-5 5"
+        },
+        {
+          "type": "path",
+          "d": "m8.5 8.5 5 5"
+        },
+        {
+          "type": "circle",
+          "cx": "11",
+          "cy": "11",
+          "r": "8"
+        },
+        {
+          "type": "path",
+          "d": "m21 21-4.3-4.3"
+        }
+      ]
+    },
+    "SquareMousePointer": {
+      "size": 24,
+      "strokeWidth": 2,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M12.034 12.681a.498.498 0 0 1 .647-.647l9 3.5a.5.5 0 0 1-.033.943l-3.444 1.068a1 1 0 0 0-.66.66l-1.067 3.443a.5.5 0 0 1-.943.033z"
+        },
+        {
+          "type": "path",
+          "d": "M21 11V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h6"
+        }
+      ]
+    },
+    "ArrowMiddleFromLine": {
+      "size": 16,
+      "strokeWidth": 1,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M8 14.6667V10.6667"
+        },
+        {
+          "type": "path",
+          "d": "M8 5.33333V1.33333"
+        },
+        {
+          "type": "path",
+          "d": "M14.6667 8H1.33334"
+        },
+        {
+          "type": "path",
+          "d": "M10 12.6667L8 10.6667L6 12.6667"
+        },
+        {
+          "type": "path",
+          "d": "M10 3.33333L8 5.33333L6 3.33333"
+        }
+      ]
+    },
+    "BorderInner": {
+      "size": 16,
+      "strokeWidth": 1,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M14 5.33333V3.33333C14 2.59695 13.403 2 12.6667 2H10.6667M14 10.6667V12.6667C14 13.403 13.403 14 12.6667 14H10.6667M2 10.6667V12.6667C2 13.403 2.59695 14 3.33333 14H5.33333M2 5.33333V3.33333C2 2.59695 2.59695 2 3.33333 2H5.33333",
+          "stroke": "#B2B2B2"
+        },
+        {
+          "type": "path",
+          "d": "M2 8H14"
+        },
+        {
+          "type": "path",
+          "d": "M8 2V14"
+        }
+      ]
+    },
+    "BorderCenterH": {
+      "size": 16,
+      "strokeWidth": 1,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M14 5.33333V3.33333C14 2.59695 13.403 2 12.6667 2H8M14 10.6667V12.6667C14 13.403 13.403 14 12.6667 14H8M2 10.6667V12.6667C2 13.403 2.59695 14 3.33333 14H8M2 5.33333V3.33333C2 2.59695 2.59695 2 3.33333 2H8M8 14V10.6667M8 2V5.33333",
+          "stroke": "#B2B2B2"
+        },
+        {
+          "type": "path",
+          "d": "M2 8H14"
+        }
+      ]
+    },
+    "BorderCenterV": {
+      "size": 16,
+      "strokeWidth": 1,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M10.6667 2H12.6667C13.403 2 14 2.59695 14 3.33333V8M5.33333 2H3.33333C2.59695 2 2 2.59695 2 3.33333V8M5.33333 14H3.33333C2.59695 14 2 13.403 2 12.6667V8M10.6667 14H12.6667C13.403 14 14 13.403 14 12.6667V8M2 8H5.33333M14 8H10.6667",
+          "stroke": "#B2B2B2"
+        },
+        {
+          "type": "path",
+          "d": "M8 2V14"
+        }
+      ]
+    },
+    "BorderOuter": {
+      "size": 16,
+      "strokeWidth": 1,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M12.6667 2H3.33333C2.59695 2 2 2.59695 2 3.33333V12.6667C2 13.403 2.59695 14 3.33333 14H12.6667C13.403 14 14 13.403 14 12.6667V3.33333C14 2.59695 13.403 2 12.6667 2Z"
+        },
+        {
+          "type": "path",
+          "d": "M4.66667 8H11.3333",
+          "stroke": "#B2B2B2"
+        },
+        {
+          "type": "path",
+          "d": "M8 4.66667L8 11.3333",
+          "stroke": "#B2B2B2"
+        }
+      ]
+    },
+    "BorderNone": {
+      "size": 16,
+      "strokeWidth": 1,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M12.6667 2H3.33333C2.59695 2 2 2.59695 2 3.33333V12.6667C2 13.403 2.59695 14 3.33333 14H12.6667C13.403 14 14 13.403 14 12.6667V3.33333C14 2.59695 13.403 2 12.6667 2Z",
+          "stroke": "#B2B2B2"
+        },
+        {
+          "type": "path",
+          "d": "M2 8H14",
+          "stroke": "#B2B2B2"
+        },
+        {
+          "type": "path",
+          "d": "M8 2V14",
+          "stroke": "#B2B2B2"
+        }
+      ]
+    },
+    "BorderTop": {
+      "size": 16,
+      "strokeWidth": 1,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M14 4.66667V12.6667C14 13.403 13.403 14 12.6667 14H3.33333C2.59695 14 2 13.403 2 12.6667V4.66667",
+          "stroke": "#B2B2B2"
+        },
+        {
+          "type": "path",
+          "d": "M2 2H14"
+        },
+        {
+          "type": "path",
+          "d": "M2 8H14",
+          "stroke": "#B2B2B2"
+        },
+        {
+          "type": "path",
+          "d": "M8 4.66667V14",
+          "stroke": "#B2B2B2"
+        }
+      ]
+    },
+    "BorderRight": {
+      "size": 16,
+      "strokeWidth": 1,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M11.3333 2H3.33333C2.59695 2 2 2.59695 2 3.33333V12.6667C2 13.403 2.59695 14 3.33333 14H11.3333",
+          "stroke": "#B2B2B2"
+        },
+        {
+          "type": "path",
+          "d": "M2 8H11.3333",
+          "stroke": "#B2B2B2"
+        },
+        {
+          "type": "path",
+          "d": "M8 2V14",
+          "stroke": "#B2B2B2"
+        },
+        {
+          "type": "path",
+          "d": "M14 2V14"
+        }
+      ]
+    },
+    "BorderBottom": {
+      "size": 16,
+      "strokeWidth": 1,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M2 14H14"
+        },
+        {
+          "type": "path",
+          "d": "M2 8H14",
+          "stroke": "#B2B2B2"
+        },
+        {
+          "type": "path",
+          "d": "M8 2V11.3333",
+          "stroke": "#B2B2B2"
+        },
+        {
+          "type": "path",
+          "d": "M14 11.3333V3.33333C14 2.59695 13.403 2 12.6667 2H3.33333C2.59695 2 2 2.59695 2 3.33333V11.3333",
+          "stroke": "#B2B2B2"
+        }
+      ]
+    },
+    "BorderLeft": {
+      "size": 16,
+      "strokeWidth": 1,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M4.66667 2H12.6667C13.403 2 14 2.59695 14 3.33333V12.6667C14 13.403 13.403 14 12.6667 14H4.66667",
+          "stroke": "#B2B2B2"
+        },
+        {
+          "type": "path",
+          "d": "M4.66667 8H14",
+          "stroke": "#B2B2B2"
+        },
+        {
+          "type": "path",
+          "d": "M8 2V14",
+          "stroke": "#B2B2B2"
+        },
+        {
+          "type": "path",
+          "d": "M2 2V14"
+        }
+      ]
+    },
+    "Fx": {
+      "size": 14,
+      "width": 12,
+      "strokeWidth": 0,
+      "nodes": [
+        {
+          "type": "path",
+          "d": "M0.182 13.305C0.303333 13.3917 0.468 13.435 0.676 13.435C0.962 13.435 1.24367 13.3483 1.521 13.175C1.79833 13.0103 2.05833 12.7937 2.301 12.525C2.55233 12.2563 2.77333 11.9703 2.964 11.667C3.16333 11.3637 3.32367 11.069 3.445 10.783C3.575 10.5057 3.653 10.276 3.679 10.094L4.459 5.011H5.954V4.439H4.537L4.706 3.36C4.80133 2.75334 4.96167 2.281 5.187 1.943C5.421 1.59634 5.73733 1.423 6.136 1.423C6.422 1.423 6.67767 1.488 6.903 1.618L7.189 1.787H7.293L7.566 1.28C7.592 1.23667 7.61367 1.189 7.631 1.137C7.657 1.085 7.67 1.04167 7.67 1.007C7.67 0.93767 7.64833 0.881336 7.605 0.838003C7.57033 0.786003 7.49233 0.72967 7.371 0.669003C7.30167 0.643003 7.22367 0.621336 7.137 0.604003C7.05033 0.578003 6.95933 0.565002 6.864 0.565002C6.53467 0.565002 6.20967 0.651669 5.889 0.825003C5.56833 0.98967 5.265 1.21067 4.979 1.488C4.693 1.75667 4.43733 2.047 4.212 2.359C3.98667 2.66234 3.80033 2.957 3.653 3.243C3.51433 3.52034 3.432 3.75434 3.406 3.945L3.328 4.439H2.249V5.011H3.25L2.405 10.692C2.31833 11.2813 2.17533 11.745 1.976 12.083C1.77667 12.4297 1.508 12.603 1.17 12.603C0.953333 12.603 0.788667 12.564 0.676 12.486L0.39 12.278H0.312L0.0779999 12.746C0.026 12.85 0 12.9367 0 13.006C0 13.1187 0.0606667 13.2183 0.182 13.305ZM5.90545 9.98999C5.82745 10.1027 5.78845 10.211 5.78845 10.315H6.65945C6.70279 10.211 6.75045 10.1113 6.80245 10.016C6.85445 9.91199 6.93245 9.78199 7.03645 9.62599C7.14045 9.46132 7.30079 9.23166 7.51745 8.93699C7.73412 8.64232 8.03312 8.25232 8.41445 7.76699L9.45445 10.341H9.49345L11.2745 9.92499V9.82099L10.3385 9.44399L9.37645 6.98699C9.80112 6.50166 10.1521 6.11166 10.4295 5.81699C10.7068 5.52232 10.9235 5.29266 11.0795 5.12799C11.2441 4.96332 11.3568 4.83332 11.4175 4.73799C11.4868 4.63399 11.5215 4.53432 11.5215 4.43899H10.7025C10.6678 4.52566 10.6288 4.61666 10.5855 4.71199C10.5421 4.79866 10.4728 4.91566 10.3775 5.06299C10.2908 5.20166 10.1565 5.39666 9.97445 5.64799C9.79245 5.89932 9.54545 6.22866 9.23345 6.63599L8.31045 4.30899H8.27145L6.43845 4.72499V4.82899L7.38745 5.21899L8.27145 7.40299C7.78612 7.95766 7.38312 8.40399 7.06245 8.74199C6.74179 9.07999 6.48612 9.34432 6.29545 9.53499C6.11345 9.72566 5.98345 9.87732 5.90545 9.98999Z",
+          "fill": "currentColor"
+        }
+      ]
+    }
+  },
+  "themes": {
+    "light": {
+      "--typography-font-family": "Inter",
+      "--typography-font-size": "12px",
+      "--palette-common-black": "#272525",
+      "--palette-common-white": "#FFF",
+      "--palette-primary-main": "#F2994A",
+      "--palette-primary-light": "#EFAA6D",
+      "--palette-primary-dark": "#D68742",
+      "--palette-primary-contrast-text": "#FFF",
+      "--palette-secondary-main": "#2F80ED",
+      "--palette-secondary-light": "#4E92EC",
+      "--palette-secondary-dark": "#2B6EC8",
+      "--palette-secondary-contrast-text": "#FFF",
+      "--palette-error-main": "#EB5757",
+      "--palette-error-light": "#E77A7A",
+      "--palette-error-dark": "#CB4C4C",
+      "--palette-error-contrast-text": "#FFF",
+      "--palette-warning-main": "#F2C94C",
+      "--palette-warning-light": "#EED384",
+      "--palette-warning-dark": "#D6B244",
+      "--palette-warning-contrast-text": "#FFF",
+      "--palette-info-main": "#9E9E9E",
+      "--palette-info-light": "#E0E0E0",
+      "--palette-info-dark": "#757575",
+      "--palette-info-contrast-text": "#FFF",
+      "--palette-success-main": "#27AE60",
+      "--palette-success-light": "#57BD82",
+      "--palette-success-dark": "#239152",
+      "--palette-success-contrast-text": "#FFF",
+      "--palette-grey-50": "#F5F5F5",
+      "--palette-grey-100": "#F2F2F2",
+      "--palette-grey-200": "#EEEEEE",
+      "--palette-grey-300": "#E0E0E0",
+      "--palette-grey-400": "#BDBDBD",
+      "--palette-grey-500": "#9E9E9E",
+      "--palette-grey-600": "#757575",
+      "--palette-grey-700": "#616161",
+      "--palette-grey-800": "#424242",
+      "--palette-grey-900": "#333333",
+      "--palette-grey-a100": "#F2F2F2",
+      "--palette-grey-a200": "#EEEEEE",
+      "--palette-grey-a400": "#bdbdbd",
+      "--palette-grey-a700": "#616161",
+      "--palette-surface-elevated": "#FFF",
+      "--palette-surface-elevated-border": "transparent",
+      "--palette-input-background": "#FFF",
+      "--palette-input-border": "#E0E0E0",
+      "--palette-sheet-header-corner-background": "#FFF",
+      "--palette-sheet-header-text-color": "#333",
+      "--palette-sheet-header-background": "#FFF",
+      "--palette-sheet-header-global-selector-color": "#EAECF4",
+      "--palette-sheet-header-selected-background": "#EEEEEE",
+      "--palette-sheet-header-full-selected-background": "#D3D6E9",
+      "--palette-sheet-header-selected-color": "#333",
+      "--palette-sheet-header-border-color": "#E0E0E0",
+      "--palette-sheet-grid-color": "#E0E0E0",
+      "--palette-sheet-grid-separator-color": "#E0E0E0",
+      "--palette-sheet-default-text-color": "#2E414D",
+      "--palette-sheet-outline-color": "#F2994A",
+      "--palette-sheet-outline-editing-color": "#FBE0C9",
+      "--palette-sheet-outline-background-color": "#F2994A1A",
+      "--palette-sheet-default-cell-font-family": "Inter, \"Adjusted Arial Fallback\", sans-serif",
+      "--palette-sheet-header-font": "bold 12px Inter, \"Adjusted Arial Fallback\", sans-serif"
+    },
+    "dark": {
+      "--typography-font-family": "Inter",
+      "--typography-font-size": "12px",
+      "--palette-common-black": "#E8E6E3",
+      "--palette-common-white": "#1E1E1E",
+      "--palette-primary-main": "#F2994A",
+      "--palette-primary-light": "#F5AD6E",
+      "--palette-primary-dark": "#D68742",
+      "--palette-primary-contrast-text": "#1E1E1E",
+      "--palette-secondary-main": "#4E92EC",
+      "--palette-secondary-light": "#6EA6F0",
+      "--palette-secondary-dark": "#2B6EC8",
+      "--palette-secondary-contrast-text": "#FFF",
+      "--palette-error-main": "#EF6B6B",
+      "--palette-error-light": "#F08A8A",
+      "--palette-error-dark": "#CB4C4C",
+      "--palette-error-contrast-text": "#1E1E1E",
+      "--palette-warning-main": "#F2C94C",
+      "--palette-warning-light": "#F5D879",
+      "--palette-warning-dark": "#D6B244",
+      "--palette-warning-contrast-text": "#1E1E1E",
+      "--palette-info-main": "#ABABAB",
+      "--palette-info-light": "#C2C2C2",
+      "--palette-info-dark": "#757575",
+      "--palette-info-contrast-text": "#1E1E1E",
+      "--palette-success-main": "#3DBE76",
+      "--palette-success-light": "#5FCB8E",
+      "--palette-success-dark": "#239152",
+      "--palette-success-contrast-text": "#1E1E1E",
+      "--palette-grey-50": "#2A2A2A",
+      "--palette-grey-100": "#2F2F2F",
+      "--palette-grey-200": "#363636",
+      "--palette-grey-300": "#444444",
+      "--palette-grey-400": "#5E5E5E",
+      "--palette-grey-500": "#7A7A7A",
+      "--palette-grey-600": "#9E9E9E",
+      "--palette-grey-700": "#B5B5B5",
+      "--palette-grey-800": "#CFCFCF",
+      "--palette-grey-900": "#EDEDED",
+      "--palette-grey-a100": "#2F2F2F",
+      "--palette-grey-a200": "#363636",
+      "--palette-grey-a400": "#5E5E5E",
+      "--palette-grey-a700": "#B5B5B5",
+      "--palette-surface-elevated": "#2A2A2A",
+      "--palette-surface-elevated-border": "#3A3A3A",
+      "--palette-input-background": "#2A2A2A",
+      "--palette-input-border": "#3A3A3A",
+      "--palette-sheet-header-corner-background": "#242424",
+      "--palette-sheet-header-text-color": "#D0D0D0",
+      "--palette-sheet-header-background": "#242424",
+      "--palette-sheet-header-global-selector-color": "#2C2F3A",
+      "--palette-sheet-header-selected-background": "#333333",
+      "--palette-sheet-header-full-selected-background": "#39405A",
+      "--palette-sheet-header-selected-color": "#F0F0F0",
+      "--palette-sheet-header-border-color": "#3A3A3A",
+      "--palette-sheet-grid-color": "#3A3A3A",
+      "--palette-sheet-grid-separator-color": "#3A3A3A",
+      "--palette-sheet-default-text-color": "#E4E4E4",
+      "--palette-sheet-outline-color": "#F2994A",
+      "--palette-sheet-outline-editing-color": "#4A331C",
+      "--palette-sheet-outline-background-color": "#F2994A26",
+      "--palette-sheet-default-cell-font-family": "Inter, \"Adjusted Arial Fallback\", sans-serif",
+      "--palette-sheet-header-font": "bold 12px Inter, \"Adjusted Arial Fallback\", sans-serif"
+    }
+  }
+}

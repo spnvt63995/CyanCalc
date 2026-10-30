@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="11.3.20" />
+    <ProjectReference Include="../../bindings/dotnet/CyanCalc.csproj" />
+    <EmbeddedResource Include="Resources/*.json" />
+    <AvaloniaResource Include="Resources/Fonts/*.ttf" />
+    <EmbeddedResource Include="../../webapp/app.ironcalc.com/frontend/src/locale/*.json" Link="Shell/Locales/%(Filename)%(Extension)" />
+    <EmbeddedResource Include="../../webapp/IronCalc/src/locale/*.json" Link="Workbook/Locales/%(Filename)%(Extension)" />
+    <EmbeddedResource Include="Localization/Locales/*.json" />
+    <AvaloniaResource Include="../../webapp/app.ironcalc.com/frontend/public/templates/*.png" Link="Shell/Templates/%(Filename)%(Extension)" />
+  </ItemGroup>
+</Project>

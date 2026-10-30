@@ -1,0 +1,18 @@
+{
+  "upstream": "297553dc3a37ec6b0f4821055220e3d26c4ac6a1",
+  "conversion": "fonttools 4.67.0; WOFF2 to SFNT without outline/name changes",
+  "fonts": [
+    {
+      "source": "webapp/IronCalc/fonts/inter-v13-latin-regular.woff2",
+      "source_sha256": "2301bb030a2bcaa9c763cc4771bd717aac16709c29eaba00673fcbe7cdf99a59",
+      "output": "ui/avalonia/Resources/Fonts/Inter-Regular.ttf",
+      "output_sha256": "34be2601570fb9f529ea2031b8fbb97728d718c52de37188596d7f811264397a"
+    },
+    {
+      "source": "webapp/IronCalc/fonts/inter-v13-latin-600.woff2",
+      "source_sha256": "3022fadde78fd30c384797bcef8bebc18c96083527a850f62a58d8957a8b208f",
+      "output": "ui/avalonia/Resources/Fonts/Inter-SemiBold.ttf",
+      "output_sha256": "9959702685f7aa79f1577ae121eb22a20aa4b8490c12ed70200274dd323e1c00"
+    }
+  ]
+}

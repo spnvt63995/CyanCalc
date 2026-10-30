@@ -1,0 +1,18 @@
+[package]
+name = "cyancalc_native"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+# Keep bridge dependencies and build output in their own workspace.
+# The engine is the IronCalc source shipped in this checkout.
+[workspace]
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+ironcalc = { path = "../../../xlsx" }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+base64 = "0.22"

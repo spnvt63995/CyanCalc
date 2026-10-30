@@ -1,0 +1,195 @@
+<Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Styles.Resources>
+    <!-- theme.css supplies grey-400/common-white to the browser scrollbar.
+         AppKit selects an overlay or a 15px gutter; neither has line arrows.
+         Keep Avalonia's track, page buttons and drag handling. -->
+    <ControlTheme x:Key="DrawerScrollThumb" TargetType="Thumb">
+      <Setter Property="Width" Value="8" />
+      <Setter Property="MinHeight" Value="18" />
+      <Setter Property="CornerRadius" Value="4" />
+      <Setter Property="Background" Value="{DynamicResource Dialog-grey-400}" />
+      <Setter Property="Template">
+        <ControlTemplate><Border Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}" /></ControlTemplate>
+      </Setter>
+    </ControlTheme>
+    <ControlTheme x:Key="DrawerScrollPageButton" TargetType="RepeatButton">
+      <Setter Property="Template">
+        <ControlTemplate><Border Background="Transparent" /></ControlTemplate>
+      </Setter>
+    </ControlTheme>
+    <ControlTheme x:Key="DrawerScrollBar" TargetType="ScrollBar">
+      <Setter Property="Background" Value="{DynamicResource Dialog-common-white}" />
+      <Setter Property="Template">
+        <ControlTemplate>
+          <Border Background="{TemplateBinding Background}">
+            <Track Minimum="{TemplateBinding Minimum}" Maximum="{TemplateBinding Maximum}"
+              Value="{TemplateBinding Value, Mode=TwoWay}" ViewportSize="{TemplateBinding ViewportSize}"
+              DeferThumbDrag="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}"
+              Orientation="{TemplateBinding Orientation}">
+              <Track.DecreaseButton>
+                <RepeatButton Name="PART_PageUpButton" Theme="{StaticResource DrawerScrollPageButton}"
+                  Focusable="False" />
+              </Track.DecreaseButton>
+              <Track.IncreaseButton>
+                <RepeatButton Name="PART_PageDownButton" Theme="{StaticResource DrawerScrollPageButton}"
+                  Focusable="False" />
+              </Track.IncreaseButton>
+              <Thumb Theme="{StaticResource DrawerScrollThumb}" AutomationProperties.Name="Position" />
+            </Track>
+          </Border>
+        </ControlTemplate>
+      </Setter>
+      <Style Selector="^ /template/ Track"><Setter Property="Margin" Value="0,2" /><Setter Property="IsDirectionReversed" Value="True" /></Style>
+      <Style Selector="^:horizontal /template/ Track"><Setter Property="Margin" Value="2,0" /><Setter Property="IsDirectionReversed" Value="False" /></Style>
+      <Style Selector="^ /template/ RepeatButton#PART_PageUpButton"><Setter Property="AutomationProperties.Name" Value="Page up" /></Style>
+      <Style Selector="^ /template/ RepeatButton#PART_PageDownButton"><Setter Property="AutomationProperties.Name" Value="Page down" /></Style>
+      <Style Selector="^:horizontal /template/ RepeatButton#PART_PageUpButton"><Setter Property="AutomationProperties.Name" Value="Page left" /></Style>
+      <Style Selector="^:horizontal /template/ RepeatButton#PART_PageDownButton"><Setter Property="AutomationProperties.Name" Value="Page right" /></Style>
+      <Style Selector="^:horizontal /template/ Thumb">
+        <Setter Property="Width" Value="NaN" /><Setter Property="Height" Value="8" /><Setter Property="MinHeight" Value="0" /><Setter Property="MinWidth" Value="18" />
+      </Style>
+      <Style Selector="^.overlay"><Setter Property="Background" Value="Transparent" /></Style>
+      <Style Selector="^.overlay /template/ Thumb">
+        <Setter Property="Width" Value="7" /><Setter Property="HorizontalAlignment" Value="Right" /><Setter Property="Margin" Value="0,0,2,0" />
+        <Setter Property="CornerRadius" Value="5.5" />
+      </Style>
+      <Style Selector="^.overlay.expanded"><Setter Property="Background" Value="{DynamicResource Dialog-common-white}" /></Style>
+      <Style Selector="^.overlay.expanded /template/ Thumb">
+        <Setter Property="Width" Value="11" />
+        <Setter Property="Transitions"><Transitions><DoubleTransition Property="Width" Duration="0:0:0.2"><DoubleTransition.Easing><SplineEasing X1="0.42" Y1="0" X2="0.58" Y2="1" /></DoubleTransition.Easing></DoubleTransition></Transitions></Setter>
+      </Style>
+      <Style Selector="^.overlay:horizontal /template/ Thumb">
+        <Setter Property="Width" Value="NaN" /><Setter Property="Height" Value="7" /><Setter Property="HorizontalAlignment" Value="Stretch" /><Setter Property="VerticalAlignment" Value="Bottom" /><Setter Property="Margin" Value="0,0,0,2" />
+      </Style>
+      <Style Selector="^.overlay.expanded:horizontal /template/ Thumb">
+        <Setter Property="Height" Value="11" />
+        <Setter Property="Transitions"><Transitions><DoubleTransition Property="Height" Duration="0:0:0.2"><DoubleTransition.Easing><SplineEasing X1="0.42" Y1="0" X2="0.58" Y2="1" /></DoubleTransition.Easing></DoubleTransition></Transitions></Setter>
+      </Style>
+      <Style Selector="^.worksheet-scroll.overlay:vertical /template/ Thumb"><Setter Property="MinHeight" Value="22" /></Style>
+      <Style Selector="^.worksheet-scroll.overlay:horizontal /template/ Thumb"><Setter Property="MinWidth" Value="22" /></Style>
+    </ControlTheme>
+    <ControlTheme x:Key="DialogButton" TargetType="Button">
+      <Setter Property="Height" Value="32" />
+      <Setter Property="MinHeight" Value="0" />
+      <Setter Property="MinWidth" Value="0" />
+      <Setter Property="FontSize" Value="12" />
+      <Setter Property="FontWeight" Value="Medium" />
+      <Setter Property="Padding" Value="10,0" />
+      <Setter Property="CornerRadius" Value="6" />
+      <Setter Property="BorderThickness" Value="1" />
+      <Setter Property="BorderBrush" Value="#0A000000" />
+      <Setter Property="Background" Value="{DynamicResource Dialog-grey-200}" />
+      <Setter Property="Foreground" Value="{DynamicResource Dialog-common-black}" />
+      <Setter Property="HorizontalContentAlignment" Value="Center" />
+      <Setter Property="VerticalContentAlignment" Value="Center" />
+      <Setter Property="Template">
+        <ControlTemplate>
+          <ContentPresenter Name="PART_ContentPresenter" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"
+            Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
+            CornerRadius="{TemplateBinding CornerRadius}" Padding="{TemplateBinding Padding}"
+            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+        </ControlTemplate>
+      </Setter>
+      <Style Selector="^:pointerover"><Setter Property="Background" Value="{DynamicResource Dialog-grey-300}" /></Style>
+      <Style Selector="^.primary"><Setter Property="Background" Value="{DynamicResource Dialog-primary-main}" /><Setter Property="Foreground" Value="{DynamicResource Dialog-primary-contrast-text}" /></Style>
+      <Style Selector="^.primary:pointerover"><Setter Property="Background" Value="{DynamicResource Dialog-primary-dark}" /></Style>
+      <Style Selector="^.destructive"><Setter Property="Background" Value="{DynamicResource Dialog-error-main}" /><Setter Property="Foreground" Value="{DynamicResource Dialog-error-contrast-text}" /></Style>
+      <Style Selector="^.destructive:pointerover"><Setter Property="Background" Value="{DynamicResource Dialog-error-dark}" /></Style>
+      <Style Selector="^.ghost"><Setter Property="Background" Value="Transparent" /><Setter Property="BorderThickness" Value="0" /></Style>
+      <Style Selector="^.ghost:pointerover"><Setter Property="Background" Value="{DynamicResource Dialog-grey-100}" /></Style>
+      <Style Selector="^.danger-text"><Setter Property="Foreground" Value="{DynamicResource Dialog-error-main}" /></Style>
+      <Style Selector="^:disabled"><Setter Property="Background" Value="{DynamicResource Dialog-grey-200}" /><Setter Property="Foreground" Value="{DynamicResource Dialog-grey-400}" /><Setter Property="BorderBrush" Value="{DynamicResource Dialog-grey-300}" /></Style>
+      <Style Selector="^:focus-visible"><Setter Property="BorderBrush" Value="{DynamicResource Dialog-primary-main}" /></Style>
+    </ControlTheme>
+    <ControlTheme x:Key="DialogTab" TargetType="TabItem">
+      <Setter Property="Height" Value="32" /><Setter Property="MinHeight" Value="0" /><Setter Property="MinWidth" Value="0" /><Setter Property="FontSize" Value="12" /><Setter Property="FontWeight" Value="Medium" />
+      <Setter Property="Padding" Value="8,0" /><Setter Property="Opacity" Value="0.5" />
+      <Setter Property="BorderBrush" Value="Transparent" /><Setter Property="BorderThickness" Value="1" />
+      <Setter Property="Template"><ControlTemplate><Border Background="{TemplateBinding Background}"
+        BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="6" Padding="{TemplateBinding Padding}">
+        <ContentPresenter Content="{TemplateBinding Header}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+      </Border></ControlTemplate></Setter>
+      <Style Selector="^:pointerover"><Setter Property="Opacity" Value="1" /></Style>
+      <Style Selector="^:selected"><Setter Property="Opacity" Value="1" /><Setter Property="Background" Value="{DynamicResource Dialog-common-white}" /><Setter Property="BorderBrush" Value="{DynamicResource Dialog-grey-400}" /></Style>
+    </ControlTheme>
+    <ControlTheme x:Key="DialogOption" TargetType="ComboBoxItem">
+      <Setter Property="MinHeight" Value="32" /><Setter Property="FontSize" Value="12" />
+      <Setter Property="Foreground" Value="{DynamicResource Dialog-common-black}" /><Setter Property="Background" Value="Transparent" />
+      <Setter Property="Template" Value="{DynamicResource DialogOptionTemplate}" />
+      <Style Selector="^:selected"><Setter Property="FontWeight" Value="SemiBold" /></Style>
+      <Style Selector="^:pointerover, ^:focus"><Setter Property="Background" Value="{DynamicResource Dialog-grey-200}" /></Style>
+    </ControlTheme>
+  </Styles.Resources>
+  <Style Selector="ScrollBar.worksheet-scroll"><Setter Property="Theme" Value="{StaticResource DrawerScrollBar}" /></Style>
+  <Style Selector="Button.dialog-button"><Setter Property="Theme" Value="{StaticResource DialogButton}" /></Style>
+  <Style Selector="TabControl.dialog-tabs">
+    <Setter Property="Height" Value="32" /><Setter Property="Margin" Value="0,0,0,4" />
+    <Setter Property="ItemContainerTheme" Value="{StaticResource DialogTab}" />
+    <Setter Property="ItemsPanel"><ItemsPanelTemplate><UniformGrid Rows="1" /></ItemsPanelTemplate></Setter>
+    <Setter Property="Template"><ControlTemplate><Panel><Border Background="{DynamicResource Dialog-grey-50}" CornerRadius="6" BorderThickness="1" BorderBrush="{DynamicResource Dialog-grey-300}" IsHitTestVisible="False" />
+      <ItemsPresenter Name="PART_ItemsPresenter" Margin="0" ItemsPanel="{TemplateBinding ItemsPanel}" />
+    </Panel></ControlTemplate></Setter>
+  </Style>
+  <Style Selector="TextBox">
+    <Setter Property="SelectionBrush" Value="{DynamicResource Dialog-text-selection-background}" />
+    <Setter Property="SelectionForegroundBrush" Value="{DynamicResource Dialog-common-black}" />
+  </Style>
+  <Style Selector="TextBox.dialog-input, Border.workbook-drawer TextBox">
+    <Setter Property="FontSize" Value="12" /><Setter Property="Height" Value="32" /><Setter Property="MinHeight" Value="0" />
+    <Setter Property="Padding" Value="10,0" /><Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="CornerRadius" Value="6" /><Setter Property="BorderThickness" Value="1" />
+    <Setter Property="Background" Value="{DynamicResource Dialog-input-background}" /><Setter Property="Foreground" Value="{DynamicResource Dialog-common-black}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource Dialog-input-border}" />
+  </Style>
+  <Style Selector="TextBox.dialog-input /template/ TextBlock#PART_Watermark, Border.workbook-drawer TextBox /template/ TextBlock#PART_Watermark"><Setter Property="Foreground" Value="{DynamicResource Dialog-grey-400}" /><Setter Property="Opacity" Value="1" /></Style>
+  <Style Selector="TextBox.dialog-input:pointerover /template/ Border#PART_BorderElement, Border.workbook-drawer TextBox:pointerover /template/ Border#PART_BorderElement"><Setter Property="Background" Value="{DynamicResource Dialog-input-background}" /><Setter Property="BorderBrush" Value="{DynamicResource Dialog-grey-600}" /></Style>
+  <Style Selector="TextBox.dialog-input:focus /template/ Border#PART_BorderElement, Border.workbook-drawer TextBox:focus /template/ Border#PART_BorderElement"><Setter Property="Background" Value="{DynamicResource Dialog-input-background}" /><Setter Property="BorderBrush" Value="{DynamicResource Dialog-primary-main}" /><Setter Property="BorderThickness" Value="1" /></Style>
+  <Style Selector="TextBox.dialog-input.invalid /template/ Border#PART_BorderElement, Border.workbook-drawer TextBox.invalid /template/ Border#PART_BorderElement"><Setter Property="BorderBrush" Value="{DynamicResource Dialog-error-main}" /></Style>
+  <Style Selector="TextBox.dialog-input:focus, Border.workbook-drawer TextBox:focus, TextBox.dialog-input:pointerover, Border.workbook-drawer TextBox:pointerover"><Setter Property="Foreground" Value="{DynamicResource Dialog-common-black}" /></Style>
+  <Style Selector="TextBox.dialog-input:focus /template/ TextBlock#PART_Watermark, Border.workbook-drawer TextBox:focus /template/ TextBlock#PART_Watermark, TextBox.dialog-input:pointerover /template/ TextBlock#PART_Watermark, Border.workbook-drawer TextBox:pointerover /template/ TextBlock#PART_Watermark"><Setter Property="Foreground" Value="{DynamicResource Dialog-grey-400}" /></Style>
+  <Style Selector="ComboBox.dialog-select, Border.workbook-drawer ComboBox">
+    <Setter Property="ItemContainerTheme" Value="{StaticResource DialogOption}" />
+    <Setter Property="Height" Value="32" /><Setter Property="FontSize" Value="12" /><Setter Property="CornerRadius" Value="6" />
+    <Setter Property="Padding" Value="10,0,0,0" /><Setter Property="HorizontalAlignment" Value="Stretch" />
+    <Setter Property="Background" Value="{DynamicResource Dialog-input-background}" /><Setter Property="BorderBrush" Value="{DynamicResource Dialog-input-border}" />
+    <Setter Property="Foreground" Value="{DynamicResource Dialog-common-black}" />
+  </Style>
+  <Style Selector="ComboBox.dialog-select /template/ Border#PopupBorder, Border.workbook-drawer ComboBox /template/ Border#PopupBorder"><Setter Property="Background" Value="{DynamicResource Dialog-surface-elevated}" /><Setter Property="BorderBrush" Value="{DynamicResource Dialog-surface-elevated-border}" /><Setter Property="BorderThickness" Value="1" /><Setter Property="CornerRadius" Value="8" /><Setter Property="Padding" Value="4" /></Style>
+  <Style Selector="ComboBox.dialog-select /template/ ItemsPresenter#PART_ItemsPresenter, Border.workbook-drawer ComboBox /template/ ItemsPresenter#PART_ItemsPresenter"><Setter Property="Margin" Value="0" /></Style>
+  <Style Selector="ComboBox.dialog-select /template/ Border#HighlightBackground, Border.workbook-drawer ComboBox /template/ Border#HighlightBackground"><Setter Property="IsVisible" Value="False" /></Style>
+  <Style Selector="ComboBox.dialog-select /template/ PathIcon#DropDownGlyph, Border.workbook-drawer ComboBox /template/ PathIcon#DropDownGlyph"><Setter Property="Foreground" Value="{DynamicResource Dialog-grey-600}" /></Style>
+  <Style Selector="ComboBox.dialog-select:disabled, Border.workbook-drawer ComboBox:disabled"><Setter Property="Foreground" Value="{DynamicResource Dialog-grey-400}" /></Style>
+  <Style Selector="ComboBox.dialog-select:disabled /template/ Border#Background, Border.workbook-drawer ComboBox:disabled /template/ Border#Background"><Setter Property="Background" Value="{DynamicResource Dialog-grey-200}" /><Setter Property="BorderBrush" Value="{DynamicResource Dialog-input-border}" /></Style>
+  <Style Selector="ComboBox.dialog-select:disabled /template/ ContentControl#ContentPresenter, Border.workbook-drawer ComboBox:disabled /template/ ContentControl#ContentPresenter, ComboBox.dialog-select:disabled /template/ PathIcon#DropDownGlyph, Border.workbook-drawer ComboBox:disabled /template/ PathIcon#DropDownGlyph"><Setter Property="Foreground" Value="{DynamicResource Dialog-grey-400}" /></Style>
+  <Style Selector="ComboBox.dialog-select:pointerover /template/ Border#Background, Border.workbook-drawer ComboBox:pointerover /template/ Border#Background"><Setter Property="Background" Value="{DynamicResource Dialog-input-background}" /><Setter Property="BorderBrush" Value="{DynamicResource Dialog-grey-600}" /></Style>
+  <Style Selector="ComboBox.dialog-select:focus /template/ Border#Background, Border.workbook-drawer ComboBox:focus /template/ Border#Background"><Setter Property="Background" Value="{DynamicResource Dialog-input-background}" /><Setter Property="BorderBrush" Value="{DynamicResource Dialog-primary-main}" /></Style>
+  <!-- DrawerScrollViewer follows AppKit: overlay spans the full content width;
+       the legacy mode reserves 15px only while the content overflows. -->
+  <Style Selector="ScrollViewer.workbook-drawer-scroll /template/ ScrollBar#PART_VerticalScrollBar">
+    <Setter Property="Theme" Value="{StaticResource DrawerScrollBar}" />
+    <Setter Property="Width" Value="15" />
+    <Setter Property="MinWidth" Value="15" />
+  </Style>
+  <Style Selector="Border.conditional-rule-row, Border.named-range-row"><Setter Property="Background" Value="Transparent" /></Style>
+  <Style Selector="Border.conditional-rule-row:pointerover, Border.named-range-row:pointerover"><Setter Property="Background" Value="{DynamicResource Dialog-grey-50}" /></Style>
+  <Style Selector="Button.conditional-rule-action:disabled"><Setter Property="Opacity" Value="1" /><Setter Property="Foreground" Value="{DynamicResource Dialog-grey-400}" /></Style>
+  <Style Selector="Button.conditional-order:pointerover"><Setter Property="Background" Value="{DynamicResource Dialog-grey-300}" /></Style>
+  <Style Selector="TextBox.conditional-search, TextBox.named-range-search"><Setter Property="Background" Value="{DynamicResource Dialog-common-white}" /></Style>
+  <Style Selector="TextBox.conditional-search /template/ Border#PART_BorderElement, TextBox.conditional-search:focus /template/ Border#PART_BorderElement, TextBox.conditional-search:pointerover /template/ Border#PART_BorderElement, TextBox.named-range-search /template/ Border#PART_BorderElement, TextBox.named-range-search:focus /template/ Border#PART_BorderElement, TextBox.named-range-search:pointerover /template/ Border#PART_BorderElement">
+    <Setter Property="BorderThickness" Value="0" /><Setter Property="Background" Value="{DynamicResource Dialog-common-white}" />
+  </Style>
+  <Style Selector="ComboBox.conditional-scope, ComboBox.named-range-scope"><Setter Property="BorderThickness" Value="0" /><Setter Property="Background" Value="Transparent" /></Style>
+  <Style Selector="ComboBox.conditional-scope /template/ Border#Background, ComboBox.conditional-scope:focus /template/ Border#Background, ComboBox.conditional-scope:pointerover /template/ Border#Background, ComboBox.named-range-scope /template/ Border#Background, ComboBox.named-range-scope:focus /template/ Border#Background, ComboBox.named-range-scope:pointerover /template/ Border#Background">
+    <Setter Property="BorderThickness" Value="0" /><Setter Property="Background" Value="Transparent" />
+  </Style>
+  <!-- The Fluent trigger otherwise forces even "All" to a 64px minimum. -->
+  <Style Selector="ComboBox.named-range-scope /template/ Border#Background"><Setter Property="MinWidth" Value="0" /></Style>
+  <Style Selector="ComboBox.named-range-scope:pointerover /template/ Border#Background, ComboBox.named-range-scope:focus /template/ Border#Background, ComboBox.named-range-scope:dropdownopen /template/ Border#Background">
+    <Setter Property="Background" Value="{DynamicResource Dialog-grey-50}" />
+  </Style>
+  <!-- This filter ends at the viewport's 8px inset, so Select.tsx flips its wider menu to the right edge. -->
+  <Style Selector="ComboBox.named-range-scope /template/ Popup#PART_Popup">
+    <Setter Property="Placement" Value="BottomEdgeAlignedRight" /><Setter Property="HorizontalOffset" Value="0" /><Setter Property="VerticalOffset" Value="4" />
+  </Style>
+  <Style Selector="ComboBox.named-range-scope /template/ ContentControl#ContentPresenter TextBlock"><Setter Property="TextTrimming" Value="CharacterEllipsis" /></Style>
+</Styles>

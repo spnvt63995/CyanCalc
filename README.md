@@ -1,157 +1,76 @@
-# IronCalc
+# CyanCalc
 
-[![MIT licensed][mit-badge]][mit-url]
-[![Apache 2.0 licensed][apache-badge]][apache-url]
-[![Build Status][actions-badge]][actions-url]
-[![Code coverage][codecov-badge]][codecov-url]
-[![docs-badge]][docs-url]
-[![Discord chat][discord-badge]][discord-url]
+CyanCalc extends [IronCalc](https://github.com/ironcalc/IronCalc) with a .NET binding,
+a reusable Avalonia spreadsheet control, and a desktop editor. It is an independent,
+unofficial project.
 
-[mit-badge]: https://img.shields.io/badge/license-MIT-blue.svg
-[mit-url]: https://github.com/ironcalc/IronCalc/blob/main/LICENSE-MIT
+IronCalc owns calculation, workbook state, file formats, and workbook undo/redo.
+The .NET binding calls that engine through a Rust C ABI. The Avalonia library
+provides the spreadsheet UI; the desktop app owns windows and local document storage.
 
-[apache-badge]: https://img.shields.io/badge/License-Apache_2.0-blue.svg
-[apache-url]: https://github.com/ironcalc/IronCalc/blob/main/LICENSE-Apache-2.0
+## Repository layout
 
-[codecov-badge]: https://codecov.io/gh/ironcalc/IronCalc/graph/badge.svg?token=ASJX12CHNR
-[codecov-url]: https://codecov.io/gh/ironcalc/IronCalc
-
-[actions-badge]: https://github.com/ironcalc/ironcalc/actions/workflows/build-test.yaml/badge.svg
-[actions-url]: https://github.com/ironcalc/IronCalc/actions/workflows/build-test.yaml?query=workflow%3ARust+branch%3Amain
-
-[docs-url]: https://docs.rs/ironcalc
-[docs-badge]: https://img.shields.io/docsrs/ironcalc?logo=rust&style=flat-square
-
-[discord-badge]: https://img.shields.io/discord/1206947691058171904.svg?logo=discord&style=flat-square
-[discord-url]: https://discord.gg/zZYWfh3RHJ
-
-IronCalc is a new, modern, work-in-progress spreadsheet engine and set of tools to work with spreadsheets in diverse settings.
-
-This repository contains the main engine and the xlsx reader and writer.
-
-Programmed in Rust, you will be able to use it from a variety of programming languages like Python, JavaScript (wasm), nodejs and possibly R, Julia or Go.
-
-We will build different _skins_: in the terminal, as a desktop application or use it in your own web application.
-
-# Docker
-
-If you have docker installed just run:
-
-```bash
-docker compose up --build
+```text
+base/                       IronCalc calculation engine
+xlsx/                       IronCalc workbook and Excel file support
+bindings/
+  wasm/, python/, nodejs/    Original IronCalc bindings
+  dotnet/                   CyanCalc .NET API
+    native/                 Rust C ABI with its own Cargo workspace
+webapp/                     Original IronCalc web applications
+ui/avalonia/                Reusable CyanCalc spreadsheet controls
+apps/desktop/               CyanCalc desktop editor
+tests/CyanCalc.CoreChecks/  Public regression checks
+tests/fixtures/             Synthetic file compatibility fixtures
+tools/cyancalc/             Upstream verification and resource generators
+docs/cyancalc/              Architecture, integration, and development guides
+CyanCalc.slnx               .NET libraries, desktop app, and regression checks
 ```
 
-head over to <http://localhost:2080> to test the application.
+The native bridge uses the `xlsx/` and `base/` sources in this checkout.
+Its Cargo workspace and lockfile remain separate from the upstream workspace.
+The UI library can be embedded without using the desktop app.
 
-# Building
+## Build and run
 
-```bash
-cargo build --release
+Install the .NET SDK selected by `global.json`, Rust/Cargo, and the native linker
+for your platform. Run these commands from the repository root:
+
+```sh
+dotnet build CyanCalc.slnx -p:RestoreLockedMode=true
+dotnet run --project apps/desktop --no-build
 ```
 
-# Testing, linting and code coverage
+Normal .NET builds use committed resources and do not need Node.js.
+The development build targets the current operating system and architecture;
+it is not a signed installer or a prebuilt NuGet distribution.
 
-Test are run automatically and test coverage can always be found in [codecov](https://codecov.io/gh/ironcalc/IronCalc)
+## Checks
 
-If you want to run the tests yourself:
-
-```bash
-make tests
+```sh
+dotnet run --project tests/CyanCalc.CoreChecks --no-build
+cargo test --locked --manifest-path bindings/dotnet/native/Cargo.toml --lib
+bash tools/cyancalc/fetch-source.sh
+python3 tools/cyancalc/sync-wasm-binding.py --check
 ```
 
-Note that this runs unit tests, integration tests, linter tests and formatting tests.
+See [public checks](tests/README.md) for coverage and fixture provenance.
 
-If you want to run the code coverage yourself:
-```bash
-make coverage
-cd target/coverage/html/
-python -m http.server
-```
+## Upstream baseline
 
-# API Documentation
+The original source is based on **IronCalc v0.9.0**,
+commit `297553dc3a37ec6b0f4821055220e3d26c4ac6a1`.
+Original engine, bindings, web applications, names, and license files are retained.
+The root README and ignore rules are adapted for this fork.
+`fetch-source.sh` retrieves the baseline Git object when needed and verifies
+the original files; it does not replace the working tree.
 
-Documentation is published at: https://docs.rs/ironcalc/latest/ironcalc/
+CyanCalc adds its own light and dark UI colors. Workbook themes and explicitly
+formatted cell colors remain document data.
 
-It might be generated locally
-
-```bash
-$ make docs
-$ cd target/doc
-$ python -m http.server
-```
-
-And visit <http://0.0.0.0:8000/ironcalc/>
-
-# Simple example
-
-Add the dependency to `Cargo.toml`:
-```toml
-[dependencies]
-ironcalc = { git = "https://github.com/ironcalc/IronCalc", version = "0.8"}
-```
-
-And then use this code in `main.rs`:
-
-```rust
-use ironcalc::{
-    base::{expressions::utils::number_to_column, Model},
-    export::save_to_xlsx,
-};
-
-fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let mut model = Model::new_empty("hello-calc.xlsx", "en", "UTC", "en")?;
-    // Adds a square of numbers in the first sheet
-    for row in 1..100 {
-        for column in 1..100 {
-            let value = row * column;
-            model.set_user_input(0, row, column, format!("{}", value));
-        }
-    }
-    // Adds a new sheet
-    model.add_sheet("Calculation")?;
-    // column 100 is CV
-    let last_column = number_to_column(100).unwrap();
-    let formula = format!("=SUM(Sheet1!A1:{}100)", last_column);
-    model.set_user_input(1, 1, 1, formula);
-
-    // evaluates
-    model.evaluate();
-
-    // saves to disk
-    save_to_xlsx(&model, "hello-calc.xlsx")?;
-    Ok(())
-}
-```
-
-See more examples in the `examples` folder of the xlsx crate.
-
-# ROADMAP
-
-See https://github.com/ironcalc
-
-# Early testing
-
-An early preview of the technology running entirely in your browser:
-
-https://app.ironcalc.com
-
-
-# Collaborators needed!. Call to action
-
-We don't have a vibrant community just yet. This is the very stages of the project. But if you are passionate about code with high standards and no compromises, if you are looking for a project with high impact, if you are interested in a better, more open infrastructure for spreadsheets, whether you are a developer (rust, python, TypeScript, electron/tauri/anything else native app, React, you name it), a designer, an Excel power user who wants features, a business looking to integrate a MIT/Apache licensed spreadsheet in your own SaaS application join us!
-
-The best place to start will be to join or [discord channel](https://discord.gg/zZYWfh3RHJ) or send us an email at hello@ironcalc.com.
-
-Many have said it better before me:
-
-> Folks wanted for hazardous journey. Low wages, bitter cold, long hours of complete darkness. Safe return doubtful. Honour and recognition in event of success.
-
-
-# License
-
-Licensed under either of
-
-* [MIT license](LICENSE-MIT)
-* [Apache license, version 2.0](LICENSE-Apache-2.0)
-
-at your option.
+- [Development and desktop usage](docs/cyancalc/README.md)
+- [Embedding the Avalonia control](docs/cyancalc/NATIVE-PORT.md)
+- [Editor architecture](docs/cyancalc/EDITOR-ARCHITECTURE.md)
+- [Upstream implementation map](docs/cyancalc/UPSTREAM-COMPARISON.md)
+- [.NET API compatibility](bindings/dotnet/API-COMPATIBILITY.md)
+- [Third-party notices](docs/cyancalc/THIRD_PARTY.md)
