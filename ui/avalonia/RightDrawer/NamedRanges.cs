@@ -33,7 +33,7 @@ public sealed partial class WorkbookView
         var filters = new Border { Child = filterRow, BorderThickness = new Thickness(0, 0, 0, 1) };
         filters.Bind(Border.BorderBrushProperty, filters.GetResourceObservable("Dialog-grey-300")); panel.Children.Add(filters);
         var searchLabel = Text.Key("name_manager_dialog.search_placeholder");
-        var search = searchLabel.Describe(new TextBox { Name = "NamedRangeSearch", Text = query, Height = 28, MinWidth = 0,
+        var search = searchLabel.Describe(new PanelTextBox { Name = "NamedRangeSearch", Text = query, Height = 28, MinWidth = 0,
             Padding = new Thickness(36, 0, 8, 0), BorderThickness = default, CornerRadius = default, Classes = { "named-range-search" } });
         searchLabel.Bind(search, TextBox.WatermarkProperty);
         search.GotFocus += (_, _) => { if (CanUseConditionalPanel(model, panel)) search.SelectAll(); };

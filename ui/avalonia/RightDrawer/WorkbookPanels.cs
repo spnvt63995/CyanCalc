@@ -82,7 +82,7 @@ public sealed partial class WorkbookView
             var field = new StackPanel { Spacing = 4 }; var label = Label(title); label.FontWeight = FontWeight.Medium; field.Children.Add(label); colorSection!.Children.Add(field);
             var row = new Grid { ColumnDefinitions = new ColumnDefinitions("Auto,*"), ColumnSpacing = 6 };
             var color = theme[key]?.GetValue<string>() ?? "#000000";
-            var input = new TextBox { Text = color };
+            var input = new PanelTextBox { Text = color };
             global::Avalonia.Automation.AutomationProperties.SetName(input, key);
             var swatch = new PanelColorButton(this, model, title, JsonValue.Create(color), "Theme" + key, defaultToCurrent: true);
             input.PropertyChanged += (_, e) => { if (e.Property != TextBox.TextProperty) return; theme[key] = input.Text; if (WorkbookColorPalette.ValidHex(input.Text)) swatch.Value = JsonValue.Create(input.Text); UpdatePreview(); };
@@ -169,7 +169,7 @@ public sealed partial class WorkbookView
 
     internal static TextBox Field(StackPanel panel, string label, string initial)
     {
-        panel.Children.Add(Label(label)); var input = new TextBox { Text = initial, MinHeight = 30, Padding = new Thickness(7, 4) };
+        panel.Children.Add(Label(label)); var input = new PanelTextBox { Text = initial, MinHeight = 30, Padding = new Thickness(7, 4) };
         global::Avalonia.Automation.AutomationProperties.SetName(input, label); panel.Children.Add(input); return input;
     }
     internal static ComboBox Choice(StackPanel panel, string label, string[] choices, string? selected = null)

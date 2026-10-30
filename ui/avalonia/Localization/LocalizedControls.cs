@@ -22,7 +22,7 @@ public sealed partial class WorkbookView
     internal static TextBox Field(StackPanel panel, LocalizedText label, string initial, string? name = null)
     {
         var field = new StackPanel { Spacing = 4 }; panel.Children.Add(field); field.Children.Add(Label(label));
-        var input = label.Describe(new TextBox { Name = name, Text = initial, Classes = { "dialog-input" } });
+        var input = label.Describe(new PanelTextBox { Name = name, Text = initial, Classes = { "dialog-input" } });
         field.Children.Add(input); return input;
     }
     internal static ComboBox Choice(StackPanel panel, LocalizedText label, string[] choices, string? selected = null,

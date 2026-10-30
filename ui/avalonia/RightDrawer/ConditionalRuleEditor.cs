@@ -279,7 +279,7 @@ internal sealed class ConditionalRuleEditor : StackPanel
                 ItemsSource = choices, SelectedItem = kind, MinWidth = 0,
                 ItemTemplate = LocalizedText.Options(value => WorkbookOptions.Threshold(_text, value)) });
             row.Children.Add(type); _draftChoices.Add(type);
-            var input = label.Describe(new TextBox { Name = "ColorScaleValue" + i, MinWidth = 0,
+            var input = label.Describe(new PanelTextBox { Name = "ColorScaleValue" + i, MinWidth = 0,
                 Text = ThresholdText(original), Padding = new Thickness(10, 0, 32, 0) });
             input.GotFocus += (_, _) => input.SelectAll();
             var useSelection = _text.Key("conditional_formatting.use_selection").Describe(new WorkbookButton {
@@ -402,7 +402,7 @@ internal sealed class ConditionalRuleEditor : StackPanel
                 ItemTemplate = LocalizedText.Options(value => WorkbookOptions.Threshold(_text, value))
             });
             group.Children.Add(type); _draftChoices.Add(type);
-            var input = label.Describe(new TextBox { Name = "DataBarValue_" + key, MinWidth = 0, Classes = { "data-bar-value" },
+            var input = label.Describe(new PanelTextBox { Name = "DataBarValue_" + key, MinWidth = 0, Classes = { "data-bar-value" },
                 Text = ThresholdText(original) });
             input.GotFocus += (_, _) => input.SelectAll();
             group.Children.Add(input); _draftInputs.Add(input);
@@ -422,7 +422,7 @@ internal sealed class ConditionalRuleEditor : StackPanel
             var group = Group(colors, key); Grid.SetColumn(group, key == "positive" ? 0 : 1);
             var property = key + "_color"; var label = _text.Key("conditional_formatting.data_bars_" + key);
             var row = new Grid { ColumnDefinitions = new("*,32"), ColumnSpacing = 6, Height = 32 }; group.Children.Add(row);
-            var input = label.Describe(new TextBox { Name = "DataBarColor_" + key, MinWidth = 0, Text = ResolveColor(_rule[property]) });
+            var input = label.Describe(new PanelTextBox { Name = "DataBarColor_" + key, MinWidth = 0, Text = ResolveColor(_rule[property]) });
             input.GotFocus += (_, _) => input.SelectAll(); row.Children.Add(input); _draftInputs.Add(input);
             var color = new PanelColorButton(_owner, _model, label, _rule[property], "DataBar" + key, defaultToCurrent: true);
             color.Classes.Add("data-bar-color"); Grid.SetColumn(color, 1); row.Children.Add(color);
@@ -502,7 +502,7 @@ internal sealed class ConditionalRuleEditor : StackPanel
                 { if (rating) item[1] = value == ">="; else item["is_strict"] = value == ">="; Notify(); }));
             var original = rating ? item[0] : item["cfvo"];
             var kind = original is JsonObject obj ? obj.First().Key : "Min";
-            var input = label.Describe(new TextBox { Name = "IconValue" + i, Classes = { "icon-value" }, Text = ThresholdText(original), MinWidth = 0, IsEnabled = !last });
+            var input = label.Describe(new PanelTextBox { Name = "IconValue" + i, Classes = { "icon-value" }, Text = ThresholdText(original), MinWidth = 0, IsEnabled = !last });
             var choices = i == thresholds.Count - 1 ? new[] { "Min", "Percent", "Number", "Percentile", "Formula" } : ["Percent", "Number", "Percentile", "Formula"];
             var type = _text.Key("conditional_formatting.icon_sets_settings").Describe(new ComboBox
             {
@@ -598,7 +598,7 @@ internal sealed class ConditionalRuleEditor : StackPanel
     {
         var kind = original is JsonObject obj ? obj.First().Key : original?.GetValue<string>() ?? "Auto";
         var type = WorkbookView.Choice(parent, label, choices, kind, v => WorkbookOptions.Threshold(_text, v));
-        var input = new TextBox { Text = ThresholdText(original) }; parent.Children.Add(input);
+        var input = new PanelTextBox { Text = ThresholdText(original) }; parent.Children.Add(input);
         _draftInputs.Add(input); _draftChoices.Add(type);
         Button? selected = null;
         if (selection) { selected = WorkbookView.Button(_text.Key("conditional_formatting.use_selection"), () => input.Text = _selection()); parent.Children.Add(selected); }
@@ -666,7 +666,7 @@ internal sealed class ConditionalRuleEditor : StackPanel
     }
     private TextBox TextField(StackPanel parent, LocalizedText label, string initial, Action<string> save, string? name = null)
     {
-        var input = new TextBox { Name = name, Text = initial }; label.Describe(input); label.Bind(input, TextBox.WatermarkProperty); parent.Children.Add(input);
+        var input = new PanelTextBox { Name = name, Text = initial }; label.Describe(input); label.Bind(input, TextBox.WatermarkProperty); parent.Children.Add(input);
         _draftInputs.Add(input);
         input.PropertyChanged += (_, e) => { if (e.Property == TextBox.TextProperty) { save(input.Text ?? ""); Notify(); } }; return input;
     }

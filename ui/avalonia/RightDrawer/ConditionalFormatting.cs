@@ -27,7 +27,7 @@ public sealed partial class WorkbookView
         var filters = new Border { Child = filterRow, BorderThickness = new Thickness(0, 0, 0, 1) };
         filters.Bind(Border.BorderBrushProperty, filters.GetResourceObservable("Dialog-grey-300")); panel.Children.Add(filters);
         var searchLabel = Text.Key("conditional_formatting.search_placeholder");
-        var search = searchLabel.Describe(new TextBox { Name = "ConditionalSearch", Text = query, Height = 28, MinWidth = 0,
+        var search = searchLabel.Describe(new PanelTextBox { Name = "ConditionalSearch", Text = query, Height = 28, MinWidth = 0,
             Padding = new Thickness(36, 0, 8, 0), BorderThickness = default, CornerRadius = default, Classes = { "conditional-search" } });
         searchLabel.Bind(search, TextBox.WatermarkProperty);
         var searchIcon = new WorkbookIcon("Search", 16) { Margin = new Thickness(8, 0), HorizontalAlignment = HorizontalAlignment.Left, VerticalAlignment = VerticalAlignment.Center, IsHitTestVisible = false };

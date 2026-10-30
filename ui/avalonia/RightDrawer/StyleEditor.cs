@@ -56,7 +56,7 @@ internal sealed class StyleEditor : StackPanel
             var initial = Read("num_fmt")?.GetValue<string>() ?? "general";
             _format = WorkbookView.Choice(numberGroup, _text.Key("named_styles.format_label"), keys, keys[Math.Max(0, Array.IndexOf(_formats, initial))], key => _text.Key("toolbar.format_menu." + key));
             _format.Name = "StyleNumberFormat";
-            _number = new TextBox { Name = "StyleCustomFormat", Text = draft?.CustomFormat ?? (_formats.Contains(initial) ? "" : initial), IsVisible = !_formats.Contains(initial) };
+            _number = new PanelTextBox { Name = "StyleCustomFormat", Text = draft?.CustomFormat ?? (_formats.Contains(initial) ? "" : initial), IsVisible = !_formats.Contains(initial) };
             _text.Key("named_styles.custom_format_placeholder").Bind(_number, TextBox.WatermarkProperty);
             numberGroup.Children.Add(_number);
             _format.SelectedIndex = _formats.Contains(initial) ? Array.IndexOf(_formats, initial) : 8;
