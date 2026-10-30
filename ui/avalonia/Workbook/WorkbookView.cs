@@ -37,7 +37,7 @@ public sealed partial class WorkbookView : UserControl
             // Detaching can resolve inherited theme colors through the previous model.
             // The host may dispose that model as soon as this setter returns.
             _drawer.IsVisible = false; _drawer.Child = null;
-            _drawerFeature = null; _previewDrawerPreservesEdit = false;
+            _drawerFeature = null;
             _lastDocumentRevision = -1; _session = value;
             if (_session is not null && _attached) _session.Changed += ModelChanged;
             // A new model needs the arranged viewport even when the canvas size is unchanged.

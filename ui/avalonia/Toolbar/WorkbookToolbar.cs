@@ -122,12 +122,16 @@ public sealed partial class WorkbookView
         borders.Click += (_, _) => ShowBorderPicker(borders); tools.Children.Add(borders);
         _conditionalButton = ToolbarToggle("Brush", Text.Key("toolbar.conditional_formatting"), ShowConditionalFormats);
         tools.Children.Add(_conditionalButton);
-        var themes = PreviewMenuButton("", [], Text.Key("toolbar.themes"), "SwatchBook");
+        var themes = MenuButton("", [], Text.Key("toolbar.themes"), "SwatchBook", () =>
+        {
+            CommitEdit();
+            // The popup must restore grid focus instead of reopening the formula editor.
+            FocusCell();
+        });
         themes.Content = new WorkbookIcon("SwatchBook"); themes.Padding = new Thickness(6); themes.Width = 28;
         themes.ContextMenu!.Opened += (_, _) => themes.ContextMenu.ItemsSource = ThemeMenu();
         tools.Children.Add(themes);
         _stylesButton = ToolbarToggle("Layers", Text.Key("toolbar.named_styles"), ShowNamedStyles);
-        PreservePreviewButtonPress(_stylesButton);
         tools.Children.Add(_stylesButton);
         Divider();
         tools.Children.Add(AlignmentButton("AlignLeft", Text.Key("toolbar.align_left"), "horizontal:left"));
@@ -332,7 +336,7 @@ public sealed partial class WorkbookView
         button.MinWidth = 28;
         return button;
     }
-    private static Button MenuButton(string label, Control[] items, string? name = null, string? icon = null)
+    private static Button MenuButton(string label, Control[] items, string? name = null, string? icon = null, Action? beforeOpen = null)
     {
         var button = Button(label, () => { }, name ?? label);
         button.Height = 28; button.Padding = new Thickness(6, 0);
@@ -342,41 +346,7 @@ public sealed partial class WorkbookView
         button.Content = content;
         var menu = WorkbookMenus.Create(items, anchored: true);
         button.ContextMenu = menu;
-        button.Click += (_, _) => menu.Open(button);
-        return button;
-    }
-    private bool _previewMenuPreservesEdit;
-    private Button PreviewMenuButton(string label, Control[] items, string? name = null, string? icon = null)
-    {
-        var button = MenuButton(label, items, name, icon);
-        CellEditor? returnEditor = null;
-        void Preserve()
-        {
-            returnEditor = State.Editing is not null ? ActiveEditor : null;
-            _previewMenuPreservesEdit = true;
-        }
-        // Hold the edit before the Button/ContextMenu transfers focus. Actions
-        // still use the ordinary committing drawer path unless they are previews.
-        button.AddHandler(PointerPressedEvent, (_, _) => Preserve(), global::Avalonia.Interactivity.RoutingStrategies.Tunnel);
-        button.Click += (_, _) => Preserve();
-        void ReleaseIfNotOpened()
-        {
-            Dispatcher.UIThread.Post(() =>
-            {
-                if (!_previewMenuPreservesEdit || button.ContextMenu!.IsOpen) return;
-                _previewMenuPreservesEdit = false;
-                if (returnEditor is not null && State.Editing is not null) returnEditor.Focus();
-                returnEditor = null;
-            });
-        }
-        button.PointerReleased += (_, _) => ReleaseIfNotOpened();
-        button.PointerCaptureLost += (_, _) => ReleaseIfNotOpened();
-        button.ContextMenu!.Closed += (_, _) =>
-        {
-            _previewMenuPreservesEdit = false;
-            if (returnEditor is not null && State.Editing is not null) returnEditor.Focus();
-            returnEditor = null;
-        };
+        button.Click += (_, _) => { beforeOpen?.Invoke(); menu.Open(button); };
         return button;
     }
     internal void Style(string path, string value)
@@ -404,13 +374,9 @@ public sealed partial class WorkbookView
     {
         if (Snapshot is not null) Command("clear", new { area = CellArea.FromView(Snapshot.View), kind });
     }
-    private bool _previewDrawerPreservesEdit;
-
-    internal StackPanel OpenDrawer(LocalizedText title, bool preserveEdit = false, string? feature = null, Action? back = null, LocalizedText? backLabel = null)
+    internal StackPanel OpenDrawer(LocalizedText title, string? feature = null, Action? back = null, LocalizedText? backLabel = null)
     {
-        var returnEditor = preserveEdit && State.Editing is not null ? ActiveEditor : null;
-        if (!preserveEdit) CommitEdit();
-        _previewDrawerPreservesEdit = preserveEdit;
+        CommitEdit();
         _captureDrawerState = null;
         var panel = new StackPanel { Spacing = 12, Margin = new Thickness(12, 16) };
         var header = new Grid { ColumnDefinitions = new("Auto,*,Auto"), Height = 40, ColumnSpacing = 4, Margin = new Thickness(8, 0) };
@@ -423,8 +389,8 @@ public sealed partial class WorkbookView
         Grid.SetColumn(heading, 1); header.Children.Add(heading);
         var close = IconButton("X", () =>
         {
-            _drawer.IsVisible = false; _previewDrawerPreservesEdit = false; RefreshDrawerButtons();
-            if (returnEditor is not null && State.Editing is not null) returnEditor.Focus(); else FocusCell();
+            _drawer.IsVisible = false; RefreshDrawerButtons();
+            FocusCell();
         }, Text.Key("right_drawer.close"));
         Grid.SetColumn(close, 2); header.Children.Add(close);
         var headerFrame = new Border { Child = header, BorderThickness = new Thickness(0, 0, 0, 1) };

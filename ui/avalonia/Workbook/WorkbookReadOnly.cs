@@ -23,8 +23,7 @@ public sealed partial class WorkbookView
                 if (State.Editing is not null) CancelEdit();
                 CloseToolbarPopups(); _toolbarDialog?.Close();
                 _drawer.IsVisible = false;
-                _previewDrawerPreservesEdit = false;
-                _previewMenuPreservesEdit = false;
+                _nameMenuPreservesEdit = false;
                 State.CutRange = null;
                 State.IsFormatPainter = false;
                 _paintStyles = null;

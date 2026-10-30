@@ -25,7 +25,7 @@ public sealed partial class WorkbookView
     private void ShowNamedStyles(bool manage)
     {
         if (Session is not { } model) return;
-        var panel = OpenDrawer(Text.Key(manage ? "named_styles.manage_styles" : "named_styles.panel_title"), preserveEdit: true,
+        var panel = OpenDrawer(Text.Key(manage ? "named_styles.manage_styles" : "named_styles.panel_title"),
             feature: "named_styles.panel_title", back: manage ? () => ShowNamedStyles(false) : null, backLabel: Text.Key("named_styles.back_to_list"));
         _captureDrawerState = () => new StylesListState(manage);
         if (!manage) panel.Margin = new Thickness(0);

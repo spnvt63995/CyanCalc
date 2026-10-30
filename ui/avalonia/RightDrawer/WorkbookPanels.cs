@@ -21,7 +21,7 @@ public sealed partial class WorkbookView
     private void ShowThemes(ThemesListState? state)
     {
         if (Session is not { } model) return;
-        var panel = OpenDrawer(Text.Key("themes.panel_title"), preserveEdit: true);
+        var panel = OpenDrawer(Text.Key("themes.panel_title"));
         panel.Margin = new Thickness(0); panel.Spacing = 0;
         var themes = state?.Themes ?? model.Query("themes").EnumerateArray().Select(t => t.Clone()).ToArray();
         JsonElement[] AllThemes()

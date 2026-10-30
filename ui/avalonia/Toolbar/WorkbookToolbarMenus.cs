@@ -114,31 +114,12 @@ public sealed partial class WorkbookView
 
     private void OpenDrawerFeature(string title, Action show)
     {
+        // Re-entering an already open drawer also finishes the current cell edit.
+        CommitEdit();
         // Workbook.tsx openDrawer keeps the mounted panel when its type is unchanged.
         if (!_drawer.IsVisible || _drawerFeature != title) show();
-        _previewMenuPreservesEdit = false;
+        _nameMenuPreservesEdit = false;
         RefreshDrawerButtons();
-    }
-
-    private void PreservePreviewButtonPress(Button button)
-    {
-        CellEditor? returnEditor = null;
-        button.AddHandler(PointerPressedEvent, (_, _) =>
-        {
-            returnEditor = State.Editing is not null ? ActiveEditor : null;
-            _previewMenuPreservesEdit = true;
-        }, global::Avalonia.Interactivity.RoutingStrategies.Tunnel);
-        void ReleaseCancelledPress() => global::Avalonia.Threading.Dispatcher.UIThread.Post(() =>
-        {
-            // A completed Click hands focus to the preview drawer and clears this
-            // flag. A dragged/cancelled press must return focus to the draft.
-            if (!_previewMenuPreservesEdit) return;
-            _previewMenuPreservesEdit = false;
-            if (returnEditor is not null && State.Editing is not null) returnEditor.Focus();
-            returnEditor = null;
-        });
-        button.PointerReleased += (_, _) => ReleaseCancelledPress();
-        button.PointerCaptureLost += (_, _) => ReleaseCancelledPress();
     }
 
     private void RefreshDrawerButtons()

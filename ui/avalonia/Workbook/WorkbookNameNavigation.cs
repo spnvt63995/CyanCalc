@@ -10,6 +10,8 @@ namespace CyanCalc.Controls;
 /// <summary>Original name-menu/link parsers and a separate host address helper.</summary>
 public sealed partial class WorkbookView
 {
+    private bool _nameMenuPreservesEdit;
+
     internal Button CreateNameMenuButton(Func<bool>? canManageNames = null)
     {
         var button = IconButton("ChevronDown", () => { }, Text.Key("formula_bar.manage_named_ranges"));
@@ -26,7 +28,7 @@ public sealed partial class WorkbookView
         void PreserveEdit()
         {
             returnEditor = State.Editing is not null ? ActiveEditor : null;
-            _previewMenuPreservesEdit = true;
+            _nameMenuPreservesEdit = true;
         }
 
         button.AddHandler(PointerPressedEvent, (_, _) => PreserveEdit(), RoutingStrategies.Tunnel);
@@ -38,7 +40,7 @@ public sealed partial class WorkbookView
         };
         menu.Closed += (_, _) =>
         {
-            _previewMenuPreservesEdit = false;
+            _nameMenuPreservesEdit = false;
             if (returnEditor is not null && State.Editing is not null) returnEditor.Focus();
             else button.Focus();
             returnEditor = null;
@@ -46,7 +48,7 @@ public sealed partial class WorkbookView
         button.PointerReleased += (_, _) => Dispatcher.UIThread.Post(() =>
         {
             if (menu.IsOpen) return;
-            _previewMenuPreservesEdit = false;
+            _nameMenuPreservesEdit = false;
             if (returnEditor is not null && State.Editing is not null) returnEditor.Focus();
             returnEditor = null;
         });

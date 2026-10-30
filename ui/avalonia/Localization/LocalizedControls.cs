@@ -42,8 +42,6 @@ public sealed partial class WorkbookView
     {
         var item = MenuItem(label, action); item.Icon = new WorkbookIcon(icon); item.IsEnabled = enabled; return item;
     }
-    private static Button MenuButton(string literal, Control[] items, LocalizedText name, string? icon = null) =>
-        name.Describe(MenuButton(literal, items, "", icon));
-    private Button PreviewMenuButton(string literal, Control[] items, LocalizedText name, string? icon = null) =>
-        name.Describe(PreviewMenuButton(literal, items, "", icon));
+    private static Button MenuButton(string literal, Control[] items, LocalizedText name, string? icon = null, Action? beforeOpen = null) =>
+        name.Describe(MenuButton(literal, items, "", icon, beforeOpen));
 }

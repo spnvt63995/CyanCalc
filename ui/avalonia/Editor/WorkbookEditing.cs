@@ -48,7 +48,7 @@ public sealed partial class WorkbookView
             // document or a view removed by its host during pointer cancellation.
             if (_attached && attachmentVersion == _attachmentVersion && edit is not null && ReferenceEquals(State.EditSession, edit) && ReferenceEquals(edit.Cell, owner)
                 && !CellInput.IsFocused && !FormulaInput.IsFocused && !edit.IsSelectingReference
-                && !_previewMenuPreservesEdit && !(_previewDrawerPreservesEdit && _drawer.IsVisible)) CommitEdit();
+                && !_nameMenuPreservesEdit) CommitEdit();
         });
     }
 
