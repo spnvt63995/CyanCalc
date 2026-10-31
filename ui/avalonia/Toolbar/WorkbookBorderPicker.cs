@@ -38,11 +38,18 @@ public sealed partial class WorkbookView
             var group = new StackPanel { Orientation = Orientation.Horizontal, Spacing = 2 };
             foreach (var choice in choices.Skip(row * 5).Take(5))
             {
-                var button = ToolbarToggle(choice.Icon, choice.Label, () =>
+                ToggleButton? button = null;
+                button = ToolbarToggle(choice.Icon, choice.Label, () =>
                 {
                     selected = selected == choice.Type ? choice.Off : choice.Type;
                     foreach (var item in buttons) item.Value.IsChecked = item.Key == selected;
                     Apply();
+                    // Border commands keep this menu open. Continue navigation
+                    // here only if the command left the same menu and document active.
+                    if (ReferenceEquals(Session, model) && _attached &&
+                        _toolbarFlyout is { IsOpen: true } flyout && ReferenceEquals(flyout.Content, panel) &&
+                        button is { IsEffectivelyVisible: true })
+                        button.Focus();
                 });
                 button.Classes.Add("border-choice");
                 buttons.Add(choice.Type, button); group.Children.Add(button);
