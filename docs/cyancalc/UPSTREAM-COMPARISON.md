@@ -102,6 +102,11 @@ The native editor preserves that branch so entering and leaving an editor does n
 Changed input and explicit array-formula commands still reach the engine.
 See [unchanged edits and workbook history](EDITOR-ARCHITECTURE.md#unchanged-edits-and-workbook-history) for the scope and commit boundaries.
 
+Font-size commits follow the pinned toolbar: Enter or loss of focus submits a formatting command for the full selected range, even when its active cell already matches.
+An already uniform range still receives an Undo step and loses an existing Redo branch, including when the font-size field is left without changing its value.
+Escape and invalid input submit no formatting command.
+See [formatting commits](EDITOR-ARCHITECTURE.md#formatting-commits) for the distinction from unchanged cell edits.
+
 Conditional formatting follows the upstream four tabs, defaults, presets, range validation, and filtering by full containment of the selected range.
 Enter/Tab in completion inserts the selected function without committing the cell or moving selection.
 Merge, paste, and editing errors use the same translation keys in separate dialogs when upstream presents an error.

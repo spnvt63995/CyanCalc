@@ -97,6 +97,18 @@ Completion acceptance and IME handling retain their existing input boundaries.
 The policy belongs to the editor adapter. Direct binding calls, formatting, clipboard operations, and structural commands retain the engine's history semantics.
 A host that wants to save an active edit before replacing the document calls `CommitEdit` first.
 
+### Formatting commits
+
+The toolbar commits a valid font size on Enter or loss of focus, including Tab and Shift+Tab.
+Each commit submits one formatting command for the full selected range, even when the active cell already has that size.
+Other selected cells may have different sizes, so the active cell cannot determine whether the range is unchanged.
+
+Formatting follows the engine's history semantics: applying the same size to an already uniform range still adds an Undo step and clears any existing Redo branch.
+This includes leaving the font-size field without changing its displayed value.
+Undo consumes that formatting step even when the visible sizes stay the same.
+Escape and invalid input restore the displayed size without submitting a formatting command, preserving workbook history.
+The ordinary cell-edit policy above continues to skip unchanged cell-input writes.
+
 ### Text history while editing
 
 During editing, the adapter advances both TextBox native Undo/Redo histories together.

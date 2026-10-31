@@ -308,8 +308,9 @@ public sealed partial class WorkbookView
     private void SetFontSize(double size)
     {
         if (!CanEdit) return;
-        if (Snapshot?.Cell.ExtendedStyle.Style.Font.Sz == size) return;
         if (Snapshot is not { } snapshot) return;
+        // Apply to the full selection even when its anchor already matches.
+        // Valid formatting commits retain the engine's Undo/Redo semantics.
         Run(() =>
         {
             if (!CommitEdit()) return;
