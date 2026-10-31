@@ -165,6 +165,11 @@ Document deletion omits the shared-link warning because the app has no sharing s
 `WorkbookMenus` / `WorkbookMenuStyles.axaml` reproduce upstream Menu dimensions:
 32 px rows, 4 px outer padding, 8 px item padding/spacing/corner radii, and 16 px icons/checkmarks, with the corresponding separator and deletion-item palette.
 They do not use the default Fluent menu's extra spacing, width, or separate checkmark column.
+Shared context menus and menu flyouts activate a focused, enabled command once when unmodified Space is released, matching upstream menu buttons.
+Activation uses Avalonia's Enter handling, including check/radio state, commands, menu closing, and focus restoration.
+Key repeat does not add activations; focus loss, another key, or menu closure cancels a pending Space press.
+Modified Space and submenu headers keep their existing behavior; use Enter or Right to open a submenu.
+The adapter only handles focused menu items, so text fields and worksheet shortcuts retain their own input handling.
 The names list follows FormulaBar's 182 px minimum width, 12 px icons, and -4 px left offset.
 Color controls use 16 px swatches in the upstream ten-column arrangement, with Recent and + always visible.
 The advanced color picker follows the 240 px body and Hex/Cancel/Add color arrangement.

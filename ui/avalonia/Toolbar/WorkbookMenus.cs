@@ -10,12 +10,12 @@ using Avalonia.Media;
 namespace CyanCalc.Controls;
 
 // Menu/menu.css and the picker styles at the pinned upstream. Keep Avalonia's
-// MenuItem/Popup input, ownership and accessibility; replace only their presentation.
+// menu ownership and accessibility, with shared Space activation for commands.
 internal static class WorkbookMenus
 {
     internal static ContextMenu Create(IEnumerable<Control>? items = null, bool anchored = false)
     {
-        var menu = new ContextMenu { ItemsSource = items };
+        var menu = new ContextMenu(new WorkbookMenuInteractionHandler()) { ItemsSource = items };
         Attach(menu);
         if (anchored)
         {
@@ -128,7 +128,12 @@ internal sealed class WorkbookMenuFlyout : MenuFlyout
 {
     protected override Control CreatePresenter()
     {
-        var presenter = base.CreatePresenter();
+        var presenter = new MenuFlyoutPresenter(new WorkbookMenuInteractionHandler())
+        {
+            ItemsSource = Items,
+            [!ItemsControl.ItemTemplateProperty] = this[!ItemTemplateProperty],
+            [!ItemsControl.ItemContainerThemeProperty] = this[!ItemContainerThemeProperty]
+        };
         WorkbookMenus.Attach(presenter);
         return presenter;
     }
