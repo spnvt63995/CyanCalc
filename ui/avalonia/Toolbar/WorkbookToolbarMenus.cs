@@ -91,25 +91,42 @@ public sealed partial class WorkbookView
         _toolbarFlyout = flyout;
         flyout.Closed += (_, _) =>
         {
-            _nestedToolbarFlyout?.Hide();
-            if (ReferenceEquals(_toolbarFlyout, flyout)) _toolbarFlyout = null;
+            if (!ReferenceEquals(_toolbarFlyout, flyout)) return;
+            CloseToolbarPopups();
         };
         flyout.ShowAt(anchor);
     }
 
     private void ShowNestedFlyout(Control anchor, Control content)
     {
-        _nestedToolbarFlyout?.Hide();
+        if (_toolbarFlyout is not { IsOpen: true } parent) return;
+        var model = Session;
+        var previous = _nestedToolbarFlyout;
+        _nestedToolbarFlyout = null;
+        previous?.Hide();
         var flyout = new WorkbookPickerFlyout { Content = content, Placement = PlacementMode.RightEdgeAlignedTop };
         flyout.ConstrainColorPicker(TopLevel.GetTopLevel(this));
         _nestedToolbarFlyout = flyout;
-        flyout.Closed += (_, _) => { if (ReferenceEquals(_nestedToolbarFlyout, flyout)) _nestedToolbarFlyout = null; };
+        flyout.Closed += (_, _) =>
+        {
+            if (!ReferenceEquals(_nestedToolbarFlyout, flyout)) return;
+            _nestedToolbarFlyout = null;
+            // The parent popup stays open. Continue keyboard navigation at its
+            // entry button only while that menu and document are still active.
+            if (ReferenceEquals(_toolbarFlyout, parent) && parent.IsOpen &&
+                ReferenceEquals(Session, model) && _attached && anchor.IsEffectivelyVisible)
+                anchor.Focus();
+        };
         flyout.ShowAt(anchor);
     }
 
     private void CloseToolbarPopups()
     {
-        _nestedToolbarFlyout?.Hide(); _toolbarFlyout?.Hide();
+        var nested = _nestedToolbarFlyout;
+        var parent = _toolbarFlyout;
+        _nestedToolbarFlyout = null;
+        _toolbarFlyout = null;
+        nested?.Hide(); parent?.Hide();
     }
 
     private void OpenDrawerFeature(string title, Action show)

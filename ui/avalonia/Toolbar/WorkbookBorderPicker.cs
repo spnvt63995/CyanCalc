@@ -74,7 +74,8 @@ public sealed partial class WorkbookView
         panel.KeyDown += (_, e) =>
         {
             if (e.Key != Key.Escape) return;
-            if (_nestedToolbarFlyout?.IsOpen == true) _nestedToolbarFlyout.Hide(); else CloseToolbarPopups();
+            if (_nestedToolbarFlyout?.IsOpen == true) _nestedToolbarFlyout.Hide();
+            else { CloseToolbarPopups(); anchor.Focus(); }
             e.Handled = true;
         };
         ShowToolbarFlyout(anchor, panel);
