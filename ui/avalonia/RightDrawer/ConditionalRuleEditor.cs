@@ -127,17 +127,25 @@ internal sealed class ConditionalRuleEditor : StackPanel
     }
     private void BuildFields()
     {
-        _building = true; _fields.Spacing = 8; _fields.Margin = default; _fields.Children.Clear(); _save.Clear(); _valid.Clear(); _draftInputs.Clear(); _draftChoices.Clear(); _format = null;
+        _building = true; _fields.Spacing = 8; _fields.Margin = default; _fields.Children.Clear(); ClearFieldState();
         if (Group(Type) == 0) BuildClassic();
         else if (Type == "ColorScale") BuildScale();
         else if (Type == "DataBar") BuildDataBars();
         else BuildIcons();
         _building = false; Notify();
     }
+    private void ClearFieldState()
+    {
+        _save.Clear(); _valid.Clear(); _draftInputs.Clear(); _draftChoices.Clear(); _format = null;
+    }
     private void BuildClassic()
     {
         var title = WorkbookView.Label(_text.Key("conditional_formatting.format_rules")); title.FontSize = 14; title.FontWeight = FontWeight.SemiBold; _fields.Children.Add(title);
         var choice = WorkbookView.Choice(_fields, _text.Key("conditional_formatting.highlight_cells_if"), ClassicTypes, Type, v => WorkbookOptions.RuleType(_text, v), name: "ConditionalRuleType");
+        var row = new Grid { ColumnDefinitions = new ColumnDefinitions("*,*"), ColumnSpacing = 6 };
+        var choicePanel = (Control)choice.Parent!;
+        _fields.Children.Remove(choicePanel); row.Children.Add(choicePanel); _fields.Children.Add(row);
+        var details = new StackPanel { Spacing = 8 }; _fields.Children.Add(details);
         choice.SelectionChanged += (_, _) =>
         {
             if (choice.SelectedItem is not string type || type == Type) return;
@@ -147,30 +155,38 @@ internal sealed class ConditionalRuleEditor : StackPanel
             if (type == "CellIs") _rule["formula2"] = second;
             if (type == "Text") _rule["value"] = first;
             if (type == "TimePeriod") { _rule["date1"] = first; _rule["date2"] = second; }
-            BuildFields();
+            // Keep the selector attached while its popup closes and restores focus.
+            _building = true; details.Children.Clear();
+            if (row.Children.Count > 1) row.Children.RemoveAt(1);
+            ClearFieldState(); BuildClassicDetails(row, details);
+            _building = false; Notify();
         };
+        BuildClassicDetails(row, details);
+    }
+    private void BuildClassicDetails(Grid row, StackPanel details)
+    {
         ComboBox? op = null;
-        if (Type == "CellIs") op = Pick("operator", ["Between", "NotBetween", "LessThan", "LessThanOrEqual", "GreaterThan", "GreaterThanOrEqual", "Equal", "NotEqual"]);
-        if (Type == "Text") op = Pick("operator", ["Contains", "DoesNotContain", "BeginsWith", "EndsWith", "Equals"]);
-        if (Type == "TimePeriod") op = Pick("time_period", ["Between", "NotBetween", "Yesterday", "Today", "Tomorrow", "Last7Days", "Next7Days", "LastWeek", "ThisWeek", "NextWeek", "LastMonth", "ThisMonth", "NextMonth", "LastYear", "ThisYear", "NextYear"]);
+        if (Type == "CellIs") op = Pick(details, "operator", ["Between", "NotBetween", "LessThan", "LessThanOrEqual", "GreaterThan", "GreaterThanOrEqual", "Equal", "NotEqual"]);
+        if (Type == "Text") op = Pick(details, "operator", ["Contains", "DoesNotContain", "BeginsWith", "EndsWith", "Equals"]);
+        if (Type == "TimePeriod") op = Pick(details, "time_period", ["Between", "NotBetween", "Yesterday", "Today", "Tomorrow", "Last7Days", "Next7Days", "LastWeek", "ThisWeek", "NextWeek", "LastMonth", "ThisMonth", "NextMonth", "LastYear", "ThisYear", "NextYear"]);
         if (op is not null)
         {
-            var left = (Control)choice.Parent!; var right = (Control)op.Parent!;
-            var index = _fields.Children.IndexOf(left); _fields.Children.Remove(left); _fields.Children.Remove(right);
-            var row = new Grid { ColumnDefinitions = new ColumnDefinitions("*,*"), ColumnSpacing = 6 }; row.Children.Add(left); Grid.SetColumn(right, 1); right.VerticalAlignment = VerticalAlignment.Bottom; row.Children.Add(right); _fields.Children.Insert(index, row);
+            var right = (Control)op.Parent!; details.Children.Remove(right);
+            Grid.SetColumn(right, 1); right.VerticalAlignment = VerticalAlignment.Bottom; row.Children.Add(right);
         }
+        Grid.SetColumnSpan(row.Children[0], op is null ? 2 : 1);
         if (Type is "CellIs" or "Text" or "TimePeriod" or "Formula")
         {
             var firstKey = Type == "Text" ? "value" : Type == "TimePeriod" ? "date1" : "formula";
-            var first = TextField(_fields, _text.Key("conditional_formatting.rule_value_placeholder"), Get(firstKey), v => _rule[firstKey] = v, "ConditionalValue");
+            var first = TextField(details, _text.Key("conditional_formatting.rule_value_placeholder"), Get(firstKey), v => _rule[firstKey] = v, "ConditionalValue");
             TextBox? second = null;
             Grid? values = null;
             if (Type is "CellIs" or "TimePeriod")
             {
                 var key = Type == "CellIs" ? "formula2" : "date2";
-                second = TextField(_fields, _text.Key("conditional_formatting.rule_value_placeholder"), Get(key), v => _rule[key] = v, "ConditionalSecondValue");
-                _fields.Children.Remove(first); _fields.Children.Remove(second);
-                values = new Grid { ColumnDefinitions = new ColumnDefinitions("*,*"), ColumnSpacing = 6 }; values.Children.Add(first); Grid.SetColumn(second, 1); values.Children.Add(second); _fields.Children.Add(values);
+                second = TextField(details, _text.Key("conditional_formatting.rule_value_placeholder"), Get(key), v => _rule[key] = v, "ConditionalSecondValue");
+                details.Children.Remove(first); details.Children.Remove(second);
+                values = new Grid { ColumnDefinitions = new ColumnDefinitions("*,*"), ColumnSpacing = 6 }; values.Children.Add(first); Grid.SetColumn(second, 1); values.Children.Add(second); details.Children.Add(values);
             }
             void Visibility()
             {
@@ -184,7 +200,7 @@ internal sealed class ConditionalRuleEditor : StackPanel
             _valid.Add(() => (!first.IsVisible || !string.IsNullOrWhiteSpace(first.Text)) && (second is null || !second.IsVisible || !string.IsNullOrWhiteSpace(second.Text)));
             if (Type == "Formula")
             {
-                var error = new TextBlock { Foreground = Brushes.Firebrick, TextWrapping = TextWrapping.Wrap }; _fields.Children.Add(error);
+                var error = new TextBlock { Foreground = Brushes.Firebrick, TextWrapping = TextWrapping.Wrap }; details.Children.Add(error);
                 string? Error()
                 {
                     var formula = first.Text?.Trim() ?? "";
@@ -197,10 +213,10 @@ internal sealed class ConditionalRuleEditor : StackPanel
                 _valid.Add(() => Error() is null);
             }
         }
-        var divider = new Border { Height = 1, Margin = new Avalonia.Thickness(-12, 8) }; divider.Bind(Border.BackgroundProperty, divider.GetResourceObservable("Dialog-grey-300")); _fields.Children.Add(divider);
-        var formatTitle = WorkbookView.Label(_text.Key("conditional_formatting.format_style")); formatTitle.FontSize = 14; formatTitle.FontWeight = FontWeight.SemiBold; _fields.Children.Add(formatTitle);
-        _format = new StyleEditor(_rule["format"]!.AsObject(), true, _model, _text, _owner); _format.Changed += Notify; _fields.Children.Add(_format);
-        Flag("conditional_formatting.stop_if_true", "stop_if_true");
+        var divider = new Border { Height = 1, Margin = new Avalonia.Thickness(-12, 8) }; divider.Bind(Border.BackgroundProperty, divider.GetResourceObservable("Dialog-grey-300")); details.Children.Add(divider);
+        var formatTitle = WorkbookView.Label(_text.Key("conditional_formatting.format_style")); formatTitle.FontSize = 14; formatTitle.FontWeight = FontWeight.SemiBold; details.Children.Add(formatTitle);
+        _format = new StyleEditor(_rule["format"]!.AsObject(), true, _model, _text, _owner); _format.Changed += Notify; details.Children.Add(_format);
+        Flag("conditional_formatting.stop_if_true", "stop_if_true", parent: details);
     }
     private void BuildPresets(string type, StackPanel? target = null)
     {
@@ -659,9 +675,9 @@ internal sealed class ConditionalRuleEditor : StackPanel
         throw new FormatException("Invalid number: " + value);
     }
     private string Get(string key, string fallback = "") => _rule[key] is JsonValue value ? value.ToString() : fallback;
-    private ComboBox Pick(string key, string[] choices)
+    private ComboBox Pick(StackPanel parent, string key, string[] choices)
     {
-        var box = WorkbookView.Choice(_fields, _text.Key("conditional_formatting.highlight_cells_if"), choices, Get(key), v => WorkbookOptions.Operator(_text, v), showLabel: false);
+        var box = WorkbookView.Choice(parent, _text.Key("conditional_formatting.highlight_cells_if"), choices, Get(key), v => WorkbookOptions.Operator(_text, v), showLabel: false);
         box.SelectionChanged += (_, _) => { _rule[key] = (string?)box.SelectedItem; Notify(); }; return box;
     }
     private TextBox TextField(StackPanel parent, LocalizedText label, string initial, Action<string> save, string? name = null)
