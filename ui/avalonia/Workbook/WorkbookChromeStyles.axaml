@@ -42,7 +42,7 @@
   <Style Selector="TabControl.rule-tabs">
     <Setter Property="Background" Value="{DynamicResource Dialog-common-white}"/>
     <Setter Property="Height" Value="45"/><Setter Property="ItemContainerTheme" Value="{StaticResource RuleTab}"/>
-    <Setter Property="ItemsPanel"><ItemsPanelTemplate><UniformGrid Rows="1"/></ItemsPanelTemplate></Setter>
+    <Setter Property="ItemsPanel"><ItemsPanelTemplate><c:UniformTabPanel/></ItemsPanelTemplate></Setter>
     <Setter Property="Template"><ControlTemplate><Border Background="{TemplateBinding Background}" BorderBrush="{DynamicResource Dialog-grey-300}" BorderThickness="0,0,0,1"><ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}"/></Border></ControlTemplate></Setter>
   </Style>
   <Style Selector="Button.panel-swatch"><Setter Property="Background" Value="{DynamicResource Dialog-input-background}"/><Setter Property="BorderBrush" Value="{DynamicResource Dialog-input-border}"/></Style>

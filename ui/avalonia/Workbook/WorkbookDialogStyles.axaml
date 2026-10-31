@@ -1,4 +1,4 @@
-<Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:c="using:CyanCalc.Controls">
   <Styles.Resources>
     <!-- theme.css supplies grey-400/common-white to the browser scrollbar.
          AppKit selects an overlay or a 15px gutter; neither has line arrows.
@@ -125,7 +125,7 @@
   <Style Selector="TabControl.dialog-tabs">
     <Setter Property="Height" Value="32" /><Setter Property="Margin" Value="0,0,0,4" />
     <Setter Property="ItemContainerTheme" Value="{StaticResource DialogTab}" />
-    <Setter Property="ItemsPanel"><ItemsPanelTemplate><UniformGrid Rows="1" /></ItemsPanelTemplate></Setter>
+    <Setter Property="ItemsPanel"><ItemsPanelTemplate><c:UniformTabPanel /></ItemsPanelTemplate></Setter>
     <Setter Property="Template"><ControlTemplate><Panel><Border Background="{DynamicResource Dialog-grey-50}" CornerRadius="6" BorderThickness="1" BorderBrush="{DynamicResource Dialog-grey-300}" IsHitTestVisible="False" />
       <ItemsPresenter Name="PART_ItemsPresenter" Margin="0" ItemsPanel="{TemplateBinding ItemsPanel}" />
     </Panel></ControlTemplate></Setter>
