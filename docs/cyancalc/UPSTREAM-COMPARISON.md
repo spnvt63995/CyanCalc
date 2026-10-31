@@ -107,6 +107,12 @@ An already uniform range still receives an Undo step and loses an existing Redo 
 Escape and invalid input submit no formatting command.
 See [formatting commits](EDITOR-ARCHITECTURE.md#formatting-commits) for the distinction from unchanged cell edits.
 
+Font-size Tab navigation intentionally retains native toolbar traversal.
+The pinned web Workbook normally refocuses itself after the render caused by a font-size commit.
+CyanCalc keeps Tab on the next toolbar control and Shift+Tab on the previous one so users can continue formatting with the keyboard.
+Enter and Escape in the font-size field return focus to the active sheet cell without moving the selection.
+See [font-size focus and keyboard traversal](EDITOR-ARCHITECTURE.md#font-size-focus-and-keyboard-traversal) for returning to the sheet and the scope of Undo/Redo shortcuts.
+
 Conditional formatting follows the upstream four tabs, defaults, presets, range validation, and filtering by full containment of the selected range.
 Enter/Tab in completion inserts the selected function without committing the cell or moving selection.
 Merge, paste, and editing errors use the same translation keys in separate dialogs when upstream presents an error.

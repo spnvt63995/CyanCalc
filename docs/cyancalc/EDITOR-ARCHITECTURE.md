@@ -109,6 +109,26 @@ Undo consumes that formatting step even when the visible sizes stay the same.
 Escape and invalid input restore the displayed size without submitting a formatting command, preserving workbook history.
 The ordinary cell-edit policy above continues to skip unchanged cell-input writes.
 
+### Font-size focus and keyboard traversal
+
+The font-size field uses the following focus policy. None of these keys moves the worksheet selection.
+
+| Key while the font-size field has focus | Result |
+| --- | --- |
+| Enter | Commit a valid size and return focus to the active sheet cell |
+| Escape | Discard the draft and return focus to the active sheet cell |
+| Tab | Commit on blur and move to the next toolbar control, Increase font size |
+| Shift+Tab | Commit on blur and move to the previous toolbar control, Decrease font size |
+
+Invalid input restores the displayed size without a formatting command; Tab and Shift+Tab still follow their respective toolbar directions.
+Keeping Tab navigation within the toolbar lets keyboard users continue to other formatting controls and return through the same controls.
+To return to the sheet without another formatting commit, navigate back to the font-size field and press Escape.
+
+A focused toolbar button does not invoke worksheet Undo/Redo shortcuts.
+Return focus to the sheet or activate the toolbar's Undo/Redo buttons to change workbook history.
+Undo/Redo while typing in the font-size field belongs to that field's text history.
+This focus policy is independent of the formatting history rules above.
+
 ### Text history while editing
 
 During editing, the adapter advances both TextBox native Undo/Redo histories together.
