@@ -103,12 +103,24 @@ fn cell(model: &UserModel, sheet: u32, row: i32, column: i32) -> Result<Value, S
         "array_structure": model.get_cell_array_structure(sheet, row, column)? }))
 }
 
+fn dispatch_upstream(
+    api: &mut crate::upstream_api::Model,
+    request: &Value,
+) -> Option<Result<Value, String>> {
+    if request.get("op").and_then(Value::as_str) == Some("updateRangeStyle") {
+        if let Err(error) = crate::style_validation::validate(&api.model, request) {
+            return Some(Err(error));
+        }
+    }
+    crate::upstream_dispatch::dispatch(api, request)
+}
+
 pub fn dispatch(api: &mut crate::upstream_api::Model, request: &Value) -> Result<Value, String> {
-    if let Some(result) = crate::upstream_dispatch::dispatch(api, request) {
+    if let Some(result) = dispatch_upstream(api, request) {
         return result;
     }
     if let Some(canonical) = crate::legacy::request(api, request)? {
-        if let Some(result) = crate::upstream_dispatch::dispatch(api, &canonical) {
+        if let Some(result) = dispatch_upstream(api, &canonical) {
             return result;
         }
     }

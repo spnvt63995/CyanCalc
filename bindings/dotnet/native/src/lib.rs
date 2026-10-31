@@ -3,6 +3,7 @@
 //! must be serialized by the managed owner. Panics poison that model, not the ABI.
 mod legacy;
 mod protocol;
+mod style_validation;
 mod upstream_api;
 mod upstream_dispatch;
 mod wasm_support;

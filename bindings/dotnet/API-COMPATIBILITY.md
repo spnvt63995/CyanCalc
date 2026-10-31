@@ -6,7 +6,19 @@ desktop API. [The original wrapper](../../bindings/wasm/src/lib.rs) is the sourc
 `python3 tools/cyancalc/sync-wasm-binding.py` generates the native wrapper, JSON dispatch and C#
 PascalCase methods. `--check` verifies their exact generated contents. Update the pin and
 rerun the generator instead of editing generated files or copying new engine logic into
-the desktop protocol. Function bodies, parameter order and engine errors stay upstream.
+the desktop protocol. Generated function bodies and parameter order stay upstream.
+
+The native transport preflights `updateRangeStyle` with `font.size_delta`, including
+its compatibility command names. The pinned engine can otherwise change earlier
+cells before rejecting a later font size and omit the entire command from history.
+CyanCalc rejects the whole command before writing if any resulting size would be
+below 1 or outside the engine's integer representation. Existing Undo/Redo, model
+revision and change notifications remain unchanged on rejection. Successful calls
+still use the generated wrapper and retain the engine's traversal and history,
+including repeated visits where row, column and cell styles overlap. Full rows and
+columns are checked through their sparse styles and populated cells; the workbook
+is not copied. This guard is specific to relative font sizes, not a general
+transaction guarantee for every engine command.
 
 - `sheet` is a **zero-based index**, not the worksheet's persistent `sheet_id`.
 - `row` and `column` are **one-based**. A1 is `(0, 1, 1)` on the first sheet.

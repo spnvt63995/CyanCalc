@@ -93,7 +93,7 @@ Template cards use upstream PNG assets.
 ## Behavior baseline
 
 The binding is generated from 127 upstream WASM model APIs and 8 utilities.
-It relies on engine bounds checks without adding cell-count limits and preserves cached calculation results when loading files.
+It uses engine bounds checks without adding cell-count limits and preserves cached calculation results when loading files.
 Toolbars, menus, icons, keyboard handling, and formatting follow upstream code; UI colors use the CyanCalc palette.
 
 CyanCalc intentionally omits a workbook history entry when an ordinary cell edit finishes with its original input text.
@@ -106,6 +106,14 @@ Font-size commits follow the pinned toolbar: Enter or loss of focus submits a fo
 An already uniform range still receives an Undo step and loses an existing Redo branch, including when the font-size field is left without changing its value.
 Escape and invalid input submit no formatting command.
 See [formatting commits](EDITOR-ARCHITECTURE.md#formatting-commits) for the distinction from unchanged cell edits.
+
+Relative font-size changes have one native safety difference: if a selected cell
+would receive an invalid size, CyanCalc rejects the complete command before any
+write. The pinned engine can partially change the range and then return an error
+without recording Undo history. The native transport preflight preserves existing
+sizes and Undo/Redo on rejection while successful commands still use the original
+engine. The generated bindings and pinned engine sources remain unchanged.
+See [binding compatibility](../../bindings/dotnet/API-COMPATIBILITY.md) for the guard's scope.
 
 Font-size Tab navigation intentionally retains native toolbar traversal.
 The pinned web Workbook normally refocuses itself after the render caused by a font-size commit.

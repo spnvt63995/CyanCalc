@@ -109,6 +109,14 @@ Undo consumes that formatting step even when the visible sizes stay the same.
 Escape and invalid input restore the displayed size without submitting a formatting command, preserving workbook history.
 The ordinary cell-edit policy above continues to skip unchanged cell-input writes.
 
+The font-size field sets an absolute size for the entire selection. The toolbar's
+increase/decrease buttons instead change each selected cell relative to its current size.
+Before a relative change reaches the engine, the native transport validates all sizes
+that the pinned engine would write. If any size is invalid, the complete command is
+rejected without changing the document or its Undo/Redo history. The UI reports the
+error through its existing error path; it does not clamp individual cells or add a
+formatting entry for the rejected command. This also protects direct binding calls.
+
 ### Font-size focus and keyboard traversal
 
 The font-size field uses the following focus policy. None of these keys moves the worksheet selection.
