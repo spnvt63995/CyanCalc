@@ -250,7 +250,7 @@ internal sealed class StyleEditor : StackPanel
             var format = masks["number_format"] ? style["num_fmt"]!.GetValue<string>() : "general";
             var index = Array.IndexOf(_formats, format);
             var sample = index switch { 0 => "Aa", 1 => "#", 2 => "%", 3 => "€", 4 => "$", 5 => "£", 6 or 7 => "31/12", _ => "C" };
-            _preview.Content = new NamedStylePreviewTile(sample, StylePreviewResolver.Resolve(_model, JsonSerializer.SerializeToElement(preview)), false, true, _text, compact: true) { IsHitTestVisible = false };
+            _preview.Content = NamedStylePreviewTile.CreatePreview(sample, StylePreviewResolver.Resolve(_model, JsonSerializer.SerializeToElement(preview)), _text);
         }
         Changed?.Invoke();
     }

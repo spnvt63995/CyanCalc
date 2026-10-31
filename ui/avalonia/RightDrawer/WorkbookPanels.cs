@@ -64,9 +64,7 @@ public sealed partial class WorkbookView
         var preview = new ContentControl { Width = 52, Height = 36, HorizontalAlignment = HorizontalAlignment.Center };
         var previewTitle = new TextBlock { Text = theme["name"]?.GetValue<string>(), FontSize = 14, FontWeight = FontWeight.SemiBold, HorizontalAlignment = HorizontalAlignment.Center };
         panel.Children.Add(DrawerPreview(preview, previewTitle));
-        var styles = model.Query("builtin_styles").EnumerateArray().ToArray();
-        string Font(string name) => styles.First(x => x[0].GetString() == name)[1].GetProperty("font").GetProperty("name").GetString()!;
-        void UpdatePreview() => preview.Content = new ThemePreviewTile(JsonSerializer.SerializeToElement(theme), false, Font("Title"), Font("Normal"), Text, previewOnly: true) { IsHitTestVisible = false };
+        void UpdatePreview() => preview.Content = ThemePreviewTile.CreatePreview(JsonSerializer.SerializeToElement(theme));
         UpdatePreview();
         StackPanel? colorSection = null;
         foreach (var (key, title) in new[] { ("dk1", Text.Key("themes.text_color_label")), ("lt1", Text.Key("themes.bg_color_label")), ("dk2", Text.Key("themes.dark_color_label")), ("lt2", Text.Key("themes.light_color_label")),

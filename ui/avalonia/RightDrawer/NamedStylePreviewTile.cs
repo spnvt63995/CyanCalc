@@ -12,14 +12,13 @@ public sealed class NamedStylePreviewTile : Button
 {
     protected override global::Avalonia.Automation.Peers.AutomationPeer OnCreateAutomationPeer() => MacOSButtonAutomationPeer.Create(this);
     private readonly WorkbookText _text;
-    private readonly bool _compact;
     public string StyleName { get; }
     public bool MatchesActiveCell { get; private set; }
     public CellStyle PreviewStyle { get; private set; } = new();
 
-    internal NamedStylePreviewTile(string name, CellStyle style, bool current, bool custom, WorkbookText? text = null, bool compact = false)
+    internal NamedStylePreviewTile(string name, CellStyle style, bool current, bool custom, WorkbookText? text = null)
     {
-        _text = text ?? new WorkbookText(); _compact = compact;
+        _text = text ?? new WorkbookText();
         StyleName = name;
         HorizontalAlignment = HorizontalAlignment.Stretch;
         HorizontalContentAlignment = HorizontalAlignment.Stretch;
@@ -46,20 +45,33 @@ public sealed class NamedStylePreviewTile : Button
         var status = _text.Compose(t => $"{t[custom ? "named_styles.section_custom" : "named_styles.section_theme"]} · {t["named_styles.format_label"]}: {style.NumFmt}" + (current ? " · " + t["native.matches_cell"] : ""));
         status.Bind(this, AutomationProperties.HelpTextProperty);
         _text.Compose(_ => displayName.Value + "\n" + status.Value).Bind(this, ToolTip.TipProperty);
+        Content = CreateSample(displayName, style, compact: false, frame: custom || !accent.Success);
+    }
+
+    internal static Control CreatePreview(string sample, CellStyle style, WorkbookText text, bool compact = true)
+    {
+        var preview = CreateSample(text.Compose(_ => sample), style, compact, frame: true);
+        preview.Height = 32;
+        preview.IsHitTestVisible = false;
+        return preview;
+    }
+
+    private static Control CreateSample(LocalizedText displayName, CellStyle style, bool compact, bool frame)
+    {
         var text = new TextBlock
         {
-            Text = name, TextWrapping = TextWrapping.NoWrap, TextTrimming = TextTrimming.CharacterEllipsis,
+            Text = displayName.Value, TextWrapping = TextWrapping.NoWrap, TextTrimming = TextTrimming.CharacterEllipsis,
             Foreground = ConditionalRenderer.Brush(style.Font.Color, "#000000"),
             // Upstream previews use UI typography, independent of the stored cell font.
             FontFamily = WorkbookDialog.Font, FontSize = 12,
             FontWeight = style.Font.B ? FontWeight.Bold : FontWeight.Normal,
             FontStyle = style.Font.I ? FontStyle.Italic : FontStyle.Normal,
-            HorizontalAlignment = style.Alignment?.Horizontal switch { "left" => HorizontalAlignment.Left, "center" => HorizontalAlignment.Center, "right" => HorizontalAlignment.Right, _ => _compact ? HorizontalAlignment.Center : HorizontalAlignment.Left },
+            HorizontalAlignment = style.Alignment?.Horizontal switch { "left" => HorizontalAlignment.Left, "center" => HorizontalAlignment.Center, "right" => HorizontalAlignment.Right, _ => compact ? HorizontalAlignment.Center : HorizontalAlignment.Left },
             VerticalAlignment = style.Alignment?.Vertical switch { "top" => VerticalAlignment.Top, "bottom" => VerticalAlignment.Bottom, _ => VerticalAlignment.Center }
         };
         if (string.IsNullOrEmpty(style.Font.Color))
         {
-            if (_compact || string.IsNullOrEmpty(style.Fill.Color)) text.Bind(TextBlock.ForegroundProperty, text.GetResourceObservable("Dialog-common-black"));
+            if (compact || string.IsNullOrEmpty(style.Fill.Color)) text.Bind(TextBlock.ForegroundProperty, text.GetResourceObservable("Dialog-common-black"));
             else text.Foreground = ConditionalRenderer.Brush("#2E414D"); // Upstream defaultThemeVariables sheet text on an explicit fill.
         }
         displayName.Bind(text, TextBlock.TextProperty);
@@ -68,15 +80,15 @@ public sealed class NamedStylePreviewTile : Button
         if (style.Font.Strike) decorations.Add(TextDecorations.Strikethrough[0]);
         text.TextDecorations = decorations;
         var sample = new Grid { ClipToBounds = true };
-        var background = new Border { Child = text, Padding = _compact ? new Thickness(4) : new Thickness(6, 0), Background = ConditionalRenderer.Brush(style.Fill.Color, "#FFFFFF"), CornerRadius = new CornerRadius(_compact ? 4 : 0) };
+        var background = new Border { Child = text, Padding = compact ? new Thickness(4) : new Thickness(6, 0), Background = ConditionalRenderer.Brush(style.Fill.Color, "#FFFFFF"), CornerRadius = new CornerRadius(compact ? 4 : 0) };
         var edges = style.Border;
         if (edges.Top is not null || edges.Right is not null || edges.Bottom is not null || edges.Left is not null)
             background.BorderThickness = new Thickness(StyleSample.BorderWidth(edges.Left), StyleSample.BorderWidth(edges.Top), StyleSample.BorderWidth(edges.Right), StyleSample.BorderWidth(edges.Bottom));
         if (string.IsNullOrEmpty(style.Fill.Color)) background.Bind(Border.BackgroundProperty, background.GetResourceObservable("Dialog-common-white"));
         sample.Children.Add(background);
-        var borders = new StyleSample { Style = style, Frame = _compact || custom || !accent.Success, IsHitTestVisible = false };
+        var borders = new StyleSample { Style = style, Frame = frame, IsHitTestVisible = false };
         borders.Bind(StyleSample.FaintBrushProperty, borders.GetResourceObservable("Dialog-common-black")); sample.Children.Add(borders);
-        Content = sample;
+        return sample;
     }
 
     private sealed class StyleSample : Control

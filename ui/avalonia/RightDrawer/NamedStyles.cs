@@ -56,14 +56,14 @@ public sealed partial class WorkbookView
             var customs = new List<Control>();
             foreach (var name in custom)
             {
-                var named = model.Query("get_named_style", new { name }); var tile = Tile(name, named.GetProperty("style"), true);
-                if (!manage) { customs.Add(tile); continue; }
-                var row = new StackPanel { Spacing = 4 }; row.Children.Add(tile);
+                var named = model.Query("get_named_style", new { name });
+                if (!manage) { customs.Add(Tile(name, named.GetProperty("style"), true)); continue; }
+                var preview = NamedStylePreviewTile.CreatePreview(name, StylePreviewResolver.Resolve(model, named.GetProperty("style")), Text, compact: false);
+                var row = new StackPanel { Spacing = 4 }; row.Children.Add(preview);
                 var actions = new StackPanel { Orientation = Orientation.Horizontal, Spacing = 6 };
                 var edit = Button(Text.Key("named_styles.update_style"), () => EditNamedStyle(name)); edit.IsEnabled = CanEdit;
                 var delete = Button(Text.Key("named_styles.delete_style"), () => Command("delete_named_style", new { name })); delete.IsEnabled = CanEdit;
                 actions.Children.Add(edit); actions.Children.Add(delete); row.Children.Add(actions); customs.Add(row);
-                tile.IsHitTestVisible = false;
             }
             if (manage) { list.Children.Add(StyleGrid(customs, 1)); return; }
             customSection?.Children.Add(StyleGrid(customs));

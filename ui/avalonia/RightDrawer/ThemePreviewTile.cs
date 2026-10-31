@@ -18,7 +18,7 @@ public sealed class ThemePreviewTile : Button
     public string ThemeName { get; }
     public bool IsCurrentTheme { get; private set; }
 
-    internal ThemePreviewTile(JsonElement theme, bool current, string headingFont, string bodyFont, WorkbookText? text = null, bool previewOnly = false)
+    internal ThemePreviewTile(JsonElement theme, bool current, string headingFont, string bodyFont, WorkbookText? text = null)
     {
         _text = text ?? new WorkbookText();
         ThemeName = theme.GetProperty("name").GetString()!;
@@ -26,18 +26,27 @@ public sealed class ThemePreviewTile : Button
         Classes.Add("workbook-flat"); Padding = new Thickness(12, 8); Height = 68; MinWidth = 0; CornerRadius = new CornerRadius(0);
         AutomationProperties.SetName(this, ThemeName);
         var row = new Grid { ColumnDefinitions = new ColumnDefinitions("Auto,*,Auto"), ColumnSpacing = 12 };
-        var sample = new Grid { ColumnDefinitions = new ColumnDefinitions("*,22"), ColumnSpacing = 4, Margin = new Thickness(4), ClipToBounds = true };
-        var grid = new PreviewGrid(theme.GetProperty("dk1").GetString()!); Grid.SetColumnSpan(grid, 2); sample.Children.Add(grid);
-        sample.Children.Add(new TextBlock { Text = "Aa", FontSize = 11, FontWeight = FontWeight.SemiBold, VerticalAlignment = VerticalAlignment.Center, Foreground = ConditionalRenderer.Brush(theme.GetProperty("dk1").GetString()) });
-        var pie = new Viewbox { Child = new AccentPie(Enumerable.Range(1, 6).Select(i => theme.GetProperty("accent" + i).GetString()!).ToArray()), Width = 22, Height = 22 }; Grid.SetColumn(pie, 1); sample.Children.Add(pie);
-        var sampleFrame = new Border { Width = previewOnly ? 52 : 56, Height = previewOnly ? 36 : 40, CornerRadius = new CornerRadius(4), BorderThickness = new Thickness(1), BorderBrush = new SolidColorBrush(Color.FromArgb(31, 0, 0, 0)), Background = ConditionalRenderer.Brush(theme.GetProperty("lt1").GetString()), Child = sample };
+        var sampleFrame = CreateSample(theme, compact: false);
         row.Children.Add(sampleFrame);
         var title = new TextBlock { Text = ThemeName, FontWeight = FontWeight.SemiBold, TextTrimming = TextTrimming.CharacterEllipsis, VerticalAlignment = VerticalAlignment.Center };
         Grid.SetColumn(title, 1); row.Children.Add(title);
         _edit = _text.Key("themes.customize_theme").Describe(new WorkbookButton { Classes = { "workbook-flat" }, Content = new WorkbookIcon("PencilLine"), Padding = new Thickness(6), Width = 28, VerticalAlignment = VerticalAlignment.Center });
         _edit.Click += (_, e) => { e.Handled = true; _customize?.Invoke(); };
         Grid.SetColumn(_edit, 2); row.Children.Add(_edit); Content = row; SetCurrent(current);
-        if (previewOnly) { row.Children.Remove(sampleFrame); Content = sampleFrame; Width = 52; Height = 36; Padding = new Thickness(0); BorderThickness = new Thickness(0); }
+    }
+    internal static Control CreatePreview(JsonElement theme)
+    {
+        var preview = CreateSample(theme, compact: true);
+        preview.IsHitTestVisible = false;
+        return preview;
+    }
+    private static Border CreateSample(JsonElement theme, bool compact)
+    {
+        var sample = new Grid { ColumnDefinitions = new ColumnDefinitions("*,22"), ColumnSpacing = 4, Margin = new Thickness(4), ClipToBounds = true };
+        var grid = new PreviewGrid(theme.GetProperty("dk1").GetString()!); Grid.SetColumnSpan(grid, 2); sample.Children.Add(grid);
+        sample.Children.Add(new TextBlock { Text = "Aa", FontSize = 11, FontWeight = FontWeight.SemiBold, VerticalAlignment = VerticalAlignment.Center, Foreground = ConditionalRenderer.Brush(theme.GetProperty("dk1").GetString()) });
+        var pie = new Viewbox { Child = new AccentPie(Enumerable.Range(1, 6).Select(i => theme.GetProperty("accent" + i).GetString()!).ToArray()), Width = 22, Height = 22 }; Grid.SetColumn(pie, 1); sample.Children.Add(pie);
+        return new Border { Width = compact ? 52 : 56, Height = compact ? 36 : 40, CornerRadius = new CornerRadius(4), BorderThickness = new Thickness(1), BorderBrush = new SolidColorBrush(Color.FromArgb(31, 0, 0, 0)), Background = ConditionalRenderer.Brush(theme.GetProperty("lt1").GetString()), Child = sample };
     }
     internal void SetCustomize(Action customize, bool enabled) { _customize = customize; _edit.IsEnabled = enabled; SetCurrent(IsCurrentTheme); }
     internal void SetCurrent(bool current)
