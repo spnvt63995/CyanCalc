@@ -2,6 +2,7 @@
 
 The baseline is IronCalc v0.9.0 (`297553dc3a37ec6b0f4821055220e3d26c4ac6a1`).
 Upstream sources retain their original directories; the .NET binding and Avalonia implementation use separate directories for each responsibility.
+Declared [local engine corrections](ENGINE-PATCHES.md) are verified separately against that baseline.
 
 ## Using upstream references
 
@@ -112,7 +113,7 @@ would receive an invalid size, CyanCalc rejects the complete command before any
 write. The pinned engine can partially change the range and then return an error
 without recording Undo history. The native transport preflight preserves existing
 sizes and Undo/Redo on rejection while successful commands still use the original
-engine. The generated bindings and pinned engine sources remain unchanged.
+engine. This guard does not modify the generated bindings or engine implementation.
 See [binding compatibility](../../bindings/dotnet/API-COMPATIBILITY.md) for the guard's scope.
 
 Font-size Tab navigation intentionally retains native toolbar traversal.

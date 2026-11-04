@@ -1162,7 +1162,16 @@ impl<'a> UserModel<'a> {
         })?;
 
         let old_merged_cells = self.model.get_merged_cells(sheet)?.to_vec();
+        let deleted_area = Area {
+            sheet,
+            row,
+            column: 1,
+            width: LAST_COLUMN,
+            height: row_count,
+        };
+        let mut old_formulas = self.formulas_outside_deleted_area(&deleted_area);
         self.model.delete_rows(sheet, row, row_count)?;
+        self.retain_rewritten_formulas(&mut old_formulas, &deleted_area, true);
 
         let mut diff_list = self.merged_cells_snapshot_diffs(sheet, old_merged_cells)?;
         diff_list.extend(link_diffs);
@@ -1171,6 +1180,7 @@ impl<'a> UserModel<'a> {
             row,
             count: row_count,
             old_data,
+            old_formulas,
         });
         self.push_diff_list(diff_list);
         self.evaluate_if_not_paused();
@@ -1242,7 +1252,16 @@ impl<'a> UserModel<'a> {
         })?;
 
         let old_merged_cells = self.model.get_merged_cells(sheet)?.to_vec();
+        let deleted_area = Area {
+            sheet,
+            row: 1,
+            column,
+            width: column_count,
+            height: LAST_ROW,
+        };
+        let mut old_formulas = self.formulas_outside_deleted_area(&deleted_area);
         self.model.delete_columns(sheet, column, column_count)?;
+        self.retain_rewritten_formulas(&mut old_formulas, &deleted_area, false);
 
         let mut diff_list = self.merged_cells_snapshot_diffs(sheet, old_merged_cells)?;
         diff_list.extend(link_diffs);
@@ -1251,6 +1270,7 @@ impl<'a> UserModel<'a> {
             column,
             count: column_count,
             old_data,
+            old_formulas,
         });
         self.push_diff_list(diff_list);
         self.evaluate_if_not_paused();

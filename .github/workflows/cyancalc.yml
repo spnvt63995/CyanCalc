@@ -41,6 +41,8 @@ jobs:
           python3 tools/cyancalc/sync-wasm-binding.py --check
       - name: Test native bridge
         run: cargo test --locked --manifest-path bindings/dotnet/native/Cargo.toml --lib
+      - name: Test engine deletion history
+        run: cargo test --locked -p ironcalc_base --lib test_delete_formula_history
       - name: Restore and build libraries, desktop, and checks
         run: |
           dotnet restore CyanCalc.slnx --locked-mode

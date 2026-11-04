@@ -1,0 +1,32 @@
+{
+  "baseline": "297553dc3a37ec6b0f4821055220e3d26c4ac6a1",
+  "patches": [
+    "delete-formula-history-v1"
+  ],
+  "files": {
+    "base/src/test/user_model/mod.rs": {
+      "upstream_blob": "a0847df9b325131660047a682d8949b4c90db509",
+      "patched_blob": "e77b6136ba0840a881a0cadf823c8e6f6eb7c860"
+    },
+    "base/src/test/user_model/test_batch_row_column_diff.rs": {
+      "upstream_blob": "fdfcaabe7637c383e1dbb204fb32cfa7d7170563",
+      "patched_blob": "5becac7e32408226a9de1d5020d88896db4515e2"
+    },
+    "base/src/user_model/common.rs": {
+      "upstream_blob": "585fa97ef74055ba365e07fdbeee0e8ba661781f",
+      "patched_blob": "22d14e5638387559780f71f03c9a6bba345a5a1e"
+    },
+    "base/src/user_model/history.rs": {
+      "upstream_blob": "c158153f541d6c4dc728b5d3988891229e32abe4",
+      "patched_blob": "5b708862dbc52fb8b1ff33ca78a4aac2c103da9d"
+    },
+    "base/src/user_model/mod.rs": {
+      "upstream_blob": "909b7965bc91b999a2eae5f526bc3b3d0d15809c",
+      "patched_blob": "b5920ed500bb6e1ceea34d2385af702387293555"
+    },
+    "base/src/user_model/undo_redo.rs": {
+      "upstream_blob": "ba069fd4ba94af3452aa3bce6271a81faf2da7c6",
+      "patched_blob": "d534559fed1d755007fd05ca44df78d24d6c745b"
+    }
+  }
+}

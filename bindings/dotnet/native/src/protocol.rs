@@ -132,7 +132,11 @@ pub fn dispatch(api: &mut crate::upstream_api::Model, request: &Value) -> Result
     let column = optional::<i32>(request, "column")?.unwrap_or(view.column);
     match op {
         "info" => {
-            return Ok(json!({ "abi": 1, "upstream": "297553dc3a37ec6b0f4821055220e3d26c4ac6a1" }))
+            return Ok(
+                json!({ "abi": 1, "upstream": "297553dc3a37ec6b0f4821055220e3d26c4ac6a1",
+                "enginePatches": ["delete-formula-history-v1"],
+                "diffFormat": "cyancalc-delete-formula-history-v1" }),
+            )
         }
         "state" => {
             return Ok(json!({
@@ -353,9 +357,10 @@ mod tests {
     fn previous_engine_ic_rejects_without_mutation_and_xlsx_migrates() {
         let bytes = include_bytes!("../../../../tests/fixtures/ironcalc-8f8c0f8f.ic");
         let xlsx = include_bytes!("../../../../tests/fixtures/ironcalc-8f8c0f8f.xlsx");
-        let expected: Value =
-            serde_json::from_str(include_str!("../../../../tests/fixtures/ironcalc-8f8c0f8f.json"))
-                .unwrap();
+        let expected: Value = serde_json::from_str(include_str!(
+            "../../../../tests/fixtures/ironcalc-8f8c0f8f.json"
+        ))
+        .unwrap();
         let mut model = crate::upstream_api::Model::new("upgrade", "en", "UTC", "en").unwrap();
         dispatch(
             &mut model,

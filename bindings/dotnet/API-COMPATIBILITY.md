@@ -29,6 +29,9 @@ transaction guarantee for every engine command.
 - `UserModel` automatically recalculates changes and owns Rust Undo/Redo history.
   `PauseEvaluation`, `ResumeEvaluation`, and `Evaluate` retain upstream behavior.
 - Binary collaboration diffs remain available through `FlushSendQueue` / `ApplyExternalDiffs`.
+  The [deletion history correction](../../docs/cyancalc/ENGINE-PATCHES.md) changes their binary schema;
+  peers must use the same engine baseline and `info.diffFormat`. These diffs are not
+  interchangeable with an unpatched upstream build. Workbook file schemas are unchanged.
   The local Desktop host discards its own outgoing queue because it has no collaboration transport.
   The reusable control does not consume a host's queue.
   A host attaching that transport to a `WorkbookView` must call `view.CancelEdit()` **before**
@@ -68,7 +71,8 @@ It does not claim to implement Python's separate raw `Model` or a published NuGe
 `Snapshot`, `Cell`, `Cells`, `Dimensions`, and the JSON command transport are additional host/view
 helpers, not upstream API names. `native/src/protocol.rs` aggregates view data;
 `native/src/legacy.rs` translates old view command names to the generated WASM dispatch.
-The native engine is pinned to v0.9.0 commit `297553dc3a37ec6b0f4821055220e3d26c4ac6a1`.
+The native engine uses v0.9.0 commit `297553dc3a37ec6b0f4821055220e3d26c4ac6a1`
+with the declared [local engine corrections](../../docs/cyancalc/ENGINE-PATCHES.md).
 `from_icalc` / `save_to_icalc` use the explicit C# spellings `FromICalc` / `SaveToICalc`.
 For the additional JSON transport, use `Execute` for mutations so revision and change events
 are raised; `Query` is a low-level escape hatch and does not notify attached views.

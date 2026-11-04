@@ -2,6 +2,8 @@ use std::collections::HashMap;
 
 use bitcode::{Decode, Encode};
 
+use super::deleted_formulas::FormulaSnapshot;
+
 use crate::{
     cf_types::CfRule,
     types::{
@@ -136,6 +138,7 @@ pub(crate) enum Diff {
         row: i32,
         count: i32,
         old_data: Vec<RowData>,
+        old_formulas: Vec<FormulaSnapshot>,
     },
     InsertColumns {
         sheet: u32,
@@ -147,6 +150,7 @@ pub(crate) enum Diff {
         column: i32,
         count: i32,
         old_data: Vec<ColumnData>,
+        old_formulas: Vec<FormulaSnapshot>,
     },
     DeleteSheet {
         sheet: u32,

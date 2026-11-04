@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Verify the checked-in IronCalc source against its upstream Git blobs."""
 import argparse
+import json
 import os
 from pathlib import Path
 import subprocess
@@ -47,6 +48,14 @@ def verify(source, revision):
     missing = [path for path in expected if not (source / path).is_file()]
     if missing:
         raise ValueError("Missing original source files: " + ", ".join(missing[:10]))
+    if integrated:
+        manifest = json.loads((source / "tools/cyancalc/engine-patches.json").read_text())
+        if manifest["baseline"] != revision:
+            raise ValueError("Engine patch baseline differs from requested revision")
+        for path, patch in manifest["files"].items():
+            if expected.get(path) != patch["upstream_blob"]:
+                raise ValueError("Engine patch does not match its upstream blob: " + path)
+            expected[path] = patch["patched_blob"]
     paths = sorted(expected)
     if any("\n" in path for path in paths):
         raise ValueError("Unsupported newline in an upstream path")
@@ -81,7 +90,7 @@ def main():
         print("If the baseline Git object is missing, run bash tools/cyancalc/fetch-source.sh.", file=sys.stderr)
         return 1
     print(args.revision if args.print_revision else
-          f"UPSTREAM_SOURCE_PASS ({count} files; {args.revision}; local additions are separate)")
+          f"UPSTREAM_SOURCE_PASS ({count} files; {args.revision}; declared engine patches verified)")
     return 0
 
 

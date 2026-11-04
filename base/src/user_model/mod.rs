@@ -6,6 +6,7 @@ mod border_utils;
 mod clipboard;
 mod common;
 mod conditional_formatting;
+mod deleted_formulas;
 pub(crate) mod history;
 mod links;
 mod merged_cells;

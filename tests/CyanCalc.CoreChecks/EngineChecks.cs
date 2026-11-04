@@ -12,6 +12,7 @@ internal static class EngineChecks
     public static void Run()
     {
         FontSizeChecks.Run();
+        DeletionHistoryChecks.Run();
         using var model = UserModel.CreateSample();
         Equal(UpstreamVersion.Commit, model.Query("info").GetProperty("upstream").GetString(), "loaded release engine");
         Equal(false, model.Snapshot().CanUndo, "sample history");
