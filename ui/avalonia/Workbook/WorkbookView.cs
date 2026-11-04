@@ -307,7 +307,16 @@ public sealed partial class WorkbookView : UserControl
         if (State.Editing is not null && TryStartReference(row, column)) return;
         if (!CommitEdit()) return;
         var area = CellArea.FromView(Snapshot.View);
-        if (preserveRange && row >= area.Row && row < area.Row + area.Height && column >= area.Column && column < area.Column + area.Width) return;
+        if (preserveRange)
+        {
+            var containsRow = row >= area.Row && row < area.Row + area.Height;
+            var containsColumn = column >= area.Column && column < area.Column + area.Width;
+            // Worksheet.onContextMenu preserves a full-axis selection when its
+            // header is clicked inside the range. Header hits use a zero coordinate.
+            if ((row == 0 && area.Row == 1 && area.Height == CellAddress.LastRow && containsColumn) ||
+                (column == 0 && area.Column == 1 && area.Width == CellAddress.LastColumn && containsRow) ||
+                (containsRow && containsColumn)) return;
+        }
         Run(() =>
         {
             if (row == 0 && column == 0) { Session.SetSelectedCell(1, 1); Session.SetSelectedRange(1, 1, CellAddress.LastRow, CellAddress.LastColumn); }
