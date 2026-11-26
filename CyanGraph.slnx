@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="apps/cyangraph/CyanGraph.csproj" />
+  <Project Path="libraries/CyanGraph.Neo4j/CyanGraph.Neo4j.csproj" />
+  <Project Path="ui/cyangraph/CyanGraph.Avalonia.csproj" />
+  <Project Path="ui/grid/CyanCalc.Grid.csproj" />
+  <Project Path="tests/CyanGraph.Checks/CyanGraph.Checks.csproj" />
+</Solution>

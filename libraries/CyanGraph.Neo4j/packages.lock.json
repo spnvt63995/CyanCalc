@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "dependencies": {
+    "net10.0": {
+      "Neo4j.Driver": {
+        "type": "Direct",
+        "requested": "[6.5.1, )",
+        "resolved": "6.5.1",
+        "contentHash": "VYb1KDuXeCjj8Tl0VEIMvFS3Yqbu6tiIW6za9cHCglMKdqR2pL/55Vi/Y8w5cEqXg70cdlP3QOTkDJer0CX5Mg=="
+      }
+    }
+  }
+}

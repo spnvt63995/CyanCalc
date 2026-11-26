@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "dependencies": {
+    "net10.0": {
+      "Neo4j.Driver": {
+        "type": "Transitive",
+        "resolved": "6.5.1",
+        "contentHash": "VYb1KDuXeCjj8Tl0VEIMvFS3Yqbu6tiIW6za9cHCglMKdqR2pL/55Vi/Y8w5cEqXg70cdlP3QOTkDJer0CX5Mg=="
+      },
+      "cyangraph.neo4j": {
+        "type": "Project",
+        "dependencies": {
+          "Neo4j.Driver": "[6.5.1, )"
+        }
+      }
+    }
+  }
+}

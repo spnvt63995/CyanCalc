@@ -69,6 +69,7 @@ CyanCalc adds its own light and dark UI colors. Workbook themes and explicitly
 formatted cell colors remain document data.
 
 - [Development and desktop usage](docs/cyancalc/README.md)
+- [CyanGraph desktop browser for Neo4j](apps/cyangraph/README.md)
 - [Embedding the Avalonia control](docs/cyancalc/NATIVE-PORT.md)
 - [Editor architecture](docs/cyancalc/EDITOR-ARCHITECTURE.md)
 - [Upstream implementation map](docs/cyancalc/UPSTREAM-COMPARISON.md)
